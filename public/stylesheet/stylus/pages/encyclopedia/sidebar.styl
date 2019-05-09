@@ -1,0 +1,164 @@
+#dynamic_aside_container
+{
+	direction: rtl;
+
+	height: 100vh;
+	
+	border-left: 3px;
+	border-left-color: #e6e6e6;
+	border-left-style: solid;
+
+	border-bottom: 3px;
+	border-bottom-color: #e6e6e6;
+	border-bottom-style: solid;
+
+	border-radius: 0px 0px 0px 5px;
+
+	font-family: 'IRANSans';
+
+	overflow-y: auto;
+
+	background-color: #f5f5f5;
+}
+@media (max-width: 768px)
+{
+	#dynamic_aside_container
+	{
+		border-top: 3px;
+		border-top-color: #e6e6e6;
+		border-top-style: solid;
+		border-radius: 5px 0px 0px 5px;
+	}
+}
+#dynamic_aside_container a
+{
+	color: rgba(0, 0, 0, 0.87);
+}
+
+.aside_header
+{
+	background-color: #757575;
+	border-bottom: 1px solid #dddddd;
+	text-align: center;
+}
+
+.aside_header > a > div
+{
+	color: white;
+	font-size: 1.125rem;
+	padding-top: 7px;
+	padding-bottom: 4px;
+}
+.aside_header > a > div > span
+{
+	font-size: 1.25rem;
+	font-weight: bold;
+}
+
+#tree
+{
+	margin-top: 10px;
+	/*cursor: pointer;*/
+}
+#tree span[class~="fa-chevron-left"], #tree span[class~="fa-chevron-down"]
+{
+	padding-top: 22px;
+	padding-left: 22px;
+	font-size: 11px;
+	float: left;
+}
+#tree span[class~="fa-circle"]
+{
+	margin-top: 22px;
+	float: left;
+	font-size: 7px;
+	color: rgba(40,40,40,0.8);
+}
+#tree li
+{
+	font-size: 1rem;
+	color: rgba(0, 0, 0, 0.87);
+
+	border-radius: 1px;
+
+	list-style-type: none;
+}
+#tree li a
+{
+	display: block;
+	padding: 14px;
+	padding-top: 16px;
+	border-radius: 0 2px 2px 0;
+}
+#tree_header
+{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	min-width: 23vw;
+	// height: 50px;
+
+	border-bottom: 1px solid #dddddd;
+
+	font-size: 1rem;
+}
+/********************************** enc tree mobile sidbar **********************************/
+.sidebar_mobile
+{
+	position: fixed;
+	width: 70%;
+	max-width: 350px;
+	top: 0;
+	right: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+	z-index: 20;
+}
+.sidebar_mobile a
+{
+	color: white;
+}
+.sidebar_mobile li
+{
+	font-size: 1.25rem !important;
+}
+.sidebar_mobile .nav-link
+{
+	color: white;
+	border: none;
+	border-radius: 0;
+}
+.sidebar_mobile .nav-link i
+{
+	float: left;
+	margin-top: 3px;
+}
+.sidebar_mobile .fa-times
+{
+	position: absolute;
+	right: 0;
+	color: white;
+	font-size: 25px;
+}
+#SNOpen_mobile_navbar
+{
+	position: fixed;
+	top: 17vh;
+	right: 3vw;
+	z-index: 20;
+}
+#SNOpen_mobile_navbar .fa-stack
+{
+	font-size: 20px;
+	text-shadow: 0px 1px 2px rgba(0 , 0 , 0 , 0.3);
+	color: #3b77db;
+}
+
+#SNOpen_mobile_navbar .fa-code-fork
+{
+	color: white;
+	margin-top: 1px;
+	font-size: 19px;
+}
+/********************************** enc tree mobile sidbar end **********************************/

@@ -1,0 +1,43 @@
+// var ups = require('./UsPs');
+// var nodemailer = require('nodemailer');
+
+// var smtp_config =
+// {
+//     host: 'smtp.mail.com',
+//     port: 25,
+//     auth:
+//     {
+//         user: ups.greenmail,
+//         pass: ups.greenmailPass
+//     }
+// };
+// var transporter = nodemailer.createTransport(smtp_config);
+
+// var mail =
+// {
+//     from: '"Plus.green" <plus@greenmail.net>',
+//     to: 'm.gh@linuxmail.org',
+//     subject: 'Hello',
+//     text: 'text',
+//     html: '<h1>html</h1>'
+// };
+
+// transporter.verify(function(error , success)
+// {
+//     if(error)
+//     {
+//         console.log(error);
+//     }
+// });
+
+// transporter.sendMail(mail , function(error , info)
+// {
+//     if(error)
+//     {
+//         return console.log(error);
+//     }
+//     else
+//     {
+//         console.log('mail sent.' + info.response);
+//     }
+// });

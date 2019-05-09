@@ -1,0 +1,27 @@
+git config --global user.name "mlibre"
+git config --global user.email "m.gh@linuxmail.org"
+git config --global core.compression 9
+git config --global credential.helper store
+git config --global color.ui always
+git config --global color.branch always
+git config --global color.diff always
+git config --global color.interactive always
+git config --global color.status always
+git config --global color.grep always
+git config --global color.pager true
+git config --global color.decorate always
+git config --global color.showbranch always
+git config --global core.editor nano
+-------------------------
+touch .gitmessage.txt
+echo "something" > .gitmessage.txt
+git config --local commit.template .gitmessage.txt
+-------------------------
+touch .git/hooks/prepare-commit-msg
+chmod +x .git/hooks/prepare-commit-msg
+nano .git/hooks/prepare-commit-msg
+
+#!/bin/bash
+
+DATE=$(date)
+echo "date is: $DATE" >> "$1"

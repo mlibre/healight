@@ -1,0 +1,16 @@
+har safheyi ke adrressesh tahgyir kard baraye inke google hazfesh kone.
+har Wrong URL ke amad:
+0. tu google searchesh kon va rush click kon ke google befahme 404 shode.
+
+1. obare crawlesh koni. webmaster -> fetch as google
+https://www.google.com/webmasters/tools/googlebot-fetch?hl=en&siteUrl=http://healight.green/
+az "fa" bayad addres ro vared koni na "healight.green" ya "/fa"
+
+2. 404 hatman bargradune ke ma alan barmigadnim.
+3. 404 bot found ha ro aslan mark as fixed nazan. chon eshkal nist vaghean safhat dg vojid nadran.
+4. har mah yek bar /fa , /en ro fetch , request indexing kon.
+----
+in kar shayad lazem beshe. va agar na aslan be surate pish farz in ro anjam nade
+5. temprorely hide and remove from cahch
+https://www.google.com/webmasters/tools/url-removal?hl=en&siteUrl=http://healight.green/&mesd=AB9YKzJmBH9-vmnwvc3miHBgvfB4-7Z5R-aGIqFdhmYgsxQOr23vGt2Y-UIFqupXSlHG_I4Va9pHJ0bx228HPj5hrr_ECQVFGychnb3BGSXf7otjnm1mDV3mh-LFCm6HVAshitdpKPA40Iyh0K5eHIK2Yh-GifgPCcHJwe2YQu0e7pAcy0GBsBCqkx17h_Xn3xQy-X2U7LkYl_mbS32hv2DzgI8y33sIsHpcNDlvKwHDkAlD2WxVCV4EzHmBNmkQVomiDZy3Lcr2
+bedune www. bashe. 2 mah yek bar anjam bede.

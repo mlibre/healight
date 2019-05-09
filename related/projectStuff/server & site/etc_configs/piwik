@@ -1,0 +1,31 @@
+# copied from ngnix config files. licensed maybe. need to be rewrite
+
+server {
+	listen 2052;
+	listen [::]:2052;
+
+	server_name _;
+
+	root /home/mlibre/piwik/;
+	index index.php index.html;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+	
+	#	# With php7.0-cgi alone:
+	#	fastcgi_pass 127.0.0.1:9000;
+	#	# With php7.0-fpm:
+		fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+	}
+
+	# deny access to .htaccess files, if Apache's document root
+	# concurs with nginx's one
+	#
+	location ~ /\.ht {
+		deny all;
+	}
+}

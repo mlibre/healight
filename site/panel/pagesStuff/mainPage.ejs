@@ -1,0 +1,57 @@
+<%- include(consV.layouts.head , {also_add:[consV.css.panel.main, consV.css.panel.sidebar,
+consV.css.questionmark, consV.css.tagInput, consV.css.tagInputCustom, consV.css.mmodal,
+consV.css.panel.EncTree, consV.css.article]})%>
+<body>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "altPage" , varValue: altPage })%>
+	
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "lang" , varValue: lang })%>
+	
+	<%- include( consV.layouts.panel.navbar )%>
+   <%- include( consV.layouts.mmodal ) %>
+
+	<div class="container-fluid">
+		<div class="row">
+			<%- include(consV.layouts.panel.sidebar , {active:["pge" , "main"]})%>
+			<!-- main -->
+			<main class="col-md-9 px-4 rtlDir FontIranSans text_good_black_little">
+				<ul class="nav nav-tabs nav-fill initDir" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" role="tab" href="#todayArt">مقاله ی روز</a>
+					</li>
+				</ul>
+
+				<div class="tab-content">
+					<div class="tab-pane mt-5 fade show" id="todayArt" role="tabpanel">
+						<%- include(consV.layouts.panel.chooseNodeTree)%>
+						<div class="d-flex flex-row justify-content-around">
+							<button type="button" class="btn btn-primary col-md-3 mt-3 cursorPointer"
+							onclick="showArt(event)">
+								انتخاب
+							</button>
+						</div>
+						<%- include(consV.layouts.article , {artH: "" , artC: "", artURL: '#'}) %>
+						<div class="mt-5">
+							<div class="d-flex flex-row justify-content-around mt-4">
+								<button type="button" class="btn btn-success col-md-3 mt-3 cursorPointer"
+								onclick="pageArt(getChosenNodeId(), getChosenNodeEnc(), getChosenNodeLang());">
+									انتخاب به عنوان مطلب روز
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+			<!-- main end -->
+		</div>
+	</div>
+
+	<%- include(consV.layouts.footer)%>
+	<!-- scripts -->
+	<%- include(consV.layouts.scripts , {also_add:[consV.js.tinymce,
+	consV.js.tinymceJquery, consV.js.tinymceInit, consV.js.panel.sidebar,
+	consV.js.tagInput, consV.js.tagInputCustom,
+	consV.js.panel.main, consV.js.panel.encyclopedia.main, consV.js.panel.EncTree, consV.js.mmodal, consV.js.sign,
+	consV.js.panel.chooseNodeTree, consV.js.panel.pagesStuff.main, consV.js.panel.pagesStuff.mainPage]})%>
+	<!-- scripts end -->
+</body>
+</html>

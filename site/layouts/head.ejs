@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="<%=lang%>">
+<head>
+	<!--<meta name="theme-color" content="#317EFB"/>-->
+	<% if(consV.site.googleVerificationCode != '')
+	{%>
+	<!-- Google stuff -->
+	<meta name="google-site-verification" content="<%=consV.site.googleVerificationCode%>" />
+	<!-- Google stuff End -->
+	<%}%>
+	<% if(typeof canonicalUrl != 'undefined' && canonicalUrl != null)
+	{%>
+	<link rel="canonical" href="<%=canonicalUrl%>" />
+	<%}%>
+	<meta charset="utf-8" />
+	<title> <%= title %> </title>
+	<meta property="og:title" content="<%= title %>"/>
+	<% if(typeof imageAdd != 'undefined' && imageAdd != null)
+	{%>
+	<meta property="og:image" content="<%= imageAdd%>"/>
+	<%}%>
+	<meta name="fontiran.com:license" content="<%=consV.site.fontIranLicense%>" />	
+	<meta name="author" content="mlibre" />
+	<meta name="email" content="m.gh@linuxmail.org" />
+	<meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no" />
+	<% if(typeof pageDes != 'undefined' && pageDes != null && pageDes != "")
+	{%>
+	<meta name="description" content="<%= pageDes %>" />
+	<meta property="og:description" content="<%= pageDes %>"/>
+	<%}%>
+	<link rel="icon" type="image/png" href="<%=consV.site.favicon%>">
+	<%Object.keys(altPage).forEach(key =>
+	{
+		if( (lang != key) && (typeof dontGenAltPage == 'undefined' || (typeof dontGenAltPage != 'undefined' && dontGenAltPage[key] != true)) )
+		{%>
+			<link rel="alternate" hreflang="<%=key%>" href="<%='https://' + consV.host.domain + altPage[key]%>" />
+		<%}%>
+	<%});%>
+	<link rel="stylesheet" href="<%=consV.css.bootstrap%>">
+	<link rel="stylesheet" href="<%=consV.css.animate%>">
+	<link rel="stylesheet" href="<%=consV.css.fontAwesome%>">
+	<link rel="stylesheet" href="<%=consV.css.main%>">
+	<link rel="stylesheet" href="<%=consV.css.things%>">
+	<link rel="stylesheet" href="<%=consV.css.beautifier%>">
+	<link rel="stylesheet" href="<%=consV.css.font%>">
+	<% if(lang == "fa")
+	{%>
+		<link rel="stylesheet" href="<%=consV.css.fa%>">
+	<%}
+	else
+	{%>
+		<link rel="stylesheet" href="<%=consV.css.en%>">
+	<%}%>
+	<% if(typeof also_add != 'undefined') { also_add.forEach(function(css){ %>
+	<link rel="stylesheet" href="<%= css %>">
+	<% });} %>
+</head>

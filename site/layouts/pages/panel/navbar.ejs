@@ -1,0 +1,44 @@
+<!-- navbar -->
+<nav class="navbar navbar-expand-md navbar-inverse bg-primary navbar_custom text_good_black_little noBorder">
+	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+	data-target="#mpanelNavbar" aria-controls="mpanelNavbar" aria-expanded="false" aria-label="Toggle Navbar">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<!--<a class="navbar-brand ml-3" href="/<%=lang%>">
+		<img src="<%=consV.site.favicon%>" height="50" alt="favicon">
+	</a>-->
+	<div class="collapse navbar-collapse rtlDir" id="mpanelNavbar">
+		<ul class="navbar-nav pr-0 ml-auto">
+			<li class="nav-item active dropdown">
+				<li class="nav-item">
+					<img class="verAli-webBasMid navProfileImage mt-2" src="<%=profileImage%>" height="30" alt="favicon">
+				</li>
+				<a id="popupProfile" class="nav-link dropdown-toggle removeAfter text-light" href="#" data-toggle="dropdown"
+				data-haspopup="true" aria-expanded="false">
+					<span style="font-size:10px" class="fa fa-chevron-down ml-2"></span>
+					<% if ( sess.user.name == null || sess.user.family == null ){ %>
+					<%=sess.user.email%>
+					<%}else{%>
+					<%=sess.user.name + ' ' + sess.user.family%>
+					<%}%>
+				</a>
+				<div class="dropdown-menu dropdown-menu-right m-0 text-right" aria-labelledby="popupProfile">
+					<a class="dropdown-item" href="#">تست</a>
+					<a class="dropdown-item" href="#">تست</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#" onclick="sign_out()">خروج</a>
+				</div>
+			</li>
+			<li class="nav-item mr-3">
+				<img class="verAli-webBasMid mt-1" src="<%=consV.site.favicon%>" height="30" alt="favicon">
+			</li>
+			<li class="nav-item">
+				<a class="nav-link text-light" href="<%='/' + lang%>">وب سایت</a>
+			</li>
+		</ul>
+		<ul class="navbar-nav mr-auto">
+
+		</ul>
+	</div>
+</nav>
+<!-- navber end -->

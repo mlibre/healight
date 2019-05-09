@@ -1,0 +1,97 @@
+<%- include(consV.layouts.head , {also_add:[consV.css.material_dashboard, consV.css.mmodal],
+pageDes :"هیلایت . پروفایل"})%>
+<body id="materialDashboard" class="">
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "altPage" , varValue: altPage })%>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "lang" , varValue: lang })%>
+	<div class="wrapper">
+		<%- include(consV.layouts.myaccount.sidebar , {active: 'profile'}) %>
+		<div class="main-panel">
+			<%- include(consV.layouts.myaccount.navbar , {pageText: "پروفایل"}) %>
+			<%- include( consV.layouts.mmodal ) %>
+			<div class="content">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-8">
+							<div class="card">
+								<div class="card-header card-header-primary">
+									<h4 id="editProfile" class="card-title">ویرایش پروفایل</h4>
+									<p class="card-category">تکمیل پروفایل</p>
+								</div>
+								<div id="editProfileCardBody" class="card-body">
+									<form id="profileForm" method="post" action="<%='/' + lang + consV.pages.myaccount.editProfile_ws%>"
+										encType="multipart/form-data" onsubmit="postProfileForm(event)">
+										<div class="row">
+										<div class="col-md-3">
+												<div class="form-group">
+													<label class="bmd-label-floating">یوزر نیم</label>
+													<input name="username" value ="<%=user.username%>" type="text" class="form-control">
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="form-group">
+													<label class="bmd-label-floating">نام</label>
+													<input name="name" value ="<%=user.name%>" type="text" class="form-control">
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="form-group">
+													<label class="bmd-label-floating">نام خوانوادگی</label>
+													<input name="family" value ="<%=user.family%>" type="text" class="form-control">
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="form-group">
+													<label class="bmd-label-floating">ایمیل</label>
+													<input type="email" value ="<%=user.email%>" class="form-control">
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<div id="aboutMe" class="form-group">
+													<label>درباره ی من</label>
+													<div class="form-group">
+														<textarea name="aboutme" class="form-control" rows="5"><%=user.aboutme%></textarea>
+													</div>
+												</div>
+											</div>
+										</div>
+										<button type="submit" class="btn btn-primary pull-right">اعمال تغییرات</button>
+										<div class="clearfix"></div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card card-profile">
+								<div class="card-avatar">
+									<a href="#">
+										<img class="img" src="<%=profileImage%>"/>
+									</a>
+								</div>
+								<div class="card-body">
+									<h6 class="card-category text-gray">Manger</h6>
+									<h4 class="card-title">m libre</h4>
+									<p class="card-description">
+										Dont be scared of being good and brave. 
+									</p>
+									<a href="#" class="btn btn-primary btn-round">something</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<%- include(consV.layouts.myaccount.footer) %>
+		</div>
+	</div>
+</body>
+<%- include(consV.layouts.scripts,
+{
+    also_add:[consV.js.sign, consV.js.material_dashboard.bootstrap,
+    consV.js.material_dashboard.arrive, consV.js.material_dashboard.bootstrapNotify,
+    consV.js.material_dashboard.chartist, consV.js.material_dashboard.perfectScrollbarJquery,
+    consV.js.material_dashboard.demo, consV.js.material_dashboard.main, consV.js.myaccount.profile,
+	 consV.js.mmodal]
+})%>
+</html>

@@ -1,0 +1,193 @@
+This page have lots of copy from licensed website. not owned by me.
+
+common problems
+=========================
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+===>
+nano /etc/default/locale
+LC_ALL="en_US.UTF-8"
+And Maybe:
+nano /etc/profile
+export LC_ALL=en_US.UTF-8
+
+=========================
+common commands
+=========================
+sudo chmod a+rw /var/log/
+sudo firewall-cmd --permanent --zone=public --list-all
+sudo nginx -t #nginx configuration test
+sudo firewall-cmd --zone=public --permanent --remove-port=xxx/tcp
+rsync -raAXv --delete  health/ mlibre@78.47.152.253:/home/mlibre/health/
+sudo scp -r health/ mlibre@78.47.152.253:/home/mlibre/
+
+=========================
+Initiate Server
+=========================
+ssh root@185.162.235.230
+
+------------------------
+apt-get update
+apt-get upgrade
+apt-get dist-upgrade
+apt-get purge ufw snapd
+apt-get --purge autoremove
+apt-get --reinstall install sudo
+nano /etc/hosts:
+	127.0.0.1 ...... healight.green and healight
+
+------------------------
+
+cat /etc/shadow: check if there is a user created By the host
+sudo adduser mlibre
+passwd mlibre
+nano /etc/sudoers
+
+-------------------------
+
+ctrl + d
+ssh mlibre@185.162.235.230
+sudo nano /etc/ssh/sshd_config:
+	disable root login
+	check "Port" line
+
+-------------------------
+
+sudo nano /etc/resolvconf/resolv.conf.d/head:
+	nameserver 8.8.8.8
+	nameserver 8.8.4.4
+	nameserver 4.2.2.4
+ctrl + d
+
+-------------------------
+
+local machine:
+ssh-keygen
+ssh-copy-id mlibre@185.162.235.230
+ssh -i .ssh/id_rsa mlibre@185.162.235.230
+
+-------------------------
+
+sudo apt-get install bash-completion git build-essential htop redis-server firewalld libgconf2-* libgtk3* pandoc libnss3 libnss3-dev
+sudo chown -R $USER:$(id -gn $USER) /home/mlibre/.config
+sudo systemctl enable redis; sudo systemctl enable redis-server.service
+sudo systemctl enable firewalld
+sudo firewall-cmd --set-default-zone=public
+sudo firewall-cmd --zone=public --permanent --add-port=22/tcp
+sudo firewall-cmd --zone=public --permanent --add-port=80/tcp
+sudo firewall-cmd --zone=public --permanent --add-service=https
+sudo firewall-cmd --zone=public --permanent --add-service=openvpn
+sudo firewall-cmd --zone=public --permanent --add-masquerade
+sudo reboot
+
+-------------------------
+
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt-get install nodejs
+
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+
+sudo npm install -g pm2
+
+https://www.nginx.com/resources/wiki/start/topics/tutorials/install/
+sudo add-apt-repository ppa:nginx/stable
+sudo apt-get update
+sudo apt-get install nginx
+sudo systemctl enalbe nginx; sudo systemctl enable nginx.service
+
+-------------------------
+
+mkdir healight
+cd healight
+git clone https://github.com/mlibre/healight healight.green
+cd healight.green
+chmod a+rwx ~/healight/healight.green/projectStuff/scripts/*
+npm install
+## Initize DataBase ## then:
+## Restore DB Backup ## then:
+npm run em
+npm run sm
+
+------------------------
+
+sudo rm /etc/nginx/sites-enabled/default
+sudo rm /etc/nginx/sites-available/default
+sudo cp healight/healight.green/projectStuff/server\ \&\ site/etc_configs/healight /etc/nginx/sites-enabled/
+sudo cp healight/healight.green/projectStuff/server\ \&\ site/etc_configs/prestoshop /etc/nginx/sites-enabled/
+
+sudo reboot
+-------------------------
+
+sudo nano /etc/profile
+export NODE_ENV=production
+
+## Git Setup ## then:
+~/healight/healight.green/projectStuff/scripts/git_push.sh
+
+## Cron Jobs ## then:
+sudo reboot
+open http://185.162.235.230 on the browser
+
+========================
+Domain Config
+=========================
+Login https://www.cloudflare.com:
+	add healight.green
+Login iranserver.com:
+	مدیریت دامنه
+	set DNS info given by cloudflare
+Upload dns file
+
+=========================
+cloudflare
+=========================
+https://www.cloudflare.com/a/overview/healight.green
+firewall => off
+Install Google Anaylitic App.
+Login To Google Anaylitic Site,
+create account for healight.green and copy UA code to  CloudFlare Google Analytic App 
+-------------------------
+Install AddToAny Button. pick location on اشتراک گذاری
+-------------------------
+Browser Cache Expiration => 8 day
+------------------------
+Enable Always use HTTPS
+
+=========================
+OpenVpn
+=========================
+https://www.ostechnix.com/easiest-way-install-configure-openvpn-server-linux/
+scp mlibre@185.162.235.230:/home/mlibre/client.ovpn .
+
+=========================
+install piwik
+=========================
+sudo firewall-cmd --zone=public --permanent --add-port=2052/tcp
+sudo apt-get install mysql-server php-fpm php-mysql php-mbstring php-dom php-gd
+set cgi.fix_pathinfo-0 in /etc/php/fpm/php.int
+sudo systemctl restart php7.0-fpm.service
+sudo systemctl enable php7.0-fpm.service
+sudo mysql -p
+create database piwik;
+create user 'piwik'@'localhost' identified by 'masoudsam';
+grant select, insert, update, delete, create, drop, alter, create temporary tables, lock tables on piwik.* to 'piwik'@'localhost';
+copy piwik.ini to piwik/config/config.ini.php
+open http://healight.green:2052/
+copy_tracking code
+
+=========================
+Web Interface For monitor and terminal
+=========================
+http://ajenti.org/
+https://healight.green:8000/
+
+=========================
+Cron Jobs
+=========================
+crontab -e
+@hourly echo "M1751****" | sudo -S ~/healight/projectStuff/scripts/IsServerGoodAndHappy.sh
+@reboot cd ~/healight/healight.green/; npm run sm; wait; pm2 start health.js;
+0 1 * * * /home/mlibre/healight/healight.green/projectStuff/scripts/make-backup.sh
+0 7 * * * node ~/healight/healight.green/related_projectsTelegramBot/bot.js
+0 7 * * * node ~/healight/healight.green/related_projectsmediumBot/bot.js
+0 2 * * * /home/mlibre/healight/healight.green/projectStuff/scripts/git_push.sh

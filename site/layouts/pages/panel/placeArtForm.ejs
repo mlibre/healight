@@ -1,0 +1,62 @@
+<form id="placeArtForm" method="post" action="<%=formActionUrl%>"
+encType="multipart/form-data" onsubmit="<%=formOnSubmit%>">
+
+	<div class="form-group">
+		<label class="Font18px" for="placeArtEnc">
+			دانشنامه
+		</label>
+		<select id="placeArtEnc" name="placeArtEnc" class="custom-select FontIranSans mr-2" onchange=<%=EncOnchange%>>
+		<%Object.keys(consV.database.enc).forEach( (key,i) =>
+		{
+			if(typeof consV.database.enc[key].CollName != 'undefined')
+			{
+				%>
+					<option value="<%=consV.database.enc[key].CollName%>" <%if (i == 0){%>selected<%}%> ><%=i18n.__(consV.database.enc[key].title)%></option>
+				<%
+			}
+		});%>
+		</select>
+		<input id="placeArtnodeId" name="placeArtnodeId" class="sr-only" type="text" value="">
+
+		<label class="Font18px" for="placeFormlang">
+			زبان مقاله
+		</label>
+		<select id="placeFormlang" name="placeFormlang" class="custom-select FontIranSans mr-2" onchange=<%=langOnchange%>>
+			<%consV.site.langs.inArray.forEach( (el , i) =>
+			{%>
+				<option value="<%=el%>" <%if(i == 0){%>selected<%}%> ><%=i18n.__(consV.site.langs[el].name)%></option>
+			<%});%>
+		</select>
+	</div>
+
+	<div class="form-group">
+		<label class="Font18px" for="tags">
+			محل مطلب
+		</label>
+		<input id="nodePlaceInput" name="nodePlaceInput" value="" style="display: none" type="text">
+		<div id="EncTree" class="containter col-md-12 EncTree">
+				
+		</div>
+	</div>
+
+	<div class="form-group has-warning">
+		<label class="Font18px" for="URLName">
+			متن آدرس بار مقاله&nbsp
+			<%- include( consV.layouts.questionMark , {QMTitlle: "متن آدرس بار مقاله" , QMContent: "متنی که در آدرس بار می آید"} ) %> 
+		</label>
+		<div class="row">
+			<div class="col-md-7">
+				<input id="URLName" name="URLName" class="form-control form-control-warning" value="" type="text"
+				pattern="^[A-Za-z0-9_]+$" onchange="URLNameWarning()">
+			</div>
+			<div class="col">
+				<button id="URLNameCheck" type="button" class="btn btn-primary"
+				onclick="<%=CheckURLNameOnClick%>">
+					بررسی فراهم بودن نام
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<button type="submit" class="btn btn-primary">قرار دادن</button>
+</form>

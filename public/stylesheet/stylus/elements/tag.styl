@@ -1,0 +1,114 @@
+// <!--
+// Copyright (c) 2017 by Fernando Pasik (http://codepen.io/fernandopasik/pen/AHCiu)
+
+
+// Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+// The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+// -->
+
+// This is Modified Version Of original one. Modified by me(mlibre)
+
+$font-size = 1rem;
+$border-size = 0.1px;
+
+.BTag
+{
+	display: inline-block;
+	position: relative;
+	padding: 6px 9px;
+	font-family: "IRANSans";
+	font-size: $font-size;
+	border: none;
+	border-radius: 3px;
+	color: white !important;
+	background-color: #1e88e5;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+}
+
+.BTagTheme
+{
+	font-family: "IRANSans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	border: none;
+	background-color: #1e88e5;
+}
+
+.BTag_left
+{
+	@extend .BTagTheme;
+	display: inline-block;
+	position: relative;
+	padding: ($font-size / 2) ($font-size / 1.5);
+
+	font-size: $font-size;
+	line-height: 1;
+
+	box-sizing: initial;
+	text-decoration: none;
+	
+	color: #fff !important;
+	box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.15);
+
+	border-radius: 0 ($font-size / 4) ($font-size / 4) 0;
+
+	&:before, &:after
+	{
+		content: "";
+		position:absolute;
+		display:block;
+		top: 0;
+		bottom: 0;
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+
+	&:before
+	{
+		@extend .BTagTheme;
+		z-index: -1;
+		left:0;
+		width: $font-size * 2;
+		height: $font-size * 2;
+		border-radius: 0px;
+		box-shadow: -1px 2px 3px rgba(0, 0, 0, 0.15);
+		transform: translate( -($font-size + $border-size) , -($border-size) ) scale(0.70711, 0.70711) rotateZ(-45deg) ;
+		border-radius: ($font-size / 3) 1px 1px 0px;
+	}
+
+	&:after
+	{
+		@extend .BTagTheme;
+		left: -($font-size / 3);
+		width: ($font-size / 2);
+		height: ($font-size / 2);
+		border-radius: 100%;
+		box-shadow: inset 2px 3px 3px rgba(0, 0, 0, 0.15);
+		background: #fff;
+	}
+}
+
+.BTag_right
+{
+	@extend .BTag_left;
+	border-radius: ($font-size / 4) 0 0 ($font-size / 4);
+	box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.15);
+
+	&:before
+	{
+		@extend .BTagTheme;
+		right:0;
+		left: initial;
+		box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.15);
+		transform: translate( ($font-size + $border-size) , -($border-size) ) scale(0.70711, 0.70711) rotateZ(-45deg) ;
+		border-radius: 1px 1px ($font-size / 3) 0px;
+	}
+
+	&:after
+	{
+		@extend .BTagTheme;
+		right: -($font-size / 3);
+		left: initial;
+	}
+}

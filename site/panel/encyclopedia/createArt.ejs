@@ -1,0 +1,40 @@
+<%- include(consV.layouts.head , {also_add:[consV.css.panel.main, consV.css.panel.sidebar,
+consV.css.questionmark, consV.css.tagInput,consV.css.tagInputCustom, consV.css.mmodal]})%>
+<body>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "artItem" , varValue: item })%>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "altPage" , varValue: altPage })%>
+	
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "lang" , varValue: lang })%>
+	
+	<%- include( consV.layouts.panel.navbar )%>
+   <%- include( consV.layouts.mmodal ) %>
+
+	<div class="container-fluid">
+		<div class="row">
+			<%- include(consV.layouts.panel.sidebar , {active:["enc" , "cre"]})%>
+			<!-- main -->
+			<main class="col-md-9 px-4 rtlDir FontIranSans text_good_black_little">
+				<%- include(consV.layouts.panel.CEArtFrom ,
+				{
+					formActionUrl: '/' + lang + consV.pages.panel.encyclopedia.createArt,
+					langOnchange: "setCreEdiArtFromData(artItem);",
+					formSubmitText: "ثبت",
+					formOnSubmit: "CreateArt( event, function (res){artItem = res;} );"
+				}) %>
+			</main>
+			<!-- main end -->
+		</div>
+	</div>
+
+	<%- include(consV.layouts.footer)%>
+	<!-- scripts -->
+	<%- include(consV.layouts.scripts , {also_add:[consV.js.panel.sidebar,
+	consV.js.tagInput, consV.js.tagInputCustom,
+	consV.js.tinymce, consV.js.tinymceJquery, consV.js.tinymceInit,
+	consV.js.panel.main, consV.js.panel.encyclopedia.main, consV.js.mmodal, consV.js.sign, consV.js.panel.encyclopedia.createArt,
+	consV.js.panel.encyclopedia.CreEditArtForm]})%>
+	<script>
+	</script>
+	<!-- scripts end -->
+</body>
+</html>

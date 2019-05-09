@@ -1,0 +1,30 @@
+zaheran dasture 'eval' har dafe auth mikone. too much auth. mese inke 'eval' har bar joda
+yek connection baz mikone.
+request ziad. ye chizayi ham minevesht. kolan estefade nakon.
+=====================
+node single therede. vaghto exeption rokh bede, node crash mikone.
+ke yani kole barname crash mikone va motevaghef mishe.
+mese code:
+	loc_path.splice(0,1);
+	location = location.concat(loc_path);
+file: /home/mlibre/health/routes/encyclopedia/medicine/index.js
+---------------------
+albate inaha:
+	console.error( new Error("#Mongo #FIXME. Can not find node document.".red ) );
+error ejra nemikonan, faghat gozaresh midan. node aslan kharej nemishe. chizi motevaghef nemishe.
+hich kare khasi nemishe. faghat namayesh mide.
+=====================
+nabayad fek koni projat dar hale hazer perfecte.
+perfect nist. bayad be in did negah koni ke mishe behtaresh kard.
+va behtaresh koni
+=====================
+next(new Error('Access denied.'.red)) dg bbe badi nemire. angar 
+faghat error ro chap mikone va tamum mishe.
+amd next() rout ro edame mide.
+====================
+https://material.io/icons/
+====
+iin bug dare. "1" : 1 kharab mishe. hamash bayad string bashe. "1" : "1"
+=====
+json.stringify samte broweser vaghti post mikoni jahayi ke nasted object hast. lazeme.
+va agarna ghati mikone.

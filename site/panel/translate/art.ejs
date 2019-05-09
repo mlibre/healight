@@ -1,0 +1,84 @@
+<%- include(consV.layouts.head , {also_add:[consV.css.panel.main, consV.css.panel.sidebar,
+consV.css.questionmark, consV.css.tagInput,consV.css.tagInputCustom, consV.css.mmodal,
+consV.css.panel.EncTree]})%>
+<body>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "artItem" , varValue: null })%>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "altPage" , varValue: altPage })%>
+	
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "lang" , varValue: lang })%>
+	
+	<%- include( consV.layouts.panel.navbar )%>
+   <%- include( consV.layouts.mmodal ) %>
+
+	<div class="container-fluid">
+		<div class="row">
+			<%- include(consV.layouts.panel.sidebar , {active:["tra" , "art"]})%>
+			<!-- main -->
+			<main class="col-md-9 px-4 rtlDir FontIranSans text_good_black_little">
+				<ul class="nav nav-tabs nav-fill initDir" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link disabled" data-toggle="tab" role="tab" href="#place">قرار دادن</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link disabled" data-toggle="tab" role="tab" href="#edit">ویرایش</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" role="tab" href="#chooseNodeTab">انتخاب مطلب</a>
+					</li>
+				</ul>
+
+				<div class="tab-content">
+					<div class="tab-pane mt-5 fade" id="place" role="tabpanel">
+						<%- include(consV.layouts.panel.placeArtForm,
+						{
+							formActionUrl: '/' + lang + consV.pages.panel.encyclopedia.placeArt,
+							langOnchange: "placeFormlangChanged();",
+							EncOnchange: 'placeFormEncChanged();',
+							CheckURLNameOnClick: "CheckURLName(artItem);",
+							formOnSubmit: "PlaceArt(event, function (res){setTimeout(function (){window.location.href = '';},1500);} );"
+						})%>
+					</div>
+					<div class="tab-pane mt-5 fade" id="edit" role="tabpanel">
+						<%- include(consV.layouts.panel.CEArtFrom,
+						{
+							formActionUrl: '/' + lang + consV.pages.panel.encyclopedia.editArt,
+							langOnchange: "setCreEdiArtFromData(artItem);",
+							formSubmitText: "ثبت",
+							formOnSubmit: "UpdateArt(event, function (res){artItem = res;} );"
+						})%>
+					</div>
+					<div class="tab-pane mt-5 fade show" id="chooseNodeTab" role="tabpanel">
+						<%- include(consV.layouts.panel.chooseNodeTree , {})%>
+
+						<div class="d-flex flex-row justify-content-around">
+							<button type="button" class="btn btn-primary col-md-3 mt-3 cursorPointer"
+							onclick="$('a[href=\'#edit\']').tab('show');">
+								ویرایش
+							</button>
+							<button type="button" class="btn btn-primary col-md-3 mt-3 cursorPointer"
+							onclick="$('a[href=\'#place\']').tab('show');">
+								تغییر مکان
+							</button>
+							<button type="button" class="btn btn-danger col-md-3 mt-3 cursorPointer"
+							onclick="DeleteArt(getChosenNodeId());">
+								حذف
+							</button>
+						</div>
+					</div>
+				</div>
+				
+			</main>
+			<!-- main end -->
+		</div>
+	</div>
+
+	<%- include(consV.layouts.footer)%>
+	<!-- scripts -->
+	<%- include(consV.layouts.scripts , {also_add:[consV.js.tinymce,
+	consV.js.tinymceJquery, consV.js.tinymceInit, consV.js.panel.sidebar,
+	consV.js.tagInput, consV.js.tagInputCustom,
+	consV.js.panel.main, consV.js.panel.encyclopedia.main, consV.js.panel.EncTree, consV.js.mmodal, consV.js.sign,
+	consV.js.panel.encyclopedia.editArt, consV.js.panel.chooseNodeTree, consV.js.panel.encyclopedia.CreEditArtForm]})%>
+	<!-- scripts end -->
+</body>
+</html>

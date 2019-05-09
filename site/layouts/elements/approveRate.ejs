@@ -1,0 +1,29 @@
+<!-- article start -->
+<%
+	if(apRate == 1)
+	{
+		apRateC = 'نفر از کارشناسان این مطلب را تایید کرده است.';
+	}
+	else
+	{
+		apRateC = 'نفر از کارشناسان این مطلب را تایید کرده اند.';
+	}
+%>
+<article id="approve_rate" class="articleStuffCon text_good_black_little">
+	<div id="approve_rate_left" class="article_header_left ml-4 ml-sm-5">
+		<span class="article_header_left_text"><%=apRateL%></span>
+	</div>
+	<div id="approve_rate_content" class="pb-3">
+		<span class="fa-stack fa-lg">
+			<i style="color: #008000" class="fa fa-circle fa-stack-2x"></i>
+			<i style="color: #f9f9f9" class="fa fa-stack-1x fa-check"></i>
+		</span>
+		<span id="apRate" class="mr-1">
+			<%= i18n.__(apRate) %>
+		</span>
+		<span id="apRateC">
+			<%-apRateC%>
+		</span>
+	</div>
+</article>
+<!-- article end -->

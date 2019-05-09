@@ -1,0 +1,16 @@
+##copied from magento. license problem.
+# copied from ngnix config files. licensed maybe. need to be rewrite
+##cat /etc/nginx/sites-enabled/magento
+## Example configuration:
+upstream fastcgi_backend {
+    # use tcp connection
+    # server  127.0.0.1:9000;
+    # or socket
+    server  unix:/run/php/php7.0-fpm.sock;
+ }
+server {
+    listen 80;
+    server_name shop.healight.green;
+    set $MAGE_ROOT /home/mlibre/magento-2.2.3-1/;
+    include /home/mlibre/healoba_shop/nginx.conf.sample;
+}

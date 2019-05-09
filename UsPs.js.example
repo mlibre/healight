@@ -1,0 +1,32 @@
+"use strict";
+
+exports.host = {};
+exports.host.ip = "111.111.111.111";
+
+exports.admin = {};
+exports.admin.username = "user";
+exports.admin.password = "pass";
+exports.admin.email = "mail@mail.org";
+exports.admin.lang = "en";
+
+exports.mongo_username = 'mongo_username';
+exports.mongo_password = 'mongo_password';
+exports.mong_dbName = 'dbname';
+
+exports.peojectMail = 'email@mail.com';
+exports.peojectMailPass = 'emailPassword';
+
+// social medias
+exports.telegram = {};
+exports.telegram.apiToken = "token"; // copied from telegram
+exports.telegram.groupAddress = {};
+exports.telegram.groupAddress.fa = "@GroupName";
+
+exports.medium = {};
+// exports.medium.clientId = 'mediumCid';
+// exports.medium.clientSecret = 'mediumSec';
+// exports.medium.AuthorizationCode = '';
+// exports.medium.redirectUrl = '....';
+exports.medium.pubId = {};
+exports.medium.pubId.fa = 'pubId'; //copied rom medium
+exports.medium.token = 'token'; //copied rom medium

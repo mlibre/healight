@@ -1,0 +1,76 @@
+<%- include(consV.layouts.head , {also_add:[consV.css.enc.main,
+consV.css.enc.sidebar, consV.css.article, consV.css.customBS,
+consV.css.approveRate, consV.css.artTags, consV.css.resources,
+consV.css.tag], pageDes:findTreeNode(target_node_id).data.summary[lang]})%>
+<body>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "dontGenAltPage" , varValue: dontGenAltPage })%>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "canonicalUrl" , varValue: canonicalUrl })%>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "altPage" , varValue: altPage })%>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "lang" , varValue: lang })%>
+	
+	<%- include(consV.layouts.header , {search_in:"دانشنامه طب"})%>
+	<%- include(consV.layouts.sidebar_navbar, {active:["enc", encData.name]})%>
+	<%- include(consV.layouts.enc.mobile_sidebar,
+	{
+		EncURL: '/' + lang + consV.pages.encyclopedia[encData.name],
+		EncTitle: encData.title,
+		target_node_id: target_node_id,
+		branch: branch
+	})%>
+	<%- include(consV.layouts.navbar , {active: encData.name})%>
+
+	<div class="container-fluid">
+		<div class="row">
+			<!-- main start -->
+			<main class="col ml-md-auto mr-md-3 pr-md-0 pl-md-5">
+				<div class="col-md-12 ml-auto px-0">
+					<%- include(consV.layouts.locationbar , {location: location})%>
+					<div class="mt-3"></div>
+					<%- include(consV.layouts.article,
+					{
+						artH: findTreeNode(target_node_id).data.treeTitle[lang],
+						artC: findTreeNode(target_node_id).data.content[lang],
+						artURL: ''
+					}) %>
+					<%- include(consV.layouts.resources , {resources: resources, resL: 'منابع'}) %>
+					<%- include(consV.layouts.sharing , {leftText: 'اشتراک گذاری'}) %>
+					<%- include(consV.layouts.approveRate , {apRate: apRate, apRateL: 'صحت'}) %>
+					<%- include(consV.layouts.artLicense , {license: findTreeNode(target_node_id).data.license, artLicenseL: 'مجوز'}) %>
+					<%- include(consV.layouts.artTags , {tags: findTreeNode(target_node_id).data.tags[lang], artTagsL: 'برچسب ها'}) %>
+				</div>
+			</main>
+			<!-- main end -->
+			<div style="z-index: 2;" class="col-md-3 ml-4 mt-4 mt-md-0 d-none d-md-block">
+				<div class="row justify-content-end sticky-top">
+					<%- include( consV.layouts.enc.sidebar,
+					{
+						EncURL: '/' + lang + consV.pages.encyclopedia[encData.name],
+						EncTitle: encData.title,
+						target_node_id: target_node_id,
+						branch: branch
+					})%>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<%- include(consV.layouts.footer, {OverlayOnClick: "closeAll()"})%>
+	<!-- scripts -->
+	<%- include(consV.layouts.scripts , {also_add:[consV.js.main, consV.js.sign,
+	consV.js.encyclopedia.sidebar]})%>
+	<!-- scripts end -->
+</body>
+</html>
+
+<%
+function findTreeNode(tnId)
+{
+	for (let key in nodes)
+	{
+		if(nodes[key].data._id == tnId)
+		{
+			return nodes[key];
+		}
+	};
+}
+%>

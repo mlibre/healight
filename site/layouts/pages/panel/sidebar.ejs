@@ -1,0 +1,151 @@
+<nav class="col-md-3 navbar-inverse sticky-top panSidebar text_good_black_little FontIranSans">
+	<ul class="nav nav-pills flex-column">
+		<li class="nav-item">
+			<a class="nav-link" href="#"></a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link <%if(active[0]=='home'){%>active<%}%>" href="<%='/' + lang + consV.pages.panel.home%>">
+				<span class="mr-3">
+					<%=i18n.__("دشبورد")%>
+				</span>
+			</a>
+		</li>
+		<li class="nav-item <%if(active[0]=='enc'){%>panBG<%}%>">
+			<a class="nav-link <%if(active[0]=='enc'){%>active<%}%>" href="<%='/' + lang + consV.pages.panel.encyclopedia.home%>"
+			data-toggle="collapse" aria-expanded="<%if(active[0]=='enc'){%>true<%}else{%>false<%}%>"
+			data-target="#encMenu" aria-controls="encMenu">
+				<i class="fa fa-mortar-board"></i>
+				<span class="mr-1">
+					<%=i18n.__("دانشنامه")%>
+				</span>
+				<span id="chevron_sidebar" style="font-size:10px;margin-bottom: 1px;" class="fa fa-chevron-<%if(active[0]=='enc'){%>down<%}else{%>left<%}%>"></span>
+			</a>
+			<ul id="encMenu" class="collapse list-unstyled panSidebarMenu <%if(active[0]=='enc'){%>show<%}%>" aria-expanded="<%if(active[0]=='enc'){%>true<%}else{%>false<%}%>">
+				<li class="<%if(active[1]=='cre'){%>active<%}%>">
+					<a href="<%='/' + lang + consV.pages.panel.encyclopedia.createArt%>">
+						<%=i18n.__("ثبت پیشنویس")%>
+					</a>
+				</li>
+				<li class="<%if(active[1]=='pla'){%>active<%}%>">
+					<a href="<%='/' + lang + consV.pages.panel.encyclopedia.placeArt%>">
+						<%=i18n.__("تعیین مکان پیشنویس ها")%>
+					</a>
+				</li>
+				<li class="<%if(active[1]=='eda'){%>active<%}%>">
+					<a href="<%='/' + lang + consV.pages.panel.encyclopedia.editArt%>">
+						<%=i18n.__("ویرایش مطالب")%>
+					</a>
+				</li>
+				<li class="<%if(active[1]=='apa'){%>active<%}%>">
+					<a href="<%='/' + lang + consV.pages.panel.encyclopedia.approveArt%>">
+						<%=i18n.__("تایید مطالب")%>
+					</a>
+				</li>
+				<li class="<%if(active[1]=='res'){%>active<%}%>">
+					<a href="<%='/' + lang + consV.pages.panel.encyclopedia.resources%>">
+						<%=i18n.__("منابع مطالب")%>
+					</a>
+				</li>
+				<li class="<%if(active[1]=='pro'){%>active<%}%>">
+					<a href="<%='/' + lang + consV.pages.panel.encyclopedia.products%>">
+						<%=i18n.__("مصحولات")%>
+					</a>
+				</li>
+			</ul>
+		</li>
+		<li class="nav-item <%if(active[0]=='pge'){%>panBG<%}%>">
+			<a class="nav-link <%if(active[0]=='pge'){%>active<%}%>" href="<%='/' + lang + consV.pages.panel.pagesStuff.home%>"
+			data-toggle="collapse" aria-expanded="<%if(active[0]=='pge'){%>true<%}else{%>false<%}%>"
+			data-target="#pgeMenu" aria-controls="pgeMenu">
+				<i class="fa fa-pencil-square-o"></i>
+				<span class="mr-1">
+					صفحات
+				</span>
+				<span id="chevron_sidebar" style="font-size:10px;margin-bottom: 1px;" class="fa fa-chevron-<%if(active[0]=='pge'){%>down<%}else{%>left<%}%>"></span>
+			</a>
+			<ul id="pgeMenu" class="collapse list-unstyled panSidebarMenu <%if(active[0]=='pge'){%>show<%}%>" aria-expanded="<%if(active[0]=='pge'){%>true<%}else{%>false<%}%>">
+				<li class="<%if(active[1]=='main'){%>active<%}%>">
+					<a href="<%='/' + lang + consV.pages.panel.pagesStuff.mainPage%>">
+						صفحه ی اصلی
+					</a>
+				</li>
+				<li class="<%if(active[1]=='slideShow'){%>active<%}%>">
+					<a href="<%='/' + lang + consV.pages.panel.pagesStuff.slideShow%>">
+						اسلاید شو
+					</a>
+				</li>
+			</ul>
+		</li>
+		<li class="nav-item <%if(active[0]=='tra'){%>panBG<%}%>">
+			<a class="nav-link <%if(active[0]=='tra'){%>active<%}%>" href="<%='/' + lang + consV.pages.panel.translate.home%>"
+			data-toggle="collapse" aria-expanded="<%if(active[0]=='tra'){%>true<%}else{%>false<%}%>"
+			data-target="#traMenu" aria-controls="traMenu">
+				<i class="fa fa-mortar-board"></i>
+				<span class="mr-1">
+					<%=i18n.__("ترجمه")%>
+				</span>
+				<span id="chevron_sidebar" style="font-size:10px;margin-bottom: 1px;" class="fa fa-chevron-<%if(active[0]=='tra'){%>down<%}else{%>left<%}%>"></span>
+			</a>
+			<ul id="traMenu" class="collapse list-unstyled panSidebarMenu <%if(active[0]=='tra'){%>show<%}%>" aria-expanded="<%if(active[0]=='tra'){%>true<%}else{%>false<%}%>">
+				<li class="<%if(active[1]=='tex'){%>active<%}%>">
+					<a href="<%='/' + lang + consV.pages.panel.translate.text%>">
+						<%=i18n.__("نوشته")%>
+					</a>
+				</li>
+				<li class="<%if(active[1]=='art'){%>active<%}%>">
+					<a href="<%='/' + lang + consV.pages.panel.translate.art%>">
+						<%=i18n.__("مقالات")%>
+					</a>
+				</li>
+			</ul>
+		</li>
+		<li class="nav-item <%if(active[0]=='adm'){%>panBG<%}%>">
+			<a class="nav-link <%if(active[0]=='adm'){%>active<%}%>" href="<%='/' + lang + consV.pages.panel.adminStuff.home%>"
+			data-toggle="collapse" aria-expanded="<%if(active[0]=='adm'){%>true<%}else{%>false<%}%>"
+			data-target="#adminRes" aria-controls="adminRes">
+				<i class="fa fa-snowflake-o"></i>
+				<span class="mr-1">
+					مدیریت
+				</span>
+				<span id="chevron_sidebar" style="font-size:10px;margin-bottom: 1px;" class="fa fa-chevron-<%if(active[0]=='adm'){%>down<%}else{%>left<%}%>"></span>
+			</a>
+			<ul id="adminRes" class="collapse list-unstyled panSidebarMenu <%if(active[0]=='adm'){%>show<%}%>" aria-expanded="<%if(active[0]=='adm'){%>true<%}else{%>false<%}%>">
+				<li class="<%if(active[1]=='addRes'){%>active<%}%>">
+					<a href="<%='/' + lang + consV.pages.panel.adminStuff.addResources%>">
+						اضافه کردن منبع
+					</a>
+				</li>
+				<li class="<%if(active[1]=='editRes'){%>active<%}%>">
+					<a href="<%='/' + lang + consV.pages.panel.adminStuff.editResources%>">
+						ویرایش منابع
+					</a>
+				</li>
+				<li class="<%if(active[1]=='RAArt'){%>active<%}%>">
+					<a href="<%='/' + lang + consV.pages.panel.adminStuff.resApproveArt%>">
+						تایید مطلب توسط منبع
+					</a>
+				</li>
+				<li class="<%if(active[1]=='RTUsers'){%>active<%}%>">
+					<a href="<%='/' + lang + consV.pages.panel.adminStuff.resTrusUsers%>">
+						کاربران مورد اعتماد منابع
+					</a>
+				</li>
+				<li class="<%if(active[1]=='Leg'){%>active<%}%>">
+					<a href="<%='/' + lang + consV.pages.panel.adminStuff.leg%>">
+						قوانین و شرایط سایت
+					</a>
+				</li>
+				<li class="<%if(active[1]=='nonArtTel'){%>active<%}%>">
+					<a href="<%='/' + lang + consV.pages.panel.adminStuff.nonArtTel%>">
+						 بلک لیست مقاله های شبکه های اجتماعی
+					</a>
+				</li>
+				<li class="<%if(active[1]=='perm'){%>active<%}%>">
+					<a href="<%='/' + lang + consV.pages.panel.adminStuff.perm%>">
+						 مدیریت کاربران
+					</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</nav>

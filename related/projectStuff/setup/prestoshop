@@ -1,0 +1,75 @@
+=========================
+Preparing To Install Prestoshop
+=========================
+sudo apt-get install mysql-server php-fpm php-mysql php-mbstring php-dom php-gd php-zip php-curl php-intl php-mcrypt
+type password: masouds******************
+
+sudo nano /etc/php/7.0/fpm/php.ini OR /etc/php/fpm/php.ini:
+	set cgi.fix_pathinfo=0
+	set upload_max_filesize = 50M
+	uncomment extension=php_curl.dll
+	uncomment extension=php_intl.dll
+
+sudo systemctl enable php7.0-fpm.service
+sudo systemctl enable nginx.service
+sudo systemctl enable mysql.service
+sudo systemctl restart php7.0-fpm.service
+sudo systemctl restart nginx.service
+sudo systemctl restart mysql.service
+
+copy prestoshop config file to site-enables and rename to shop.healight.green.
+sudo systemctl restart nginx.service
+
+=========================
+Preparing To Install Prestoshop In server Host
+=========================
+After Top steps:
+sudo nano /etc/nginx/sites-enabled/shop.healight.green:
+	server_name shop.healight.green www.shop.healight.green;
+
+sudo nano /etc/hosts:
+	127.0.0.1       shop.healight.green www.shop.healight.green
+
+Add shop.healight.green to CloudFlare dns manager
+
+
+=========================
+Preparing To Install Prestoshop In LocalHost
+=========================
+After Top steps:
+sudo nano /etc/nginx/sites-enabled/prestoshop:
+	server_name shop.localhost;
+
+sudo nano /etc/hosts:
+	127.0.0.1       localhost
+	127.0.0.1       shop.localhost
+
+
+=========================
+Installing
+=========================
+downlaod link: https://www.prestashop.com/en/download
+cp ~/Downloads/prestashop_1.7.3.1.zip /home/mlibre/healight/shop.healight.green/
+cd /home/mlibre/healight/shop.healozhen.green/
+unzip prestashop_1.7.3.1.zip
+rm prestashop_1.7.3.1.zip
+sudo chown -R mlibre:mlibre channel_manager/
+sudo chmod 775 -R shop.healight.green/
+
+open http://shop.localhost/index.php
+
+rm -r install
+
+ls in shop.healight.com folder:
+admin629yca7kr  composer.lock  error500.html   Install_PrestaShop.html  mails       src           vendor
+app             config         images.inc.php  INSTALL.txt              modules     themes        webservice
+bin             controllers    img             js                       override    tools
+cache           docs           index.php       LICENSES                 pdf         translations
+classes         download       init.php        localization             robots.txt  upload
+
+mv admin629yca7kr admin_pres
+
+=========================
+Managing Store
+=========================
+open http://shop.localhost/admin_pres/

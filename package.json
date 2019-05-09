@@ -1,0 +1,63 @@
+{
+  "name": "healight",
+  "version": "1.0.0",
+  "description": "health",
+  "engines": {
+    "node": "latest"
+  },
+  "main": "health.js",
+  "scripts": {
+    "start": "node health.js",
+    "test": "mocha",
+    "sm": "./related/projectStuff/scripts/start-mongodb-servcie.sh",
+    "sr": "./related/projectStuff/scripts/start-redis-by-systemctl.sh",
+    "ss": "./related/projectStuff/scripts/start-stylus.sh",
+    "srm": "./related/projectStuff/scripts/start-redis-manually.sh",
+    "ds": "./related/projectStuff/scripts/running.sh",
+    "em": "./related/projectStuff/scripts/end-mongodb-servcie.sh",
+    "er": "./related/projectStuff/scripts/end-redis.sh",
+    "ea": "./related/projectStuff/scripts/end-all.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mlibre/healight"
+  },
+  "keywords": [
+    "health",
+    "salamati"
+  ],
+  "author": "mlibre",
+  "license": "not decided yet",
+  "dependencies": {
+    "animate.css": "^3.6.1",
+    "async": "^2.6.0",
+    "body-parser": "^1.18.2",
+    "chance": "^1.0.13",
+    "chart.js": "^2.7.2",
+    "connect-redis": "^3.3.3",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.7",
+    "express": "^4.16.3",
+    "express-fileupload": "^0.4.0",
+    "express-session": "^1.15.6",
+    "geoip-lite": "^1.2.1",
+    "i18n": "^0.8.3",
+    "jshashes": "^1.0.7",
+    "mkdirp": "^0.5.1",
+    "mongodb": "^3.0.4",
+    "node-tree-data": "0.0.2",
+    "nodemailer": "^4.6.2",
+    "npm": "^5.7.1",
+    "redis": "^2.8.0",
+    "request": "^2.85.0",
+    "rimraf": "^2.6.2"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-shallow-deep-equal": "^1.4.6",
+    "colors": "^1.2.1",
+    "mocha": "^5.0.4",
+    "nodemon": "^1.19.0",
+    "stylus": "^0.54.5"
+  }
+}

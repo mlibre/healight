@@ -1,0 +1,81 @@
+<form id="createArtForm" method="post" action="<%=formActionUrl%>"
+encType="multipart/form-data" onsubmit="<%=formOnSubmit%>">
+
+	<div class="form-group">
+		<label class="Font18px mr-3" for="formArtLang">
+			زبان مقاله
+		</label>
+		<select id="formArtLang" name="formArtLang" class="custom-select w-25 FontIranSans mr-3" onchange=<%=langOnchange%>>
+			<%consV.site.langs.inArray.forEach( (el , i) =>
+			{%>
+				<option value="<%=el%>" <%if(i == 0){%>selected<%}%> ><%=i18n.__(consV.site.langs[el].name)%></option>
+			<%});%>
+		</select>
+	</div>
+
+	<div class="form-group sr-only">
+		<input id="spaceFolderName" name="spaceFolderName" type="text">
+	</div>
+
+	<div class="form-group">
+		<label class="Font18px" for="treeTitle">
+			تیتر
+			<%- include( consV.layouts.questionMark , {QMTitlle: "تیتر سایدبار دانشنامه" , QMContent: "متنی که در نوار سمت راست صفحه ی دانشنامه است"} ) %> 
+		</label>
+		<input id="treeTitle" name="treeTitle" class="form-control" type="text">
+	</div>
+
+	<div class="form-group">
+		<label class="Font18px" for="treeTitle">
+			خلاصه
+			<%- include( consV.layouts.questionMark , {QMTitlle: "meta description" , QMContent: "خلاصه ی مقاله در حداکثر ۱ یا ۲ خط. تا ۳۲۰ کارکتر"} ) %> 
+		</label>
+		<input id="summary" name="summary" class="form-control" type="text">
+	</div>
+
+	<div class="form-group">
+		<label class="Font18px" for="tags">
+			برچسب
+		</label>
+		<input id="tags" name="tags" class="form-control" type="text" value="برچسب مثال">
+	</div>
+
+	<% if(typeof formShowLicense == 'undefined' || formShowLicense == 'y'){%>
+	<div class="form-group">
+		<label class="Font18px" for="formArtResLicType">
+			مجوز
+		</label>
+		<select id="formArtResLicType" name="formArtResLicType" class="custom-select w-25 FontIranSans mr-3">
+			<option value="public_domain">کاملا آزاد</option>
+			<option value="default" selected>پیش فرض</option>
+			<option value="cc0">سی سی ۰</option>
+			<option value="other">دیگر</option>
+		</select>
+	</div>
+	<div class="form-group" style="display: none">
+		<label class="Font18px" for="formArtResLic">
+			مجوز&nbsp
+		</label>
+		<input id="formArtResLic" name="formArtResLic" class="form-control" type="text" value="">
+	</div>
+	<%}%>
+	<div class="form-group">
+		<label class="Font18px" for="editor">
+			مقاله
+		</label>
+		<textarea id="editor" name="articleContent" class="form-control">
+			موفق باشید
+		</textarea>
+	</div>
+	
+	<button id="CreEditArtSubmit" type="submit" class="btn btn-primary col-md-3"><%=formSubmitText%></button>
+</form>
+<!-- Upload file Form. For tinyMce -->
+<form id="uploadImageForm" method="post" action="<%='/' + lang + consV.pages.panel.encyclopedia.uploadFile%>"
+ onsubmit="CEAFSendFile(event)" encType="multipart/form-data" style="display:none;">
+	<input id="spaceFolderAddress" name="spaceFolderAddress" type="text">
+	<input id="file" name="file" type="file"
+	onchange="$('#uploadImageForm').submit();this.value=''">
+	<button type="submit"></button>
+</form>
+<!-- Upload file Form. For tinyMce end -->

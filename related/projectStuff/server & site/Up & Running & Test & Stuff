@@ -1,0 +1,53 @@
+
+=========================
+###Manual run healight####
+=========================
+npm run sm
+pm2 start health.js
+pm2 restart 0
+
+==========================
+test
+==========================
+mocha test/
+
+==========================
+Google
+==========================
+Verification
+-------------------------
+الان با متا تگی که تو هد اضافه کردم. وریفای شدم.
+که گفته با این روش، این متا تگ همین جور باید بمونه.
+webmaster
+-------------------------
+https://www.google.com/webmasters/tools/home?hl=en&authuser=0
+
+
+==========================
+git
+==========================
+hard update:
+git fetch --all
+git reset --hard origin/master
+git pull origin master
+
+==========================
+Telegram
+==========================
+http://t.me/healightBot
+
+==========================
+medium
+==========================
+https://medium.com/@healight
+
+==========================
+vscode setting
+==========================
+ext install syncing
+ctrl + shift + p. syncing: download settings.
+
+==========================
+sync space folder. home with remote.
+==========================
+rsync -av --ignore-existing mlibre@78.47.152.253:/home/mlibre/healight/space/* healight/space/

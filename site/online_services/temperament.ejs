@@ -1,0 +1,242 @@
+<%- include(consV.layouts.head, {also_add: [consV.css.slideshow , consV.css.article,
+consV.css.customBS, consV.css.enc.main, consV.css.enc.sidebar, consV.css.os.temperament, consV.css.circliful],
+pageDes: "وب افزار تشخیص آنلاین هوشمند و هوشمند مزاج اصلی یا طبع"})%>
+<body>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "altPage" , varValue: altPage })%>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "lang" , varValue: lang })%>
+	
+	<%- include(consV.layouts.header)%>
+	<%- include(consV.layouts.sidebar_navbar, {active:[""]})%>
+	<%- include(consV.layouts.navbar , {active:"", stick: false})%>
+
+	<div class="container-fluid">
+		<div class="row">
+			<!-- main -->
+			<main class="col-md-8 ml-md-auto mr-md-4 px-md-0 pl-md-1">
+				<div class="col-md-12 ml-auto px-0">
+					<form class="text_good_black_little">
+						<%- include(consV.layouts.collapsibleQuestion,
+						{
+							artH: "مقدمه",
+							artC: "به وب افزار تشخیص هوشمند طبع (مزاج اصلی) خوش آمدید. با پاسخ دادن به سوالات زیر میتوانید مزاج اصلی خود را بشناسید. نتیجه در سمت راست صفحه قرار دارد و با هر پاسخ به روز میشود. در صورتی که جواب سوالی را نمیدانستید یا در گزینه ها وجود ندارد به آن سوال پاسخ ندهید، یعنی هیچ گزینه ای را انتخاب نکنید. وب افزار هنوز کامل نیست، در آینده کامل میشود.",
+							ARID: "introduction",
+							QMark: 'fa-info'
+						}) %>
+						<div class="mt-4"></div>
+						<%- include(consV.layouts.collapsibleQuestion,
+						{
+							artH: "گرمای بدن با لمس",
+							artC: "وقتی بدن را لمس میکنید احساس گرما میکنید یا سرما؟",
+							ARID: "bodyTemp",
+							inputType: 'radio',
+							radioName: 'bodyTemp',
+							QOptions:
+							{
+								bodyTempHot: ['گرما', 'hand-1.jpg' , 'دست'],
+								bodyTempCold: ['سرما', 'hand-2.jpg' , 'دست']
+							}
+						}) %>
+						<div class="mt-4"></div>
+						<%- include(consV.layouts.collapsibleQuestion,
+						{
+							artH: "نرمی و سختی پوست",
+							artC: "وقتی بدن را لمس میکنید نرمی احساس میکنید یا سختی؟",
+							ARID: "skinSH",
+							inputType: 'radio',
+							radioName: 'skinSH',
+							QOptions:
+							{
+								skinS: ['نرمی', 'female.jpg' , 'زن'],
+								skinH: ['سختی', 'man.jpg' , 'مرد']
+							}
+						}) %>
+						<div class="mt-4"></div>
+						<%- include(consV.layouts.collapsibleQuestion,
+						{
+							artH: "رنگ پوست شما چیست",
+							artC: "مقصود از رنگ پوست بیشتر پوست بدن است.",
+							ARID: "skinColor",
+							inputType: 'radio',
+							radioName: 'skinColor',
+							QOptions:
+							{
+								skinColorWhite: ['سفید', 'girl-white-skin-2.jpg' , 'دختر پوست سفید'],
+								skinColorYellow: ['زرد', 'man-yellow-skin.jpg' , 'مرد'],
+								skinColorDark: ['تیره', 'female-dark-skin.jpg' , 'زن پوست تیره'],
+								DontKnow: ['بین گزینه ها نیست','man-unknown-skin.png']
+							}
+						}) %>
+						<div class="mt-4"></div>
+						<%- include(consV.layouts.collapsibleQuestion,
+						{
+							artH: "آیا پوست شما متمایل به سرخی است",
+							artC: "پوست میتواند زرد باشد اما همینطور مایل به سرخی.",
+							ARID: "redSkinColor",
+							inputType: 'radio',
+							radioName: 'redSkinColor',
+							QOptions:
+							{
+								redSkinColorYes: ['بله', 'girl-red-skin.jpg' , 'دختر پوست سرخ'],
+								redSkinColorNo: ['خیر', 'girl-nonred-skin.jpg' , 'دختر پوست سفید']
+							}
+						}) %>
+						<div class="mt-4"></div>
+						<%- include(consV.layouts.collapsibleQuestion,
+						{
+							artH: "فرم بدنی شما چیست",
+							artC: "منطور استخوان بندی شماست، در صورتی که چهارشانه و عضلانی (نه به خاطر ورزش، بلکه مادر زادی) هستید هیکل را انتخاب کنید.",
+							ARID: "bodyFrom",
+							inputType: 'radio',
+							radioName: 'bodyFrom',
+							QOptions:
+							{
+								broadShoulder: ['هیکل', 'broadShoulder.jpg' , 'مرد شانه های پهن'],
+								bodySizeNormal: ['معمولی' , 'girl-normal.jpg' , 'دختر'],
+								petite: ['ریز اندام و لاغر', 'petite.jpg' , 'پسر لاغر'],
+								DontKnow: ['بین گزینه ها نیست','man-unknown-skin.png']
+							}
+						}) %>
+						<div class="mt-4"></div>
+						<%- include(consV.layouts.collapsibleQuestion,
+						{
+							artH: "چاق هستید یا لاغر",
+							artC: "در صورتی که شکم دارید و تپل هستید چاق را انتخاب.",
+							ARID: "belly",
+							inputType: 'radio',
+							radioName: 'belly',
+							QOptions:
+							{
+								fat: ['چاق', 'fat.jpg'],
+								weightNormal: ['معمولی' , 'girl-normal-2.jpg' , 'دختر'],
+								thin: ['لاغر', 'thin.jpg', 'دختر'],
+								DontKnow: ['بین گزینه ها نیست','man-unknown-skin.png' , 'آواتار']
+							}
+						}) %>
+						<div class="mt-4"></div>
+						<%- include(consV.layouts.collapsibleQuestion,
+						{
+							artH: "آیا آب و چربی در بدن شما جمع شده",
+							artC: "در صورتی که زیر بغل، کنار ران ها، پهلوها، زیر بازو بافت ژله ای (آب و چربی) اجتماع کرده است انتخاب کنید.",
+							ARID: "lipid",
+							inputType: 'radio',
+							radioName: 'lipid',
+							QOptions:
+							{
+								lipidYes: ['بله', 'lipid.jpg'],
+								lipidNo: ['خیر', 'girl-thin.jpg']
+							}
+						}) %>
+						<div class="mt-4"></div>
+						<%- include(consV.layouts.collapsibleQuestion,
+						{
+							artH: "رنگ موی شما چگونه است",
+							artC: "درصورتی که موهای شما روشنی دارد روشن و در صورتی که ندارد تیره را انتخاب کنید",
+							inputType: 'radio',
+							radioName: 'hairBrightness',
+							QOptions:
+							{
+								hair_dark: ['تیره', 'girl-hair-dark.jpg'],
+								hair_bright: ['روشن', 'girl-hair-bright.jpg']
+							}
+						}) %>
+						<div class="mt-4"></div>
+						<%- include(consV.layouts.collapsibleQuestion,
+						{
+							artH: "آیا موی سر پر کلاغی و پای پرمو با موی ضخیم دارید؟",
+							artC: "",
+							ARID: "strongBlackHair",
+							inputType: 'radio',
+							radioName: 'strongBlackHair',
+							QOptions:
+							{
+								strongBlackHairYes: ['بله', 'man-strong-black-hair.jpg'],
+								strongBlackHairNo: ['خیر', 'man-unknown-skin.png']
+							}
+						}) %>
+						<div class="mt-4"></div>
+						<%- include(consV.layouts.collapsibleQuestion,
+						{
+							artH: "فرم موی شما چگونه است",
+							artC: "",
+							ARID: "hairForm",
+							inputType: 'radio',
+							radioName: 'hairForm',
+							QOptions:
+							{
+								curlyHair: ['مجعد', 'woman-curly-hair.jpg'],
+								straightHair: ['صاف', 'girl-hair-bright.jpg']
+							}
+						}) %>
+						<div class="mt-4"></div>
+						<%- include(consV.layouts.collapsibleQuestion,
+						{
+							artH: "ضخامت موی شما چگونه است",
+							artC: "",
+							ARID: "hairThickness",
+							inputType: 'radio',
+							radioName: 'hairThickness',
+							QOptions:
+							{
+								hairThick: ['ضخیم', 'thick-hair.jpg'],
+								hairThin: ['نازک', 'thin-hair.jpg']
+							}
+						}) %>
+						<div class="mt-4"></div>
+						<%- include(consV.layouts.collapsibleQuestion,
+						{
+							artH: "بلندی یا کوتاهی موی شما چگونه است",
+							artC: "منظور موی بدن است، مانند موی دست",
+							ARID: "hairlenght",
+							inputType: 'radio',
+							radioName: 'hairlenght',
+							QOptions:
+							{
+								hairLong: ['بلند', 'man-hair-long.jpg'],
+								hairShort: ['کوتاه', 'thin-hair.jpg']
+							}
+						}) %>
+						<div class="mt-4"></div>
+						<%- include(consV.layouts.collapsibleQuestion,
+						{
+							artH: "تراکم موی بدن شما چگونه است",
+							artC: "",
+							ARID: "hairTDensity",
+							inputType: 'radio',
+							radioName: 'hairTDensity',
+							QOptions:
+							{
+								hairLowDensity: ['کم مو', 'thin-hair.jpg'],
+								hairHighDensity: ['پرمو', 'thick-hair.jpg']
+							}
+						}) %>
+						<div class="mt-4"></div>
+						<%- include(consV.layouts.collapsibleQuestion,
+						{
+							artH: "نتیحه",
+							artC: "نمودار پایین (در گوشی های همراه) و یا سمت راست (در لپتاپ ها و ..) نشان دهنده ی میزان گرمی، سردی، تری و خشکی طبع شماست. پیشنهاد ما این است مقاله <a href='http://healight.green/fa/encyclopedia/medicine/temperament/?tree_nodeid=587e4bc26e4949483846ec50'>مزاج شناسی</a> را برای شناخت خصوصیات طبع خود بخوانید. همچنین در صورت نیاز برای تعدیل و یا درمان مقاله های زیر مجموعه <a href='http://healight.green/fa/encyclopedia/medicine/temperament/?tree_nodeid=587e4bc26e4949483846ec50'>مزاج شناسی</a> رو میتوانید بررسی کنید.",
+							ARID: "result",
+							QMark: 'fa-ravelry'
+						}) %>
+						<div class="d-flex flex-row justify-content-around sr-only">
+							<button type="submit" class="btn btn-primary FontIranSansBold col-md-3 mt-3 cursorPointer">مشاهده نتیحه نهایی</button>
+						</div>
+					</form>
+				</div>
+			</main>
+			<!-- main end -->
+			<!-- sidebar -->
+			<div style="z-index: 2;" class="col-md-3 mx-0 ml-4 px-0 mt-4 mt-md-0">
+				<div class="sticky-top">
+					<%- include(consV.layouts.os.temperament.sidebar) %>
+				</div>
+			</div>
+			<!-- sidebar end -->
+		</div>
+	</div>
+	<%- include(consV.layouts.footer, {OverlayOnClick: "closeSN()"})%>
+	<!-- scripts -->
+	<%- include(consV.layouts.scripts ,
+	{also_add:[consV.js.main, consV.js.sign, consV.js.framework.circliful,
+	consV.js.os.temperament]})%>
+	
+</html>

@@ -1,0 +1,57 @@
+<%- include( consV.layouts.head , {also_add:[consV.css.os.home, consV.css.boxes,
+consV.css.customBS]})%>
+<body>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "altPage" , varValue: altPage })%>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "lang" , varValue: lang })%>
+	
+	<%- include( consV.layouts.header , {search_in:"دانشنامه"})%>
+	<%- include(consV.layouts.sidebar_navbar, {active:["enc", "encyclopedias"]})%>
+	<%- include( consV.layouts.navbar , {active:"encyclopedia"})%>
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<!-- main -->
+			<main class="col-md-11 px-1">
+				<!-- morba ha -->
+				<div class="WaveBox_con">
+					<div class="py-4" style="width:100%; height: 50%;overflow: hidden">
+						<ul class="FlexCen">
+							<div class="WaveBox sr-only">
+								<a href="#">
+									<div class="wave_one"></div>
+									<div class="wave_two"></div>
+									<div class="WaveBox_title">تست</div>
+								</a>
+							</div>
+							<div class="WaveBox sr-only">
+								<a href="#">
+									<div class="wave_one"></div>
+									<div class="wave_two"></div>
+									<div class="WaveBox_title">تست</div>
+								</a>
+							</div>
+							
+							<div class="WaveBox">
+								<a href="<%='/' + lang + consV.pages.online_services.temperament%>">
+									<div class="wave_one"></div>
+									<div class="wave_two"></div>
+									<div class="WaveBox_title">طبع شناسی</div>
+								</a>
+							</div>
+							
+						</ul>
+					</div>
+				</div>
+				<!-- morba ha end -->
+			</main>
+			<!-- main end -->
+		</div>
+	</div>
+
+	<%- include(consV.layouts.footer, {OverlayOnClick: "closeSN()"})%>
+	<!-- scripts -->
+	<%- include(consV.layouts.scripts , {also_add:[consV.js.main, consV.js.sign]}) %>
+	
+	<!-- scripts end -->
+
+</body>
+</html>

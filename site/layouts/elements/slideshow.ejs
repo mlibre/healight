@@ -1,0 +1,48 @@
+<!-- slideshow -->
+<div id="slideshow" class="slideshow text_good_black">
+	<% if(typeof slideshows != 'undefined' && slideshows != null)
+	{
+		slideshows.forEach(function(el , i)
+		{%>
+		<a href="<%=el.url%>">
+			<img id="slide_show_image_<%=i%>" class="img-fluid m-auto" src="/<%=el.image_add%>" alt="<%=el.image_alt%>"
+				<%if (i != 0){%>
+				style="display:none"
+				<%}%>
+			>
+		</a>
+	<% });%>
+
+	<span id="nextSlideArrow" class="fa-stack fa-2x Font1d75rem d-block d-sm-none">
+		<i class="fas fa-square fa-stack-2x"></i>
+		<div class="fas fa-arrow-left fa-stack-1x fa-inverse"></div>  
+	</span>
+	<span id="prevSlideArrow" class="fa-stack fa-2x Font1d75rem d-block d-sm-none">
+		<i class="fas fa-square fa-stack-2x"></i>
+		<div class="fas fa-arrow-right fa-stack-1x fa-inverse"></div>  
+	</span>
+	
+	<div id="bottom_slideshow_part_mobile" class="slideshow_B rtlDir d-block d-sm-none">
+		<ul class="FlexCen">
+			<div class="text-center"><%= slideshows[0].Title %></div>
+			<% for(var i = 1 ; i < Object.keys(slideshows).length ; i++)
+			{
+				%><div class="text-center d-none"><%= slideshows[i].Title %></div><%
+			}
+			%>
+		</ul>
+	</div>
+	
+	<div id="bottom_slideshow_part" class="slideshow_B rtlDir d-none d-sm-block">
+		<ul class="FlexCen">
+			<div href="<%=slideshows[0].url%>" class="slideshow_AS text-center"><%= slideshows[0].title %></div>
+			<% for(var i = 1 ; i < Object.keys(slideshows).length ; i++)
+			{
+				%><div class="text-center"><%= slideshows[i].title %></div><%
+			}
+			%>
+		</ul>
+	</div>
+	<%}%>
+</div>
+<!-- slideshow end -->

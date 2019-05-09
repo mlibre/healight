@@ -1,0 +1,33 @@
+<!-- navbar -->
+<nav class="navbar navbar-expand-md bg-light p-0 noXBorder navbar_custom text_good_black_little d-none d-md-flex <%if (typeof stick!= 'undefined' && stick==true){%>sticky-top<%}%>">
+	<ul class="nav navbar-nav mx-auto rtlDir">
+		
+		<li class="nav-item sr-only">
+			<a class="nav-link" href="<%=consV.host.shop%>"><%=i18n.__("فروشگاه")%></a>
+		</li>
+
+		<li class="nav-item <% if (active=='home'){ %>active<%}%>">
+			<a class="nav-link" href="<%='/' + lang%>"><%=i18n.__("خانه")%></a>
+		</li>
+
+		<%Object.keys(consV.database.enc).forEach(key =>
+		{
+			if(typeof consV.database.enc[key].CollName != 'undefined')
+			{
+				%><li class="nav-item <% if (active==consV.database.enc[key].name){%>active<%}%>">
+					<a class="nav-link" href="<%='/' + lang + consV.pages.portals[key]%>"><%=i18n.__(consV.database.enc[key].title)%></a>
+				</li><%
+			}
+		});%>
+		<li class="nav-item <% if (active=="encyclopedia"){ %>active<%}%>" style="border-right: 2px groove lightgray">
+			<a class="nav-link" href="<%='/' + lang + consV.pages.online_services.home%>"><%=i18n.__("خدمات آنلاین")%></a>
+		</li>
+		<li id="edu" class="nav-item">
+			<a class="nav-link" href="#"><%=i18n.__("آموزش")%></a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="#"><%=i18n.__("دانلود")%></a>
+		</li>
+	</ul>
+</nav>
+<!-- navber end -->

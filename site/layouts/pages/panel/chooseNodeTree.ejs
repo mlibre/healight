@@ -1,0 +1,27 @@
+<label class="Font18px" for="chooseNodeEnc">
+	دانشنامه
+</label>
+<select id="chooseNodeEnc" name="chooseNodeEnc" class="custom-select FontIranSans mr-2" onchange="chooseNodeEncChenged();">
+	<%Object.keys(consV.database.enc).forEach( (key,i) =>
+	{
+		if(typeof consV.database.enc[key].CollName != 'undefined')
+		{
+			%>
+				<option value="<%=consV.database.enc[key].CollName%>" <%if (i == 0){%>selected<%}%> ><%=i18n.__(consV.database.enc[key].title)%></option>
+			<%
+		}
+	});%>
+</select>
+<label class="Font18px mr-2" for="chooseNodeLang">
+	زبان مقاله
+</label>
+<select id="chooseNodeLang" name="chooseNodeLang" class="custom-select FontIranSans mr-2" onchange="chooseNodeLangChenged();">
+	<%consV.site.langs.inArray.forEach( (el , i) =>
+	{%>
+		<option value="<%=el%>" <%if(i == 0){%>selected<%}%> ><%=i18n.__(consV.site.langs[el].name)%></option>
+	<%});%>
+</select>
+<input id="selectedNodeInput" name="selectedNodeInput" value="" style="display: none" type="text">
+<div id="nodeTree" class="container col-md-12 mt-4 EncTree">
+	
+</div>

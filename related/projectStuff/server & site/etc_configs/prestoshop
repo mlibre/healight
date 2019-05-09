@@ -1,0 +1,50 @@
+## copied not my license
+## https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-in-ubuntu-16-04
+# copied. licensed maybe. need to be rewrite
+
+server {
+	listen 80;
+	listen [::]:80;
+
+	root /home/mlibre/healight/shop.healozhen.green/;
+	server_name shop.healight.green;
+
+	index index.php index.html;
+
+	access_log /var/log/nginx/access.log;
+	error_log /var/log/nginx/error.log;
+
+	gzip on;
+	gzip_disable "msie6";
+	gzip_vary on;
+	gzip_proxied any;
+
+	rewrite ^/[a-zA-Z][a-zA-Z]/(index\.php.*)$ /$1 last;
+	rewrite ^/api/?(.*)$ /webservice/dispatcher.php?url=$1 last;
+	rewrite ^/([0-9])(-[_a-zA-Z0-9-]*)?(-[0-9]+)?/.+.jpg$ /img/p/$1/$1$2$3.jpg last;
+
+	location /admin_pres/ {
+		if (!-e $request_filename) {
+			rewrite ^/.*$ /admin_pres/index.php last;
+		}
+	}
+
+   location / {
+		if (!-e $request_filename) {
+			rewrite ^/.*$ /index.php last;
+		}
+   }
+
+	location ~ /\. {
+		deny all;
+		access_log off;
+		log_not_found off;
+	}
+
+	location ~ .php$ {
+		fastcgi_split_path_info ^(.+.php)(/.*)$;
+		include snippets/fastcgi-php.conf;
+		fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+		fastcgi_keep_conn on;
+	}
+}

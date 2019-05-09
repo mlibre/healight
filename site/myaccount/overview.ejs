@@ -1,0 +1,27 @@
+<%- include(consV.layouts.head , {also_add:[consV.css.material_dashboard],
+pageDes :"هیلایت . نمای کلی اکانت"})%>
+<body id="materialDashboard" class="">
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "altPage" , varValue: altPage })%>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "lang" , varValue: lang })%>
+	<div class="wrapper">
+		<%- include(consV.layouts.myaccount.sidebar , {active: 'dashboard'}) %>
+		<div class="main-panel">
+			<%- include(consV.layouts.myaccount.navbar , {pageText: "نمای کلی"}) %>
+			<div class="content">
+				<div class="container-fluid">
+					<div class="row">
+					</div>
+				</div>
+			</div>
+			<%- include(consV.layouts.myaccount.footer) %>
+		</div>
+	</div>
+</body>
+<%- include(consV.layouts.scripts,
+{
+    also_add:[consV.js.sign, consV.js.material_dashboard.bootstrap,
+    consV.js.material_dashboard.arrive,	consV.js.material_dashboard.bootstrapNotify,
+    consV.js.material_dashboard.chartist, consV.js.material_dashboard.perfectScrollbarJquery,
+    consV.js.material_dashboard.demo, consV.js.material_dashboard.main]
+})%>
+</html>

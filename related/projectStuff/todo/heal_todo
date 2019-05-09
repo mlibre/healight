@@ -1,0 +1,120 @@
+profile shakhsi.
+blog shaksi
+===
+navbar_sidebr=>
+translate google un payin miad jalebe. piade sazi kon.
+===
+ دوره های آموزشی طب
+===
+ساخت قسمت ترجمه
+dota lastmodified bayad dashte bashi. yeki mamuli, yeki en.
+age LM jadidtar az LM_en bud yani mahale bayad dobare tarjome beshe.
+===
+ghesmate tayin mataleb tavasote manba. trusted users.
+===
+age sehate manba barrasi shode bud, abi beshe.
+age khude manba tayid kard sabz beshe.
+===
+بر اساس سوالی که از آرش کردم. شاید باید همه ی توابع رو مثل
+/home/mlibre/health/routes/panel/encyclopedia/resources.js
+درست کنم. بعدا
+===
+approving_state 3 halate behse.
+-1 ke barasi nahsoe . faghat ezafe shode.
+0 ke barasi shode.
+1 khude man tayid karde.
+tu panel/encyclopedia/resources
+approving_state neshun dadde nemishe:
+1- enja ham neshun dade beshe.
+2- age sabt ro zad be hamrahe baghie etelat samte database bere va $set beshe.
+3- pish farze vaghti manva ru misaz approving_state: 0 tu database gozashte beshe.
+====
+قوانین وب سایت
+قسمتی از مطالب را که با پزشکی مدرن تفاوت دارد را نمیگذارد.
+قسمتی از مظالب که مخالف کامل با پزشکی مدرن داشته باشد در وب سایت نخواهد بود
+قسمتی از مطالب که با کشتن مسقتیم حیوانات و گیاهان سروکار دارد نخواهد بود
+===
+sehat matlab tavasot manba.
+age article edit beshe bargarde be halate aval.
+===
+footeresh rang amizish jaleb bud
+http://preview.themeforest.net/item/bloginn-bold-theme-for-jekyll/full_screen_preview/15504914?ref=gundoel007&clickthrough_id=1021335603&redirect_back=true
+===
+هر منبعی یک صفحه ی خوشگل داشته با توضیحات کامل
+===
+location bar beshe rushun click kard. vali abi shun nakon. hamin rangi.
+faghat esharegar dast beshe. tavajoh nare rush. ham inke havas part nakone
+===
+document risharo nashe jazf kard.
+===
+panel. har vaght matlabe jadidi ro entekhab kard, etelat form pak beshe. ke ta vaghti
+ke etelaate form jadid mirese pak neshun bede.
+===
+log kardan etelaat marbut be har talash login , ....
+===
+etelaate whois domain ro male khudet ro bezar.
+vps dafeye baad => iranserver, هلند.
+===
+entekhab daneshname barayae search. ke tu google cosutm search
+/encyclopedia/medicine/* ro joda misazi be name maslan healight-medicine.
+age maslan medicine baraye search entekhab shode bud. faghat kafie
+tu searchRes.ejs. avalesh include ezafe kolni. ke kodum
+code google ro include kone.
+har code google ye file vasash sakhti masalan.
+<$ include ( enc )%> ke enc post ye moteghare ke post shode. az tu req.body.enc baresh midari
+====
+use https://www.npmjs.com/package/winston or https://www.npmjs.com/package/bunyan for logging.
+async logging. chizi ke alan bahash log mikonam. yani hamun console.log khudesh. block mikone ta vaghti ti file berzie.
+ena na.
+===
+app andoird site
+===
+دیدگاه خود را ارسال کنید. اخر مقاله ها
+===
+7ganj.ir nokate mosbati dasht.
+samte rast aval mataleb pishnahadi ro bezaram. baad tablighat.
+menu ro vaghto miad payin be balaye safhe nechasbunam. va search ro ham iconesh
+ro akharesh bezaram. ranghaye botton hash shade. shayad betunma yekam rang haro
+shad tar konam.
+mataleb pishnahadi.
+===
+error tu halti pish miad ke pedare yek bacharo virayesh konim va moghee gharar dadan
+bezarimesh zir majmueye pesar ke loop pish miad va barname ta akhar mimone.
+ke bayad tashkis bedi va pedar pedar ro bezari jaye pedare pesar.
+===
+button مشاهده ی مقاله در وب سایت
+تو دانشنامه. قسمت ویرایش
+===
+vase choosenode ye tabeyi benevis ke nodeid begire derakhte choosnode ro baz kone va node ro sabz kone
+===
+tarjone maghaleha be zabane englisi va afzayesh rank.
+===
+نشان دادن نویسنده های مطلب با رفتن روی ادمک
+===
+windows.omload haro tajayi ke mituni hazf kon
+====
+اضافه کردن مزاج شناسی انلاین.
+روانشانسی و توضیح مختصر در باره مزاج
+===
+لایسنسی که الان استفاده میشه تجاری پروژه کوچک
+بررسی کن لایسنس نامحدود ۱ ملیون.
+http://fontiran.com/فونت-ایران-یکان-iran-yekan/
+===
+dureye amuzesh linux tu blog va fprushgah amuzesh.
+===
+automatic restart on kernel panic
+===
+فهرست بالا سمت چی مقاله نمایش داده بشه. کوچیک. فونت کوچیک. خود کلمه ی فهرست فقط خوانا باشه
+بشه بزرگش کرد. که مثل الان میشه. یا مخفیش کرد که یه دکمه میشه گوشه بالا سمت چپ مقاله.
+تو گوشی دکمه میشه میاد زیر دکمه ی منو
+===
+1 server asli tu swis masalan. 3 ta server dg ke hamishe ba server rsync mikonan khodeshun ro.
+panel faghat az tarigh server asli baz mishe. etelaat faghat az tarigh server asli eslah ezafe ya ... mishe.
+baad ke in harkat ro zadi. 2 ta safheye clouad flare ro ke bookmark kardam ro bekhun.
+load balancing clouadflare.
+===
+footer satr kamelan vasat nist
+===
+dokeye refres baraye tab shenasi
+===
+رباط مدیوم هم بنویس مث تلگرام

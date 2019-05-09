@@ -1,0 +1,49 @@
+<%- include(consV.layouts.head , {also_add: [consV.css.slideshow , consV.css.article,
+consV.css.customBS], pageDes: consV.site.des})%>
+<body>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "altPage" , varValue: altPage })%>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "lang" , varValue: lang })%>
+	
+	<%- include(consV.layouts.header)%>
+	<%- include(consV.layouts.sidebar_navbar, {active:["home"]})%>
+	<%- include(consV.layouts.navbar , {active:"home", stick: true})%>
+
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<!-- main -->
+			<main class="col-md-8 ml-md-5 pl-md-1 pr-md-0">
+				<%- include(consV.layouts.slideshow ,
+				{
+					slideshows: slideshows
+				})%>
+				<div class="mt-4"></div>
+				<%- include(consV.layouts.article , {artH: LA.treeTitle[lang] , artC: LA.content[lang] , artL: "آخرین مقاله", artURL: LA.url , artReadMoreB: true}) %>
+				<% if( TA != null)
+				{
+					%>
+					<div class="mt-4"></div>
+					<%- include(consV.layouts.article , {artH: TA.treeTitle[lang] , artC: TA.content[lang] , artL: "مقاله&#8239;ی روز" , artURL: TA.url , artReadMoreB: true}) %><%
+				}%>
+			</main>
+			<!-- main end -->
+			<!-- sidebar -->
+			<div class="col-md-3 ml-4 mr-3">
+				<div id="aside_container">
+					<%- include(consV.layouts.telegram) %>
+					<div class="my-3"></div>
+					<%- include(consV.layouts.temperament) %>
+					<div class="my-3"></div>
+					<%- include(consV.layouts.ad,
+					{
+						imageAD: 'ad.jpg'
+					})
+					%>					
+				</div>
+			</div>
+			<!-- sidebar end -->
+		</div>
+	</div>
+	<%- include(consV.layouts.footer, {OverlayOnClick: "closeSN()"})%>
+	<!-- scripts -->
+	<%- include(consV.layouts.scripts , {also_add:[consV.js.main , consV.js.hammer, consV.js.slideshow, consV.js.sign]})%>
+</html>

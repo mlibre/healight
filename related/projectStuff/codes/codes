@@ -1,0 +1,37 @@
+=======================
+callback baraye exec async(eventi) piade sazi shode. agar respond ro dar callback exec gharar bedi
+safhe vaghti baz mishe ke exec tamum beshe. va safhe haye dg block nemishe. movazi mishan.
+
+exec("something" , function(error , stdout , stderr)
+{
+    response.writeHead(200,{"Content-Type":"text/plain"});
+    response.write(stdout);
+    response.end();
+});
+=======================
+let full_address = req.protocol + "://" + req.headers.host + req.originalUrl;
+=======================
+dropdown navbar
+<li class="dropdown nav-item">
+			<a style="user-select: none" class="nav-link dropdown-toggle cursorPointer" data-toggle="dropdown">
+				<span style="font-size:10px" class="fa fa-chevron-down"></span>
+				&nbspسلامتی خانمها
+			</a>
+			<ul class="dropdown-menu dropdown-menu-right">
+				<a class="dropdown-item" href="#">صفحه ی اصلی</a>
+				<div class="dropdown-divider"></div>
+				<a class="dropdown-item" href="#" خانمها</a>
+				<a class="dropdown-item" href="#">سلامتی خانمها</a>
+			</ul>
+		</li>
+=======================
+code ezafe kkardane nevisande be maghale
+db.encyclopedia_sickness.findOneAndUpdate
+{
+	_id: ObjectId("aaa")
+},
+{
+    $addToSet:{
+        "owners": "59afe6cbbd5a340604b9bf1d"
+	 }
+})
