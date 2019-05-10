@@ -1,7 +1,7 @@
 $(document).ready(function()
-{	
+{
 	$.get("/helper/user_region", function response(country)
-	{		
+	{
 		var ti = '<span id="remSign" class="fa fa-times cursorPointer" onclick="hideLanPop()"></span>';
 		var dontShowAgainEn = "<div class='ltrDir'><a id='dontShowLanPop' href='#' onclick='dontShowLanPopAgain()'>Dont show this again</a></div>";
 		var dontShowAgainFa = "<div class='rtlDir'><a id='dontShowLanPop' href='#' onclick='dontShowLanPopAgain()'>این پیام رو دیگه نیار</a></div>";
@@ -15,8 +15,6 @@ $(document).ready(function()
 		{
 			if( typeof dontGenAltPage == 'undefined' || (typeof dontGenAltPage != 'undefined' && dontGenAltPage['en'] != true) )
 			{
-				console.log(altPage.en);
-				
 				$('#lanPop').attr('data-original-title',`Looking for page in English? ${ti}`);
 				$('#lanPop').attr('data-content', `<p><a href="${altPage.en}">Change to English</a></p>` + dontShowAgainFa);
 				$('#lanPop').popover('show');
