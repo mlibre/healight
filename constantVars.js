@@ -225,6 +225,7 @@ webApi.home = '/web_services';
 
 webApi.getSlideShow = webApi.home + '/getSlideShow';
 webApi.setSlideShow = webApi.home + '/setSlideShow';
+webApi.getLocalTrans = webApi.home + '/getLocalTrans';
 pages.panel.adminStuff.nonArtsTelList_WA = pages.panel.adminStuff.home + "/WS/nonArtsTelList_WA";
 pages.panel.adminStuff.nonArtTelAdd_WA = pages.panel.adminStuff.home + "/WS/nonArtTelAdd_WA";
 pages.panel.adminStuff.nonArtTelDel_WA = pages.panel.adminStuff.home + "/WS/nonArtTelDel_WA";
@@ -364,6 +365,8 @@ js.panel.adminStuff.resTrusUsers = '/js/JS/pages/panel/adminStuff/resTrusUsers.j
 js.panel.adminStuff.leg = '/js/JS/pages/panel/adminStuff/leg.js';
 js.panel.adminStuff.nonArtTel = '/js/JS/pages/panel/adminStuff/nonArtTel.js';
 js.panel.adminStuff.perm = '/js/JS/pages/panel/adminStuff/perm.js';
+js.panel.translate = {};
+js.panel.translate.text = '/js/JS/pages/panel/transalte/text.js';
 js.material_dashboard = {};
 js.material_dashboard.bootstrap = '/framework/material-dashboard-v2.0.0/assets/js/bootstrap-material-design.min.js';
 js.material_dashboard.main = '/framework/material-dashboard-v2.0.0/assets/js/material-dashboard.js';
@@ -412,6 +415,7 @@ methods.fix_or_maintain = rootPath + '/methods/fix_or_maintain.js';
 exports.methods = methods;
 /**************************** Space ****************************/
 let space = {};
+space.locales = {};
 
 space.relPath = './space/';
 space.articlesFolderName = 'articles/';
@@ -419,6 +423,8 @@ space.resourcesFolderName = 'resources/';
 space.siteFolderName = 'site/';
 space.slideshowFolderName = 'slideshow/';
 space.onlineServicesFolderName = 'online_services/';
+
+space.locales = rootPath + '/public/locales/';
 
 exports.space = space;
 /**************************** Codes ****************************/
