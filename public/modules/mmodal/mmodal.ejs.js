@@ -16,7 +16,7 @@ function successMmodal(text)
 	$('#modal_message').text(text);
 	$('#mmodal_dot').css('animation','none');
 	$('#mmodal_dot').removeClass();
-	$('#mmodal_dot').addClass('fa fa-smile-o');
+	$('#mmodal_dot').addClass('far fa-smile');
 	$('.mmodal_step').css('display','none');
 }
 function failMmodal(text)
@@ -24,7 +24,7 @@ function failMmodal(text)
 	$('#modal_message').text(text);
 	$('#mmodal_dot').css('animation','none');
 	$('#mmodal_dot').removeClass();
-	$('#mmodal_dot').addClass('fa fa-frown-o');
+	$('#mmodal_dot').addClass('far fa-frown');
 	$('.mmodal_step').css('display','none');	
 }
 
