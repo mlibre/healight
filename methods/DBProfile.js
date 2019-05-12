@@ -49,20 +49,25 @@ exports.signUp = function signUp(email , password , Lang , cbf)
 	});
 }
 
-exports.editUserInfo = async function editUserInfo(userId, formVars , cbf)
+exports.editUserInfo = function editUserInfo(userId, formVars, cbf)
 {
 	const avai_data = Object.assign(formVars);
 	userId = new ObjectID (userId);
-	let db = database.GetConnSync();
-	let collection = await db.collection('users');
-	let err, result = collection.findOneAndUpdate
-	({
-		_id: userId
-	},
+	database.GetConnAsync(function(db)
 	{
-		$set: avai_data
+		let collection = db.collection('users');
+		collection.findOneAndUpdate
+		({
+			_id: userId
+		},
+		{
+			$set: avai_data
+		},
+		function (err, result)
+		{
+			cbf(err, result);
+		});
 	});
-	return err, result;
 }
 
 exports.usersList = function usersList(cbf)
@@ -152,8 +157,8 @@ exports.setUserPerm = function setUserPerm(nodeId, perms, cbf)
 {
 	database.GetConnAsync(function(db)
 	{
-		delete perms.nodeId;	
-		nodeId = new ObjectID (nodeId);	
+		delete perms.nodeId;
+		nodeId = new ObjectID (nodeId);
 		let collection = db.collection('users');
 		collection.findOneAndUpdate
 		({
