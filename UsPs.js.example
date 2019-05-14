@@ -9,9 +9,9 @@ exports.admin.password = "pass";
 exports.admin.email = "mail@mail.org";
 exports.admin.lang = "en";
 
-exports.mongo_username = 'mongo_username';
-exports.mongo_password = 'mongo_password';
-exports.mong_dbName = 'dbname';
+exports.mongo_username = 'mlibre';
+exports.mongo_password = 'SpecialPassword';
+exports.mong_dbName = 'health';
 
 exports.peojectMail = 'email@mail.com';
 exports.peojectMailPass = 'emailPassword';

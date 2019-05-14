@@ -1,7 +1,7 @@
 <%- include(consV.layouts.head , {also_add:[consV.css.enc.main,
 consV.css.enc.sidebar, consV.css.article, consV.css.customBS,
 consV.css.approveRate, consV.css.artTags, consV.css.resources,
-consV.css.tag], pageDes:findTreeNode(target_node_id).data.summary[lang]})%>
+consV.css.tag], pageDes:findPageDes(target_node_id)})%>
 <body>
 	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "dontGenAltPage" , varValue: dontGenAltPage })%>
 	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "canonicalUrl" , varValue: canonicalUrl })%>
@@ -65,12 +65,22 @@ consV.css.tag], pageDes:findTreeNode(target_node_id).data.summary[lang]})%>
 <%
 function findTreeNode(tnId)
 {
+	console.log("HIIIIIIIIIIII", nodes);
 	for (let key in nodes)
 	{
+		console.log(nodes[key].data);
 		if(nodes[key].data._id == tnId)
 		{
 			return nodes[key];
 		}
 	};
+}
+function findPageDes(tnId)
+{
+	let tnIdNode = findTreeNode(tnId)
+	if( typeof tnIdNode.data.summary != "undefined" )
+	{
+		return findTreeNode(tnId).data.summary[lang];
+	}
 }
 %>

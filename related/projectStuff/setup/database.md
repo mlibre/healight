@@ -13,7 +13,7 @@ db.createUser(
 	user: 'admin',
 	pwd: 'SpecialPassword',
 	roles: [ {role: 'root' , db:'admin'},
-			 {role: 'userAdminAnyDatabase' , db:'admin'} ]
+	{role: 'userAdminAnyDatabase' , db:'admin'} ]
 });
 ```
 ### Exit the shell and kill the proccess:

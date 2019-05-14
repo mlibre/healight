@@ -26,9 +26,9 @@ The project is written in Nodejs & MongoDB. Read [Healight Story](#healight-stor
 5. Rename `UsPs.js.example` to `UsPs.js`. and fill the fields.
 6. Create database: Read `Initiate DataBase` section from [database setup](https://github.com/mlibre/healight/blob/master/related/projectStuff/setup/database.md)
 7. Run services:
-..* Start MongoDB Service: `npm run sm`
-..* Start Redis Service **by systemctl**: `npm run sr` or **manually**: `npm run srm`
-..* Start Stylus Service: `npm run ss`
+* Start MongoDB Service: `npm run sm`
+* Start Redis Service **by systemctl**: `npm run sr` or **manually**: `npm run srm`
+* Start Stylus Service: `npm run ss`
 8. Start App via **nodemon**: `npm run ds` or just **node**: `node health.js` 
 
 ## Links

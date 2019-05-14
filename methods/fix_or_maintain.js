@@ -47,8 +47,9 @@ exports.createRoots = function createRoots()
 					"treeTitle" : {},
 					"content" : {},
 					"resources": {},
-					"licenseType" : {},
-					"licenseText" : {},
+					"license" : {},
+					"license.type" : null,
+					"license.text" : null,
 					"tags" : {},
 					"approved_by_users": [],
 					"rejected_by_users": {},
@@ -60,8 +61,6 @@ exports.createRoots = function createRoots()
 					sample['tags'][langEl] = null;
 					sample['content'][langEl] = "sample data";
 					sample['treeTitle'][langEl] = el.name;
-					sample['licenseType'][langEl] = null;
-					sample['licenseText'][langEl] = null;
 				});
 				collection.findOneAndUpdate
 				({
