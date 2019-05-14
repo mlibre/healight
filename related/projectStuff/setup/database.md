@@ -16,13 +16,13 @@ db.createUser(
 	{role: 'userAdminAnyDatabase' , db:'admin'} ]
 });
 ```
-### Exit the shell and kill the proccess:
+#### Exit the shell and kill the proccess:
 ```bash
 # perss: Ctrl + D;
 fg # enter fg
 # press: Ctrl + C;
 ```
-### Now lets create a user
+#### Now lets create a user
 ```bash
 mongod --auth --port 27017 --dbpath=. &> /dev/null &
 mongo --port 27017 -u "admin" -p "SpecialPassword" --authenticationDatabase "admin"
@@ -35,8 +35,7 @@ db.createUser(
 	roles: [ {role: 'readWrite' , db:'health'} ]
 });
 ```
-
-### Exit the shell, kill the proccess and back to the main directory:
+#### Exit the shell, kill the proccess and back to the main directory:
 ```bash
 # perss: Ctrl + D;
 fg # enter fg

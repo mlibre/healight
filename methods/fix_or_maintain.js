@@ -48,14 +48,14 @@ exports.createRoots = function createRoots()
 					"content" : {},
 					"resources": {},
 					"license" : {},
-					"license.type" : null,
-					"license.text" : null,
 					"tags" : {},
 					"approved_by_users": [],
 					"rejected_by_users": {},
 					"owners" : [],
 					"date" : new Date()
 				}
+				sample['license']['type'] = null;
+				sample['license']['text'] = null;
 				consV.site.langs.inArray.forEach( (langEl , index) =>
 				{
 					sample['tags'][langEl] = null;

@@ -65,10 +65,8 @@ consV.css.tag], pageDes:findPageDes(target_node_id)})%>
 <%
 function findTreeNode(tnId)
 {
-	console.log("HIIIIIIIIIIII", nodes);
 	for (let key in nodes)
 	{
-		console.log(nodes[key].data);
 		if(nodes[key].data._id == tnId)
 		{
 			return nodes[key];
