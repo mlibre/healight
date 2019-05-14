@@ -390,7 +390,7 @@ exports.addAdminAsOwnerToAllArts = function addAdminAsOwnerToAllArts()
 			}
 			else
 			{
-				console.warn('#Fix||Maintain. mlibre added to rhe all arts'.yellow);
+				console.warn('#Fix||Maintain. mlibre added to the all arts'.yellow);
 			}
 		});
 	});
@@ -688,7 +688,10 @@ exports.allResources = function allResources(cbf)
 				keys.splice( keys.indexOf("resources"), 1);
 				cbf(err, keys);
 			}
-			cbf(err, null);
+			else
+			{
+				cbf(err, null);
+			}
 		});
 	});
 }
@@ -1007,7 +1010,7 @@ exports.customUpdateMany = function customUpdateMany()
 			}
 			else
 			{
-				console.warn('#Fix||Maintain. mlibre added to rhe all arts'.yellow);
+				console.warn('#Fix||Maintain. mlibre added to the all arts'.yellow);
 			}
 		});
 	});

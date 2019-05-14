@@ -99,17 +99,17 @@ health.use( cookie_parser() );
 mongo.db_connect(function ()
 {
 	// Fix Or Maintain
-	// fix_maintain.createColls();
-	// fix_maintain.createRoots();
-	// fix_maintain.createBasicDocuments();
-	// fix_maintain.signUpAdmin(ups.admin.username , ups.admin.email , ups.admin.password , ups.admin.lang);
-	// fix_maintain.addAdminAsOwnerToAllArts();
-	// fix_maintain.isEveryArticleHaveItsFolder();
-	// fix_maintain.deleteOrphanFolders();
-	// fix_maintain.deleteDeletedResources();
-	// fix_maintain.deltedDeltedNonArtTelArts();
-	// fix_maintain.lostArticles();
-	// fix_maintain.deleteDeletedUsers();
+	fix_maintain.createColls();
+	fix_maintain.createRoots();
+	fix_maintain.createBasicDocuments();
+	fix_maintain.signUpAdmin(ups.admin.username , ups.admin.email , ups.admin.password , ups.admin.lang);
+	fix_maintain.addAdminAsOwnerToAllArts();
+	fix_maintain.isEveryArticleHaveItsFolder();
+	fix_maintain.deleteOrphanFolders();
+	fix_maintain.deleteDeletedResources();
+	fix_maintain.deltedDeltedNonArtTelArts();
+	fix_maintain.lostArticles();
+	fix_maintain.deleteDeletedUsers();
 	// fix_maintain.checkAllLinksInArts();
 
 	// Routing

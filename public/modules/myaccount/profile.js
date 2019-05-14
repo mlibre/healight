@@ -3,9 +3,7 @@
 $(window).bind("load", function()
 {
 	$(document).ready(function()
-	{
-		console.log(user);
-		
+	{		
 		// modal
 		setDefaultMmodal('در حال پردازش');		
 		getClientInfo(user._id, function (result)
