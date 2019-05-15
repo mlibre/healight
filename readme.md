@@ -24,7 +24,7 @@ The project is written in Nodejs & MongoDB. Read [Healight Story](#healight-stor
 3. `npm install`
 4. `sudo npm install nodemon stylus colors -g`
 5. Rename `UsPs.js.example` to `UsPs.js`. and fill the fields.
-6. Create database: Read `Initiate DataBase` section from [database setup](https://github.com/mlibre/healight/blob/master/related/projectStuff/setup/database.md)
+6. Create database: Read `Initiate Database` section from [database setup](https://github.com/mlibre/healight/blob/master/related/projectStuff/setup/database.md)
 7. Run services:
 * Start MongoDB Service: `npm run sm`
 * Start Redis Service **by systemctl**: `npm run sr` or **manually**: `npm run srm`
@@ -53,7 +53,7 @@ The project is written in Nodejs & MongoDB. Read [Healight Story](#healight-stor
 My first idea and concept about the project were "Green Life and Green planet".
 I realized it begins by having a **harmonic life, healthy soul and a healthy body.** So I started the project, building a platform; a guidance for becoming better :)
 In the heart of every guidance is knowledge, so the first part is an encyclopedia. Other phases will be:
-* Online intelligence Analyzation
+* Online intelligence Analyzing
 * Content Correction Mechanism
 * Store
 * Blog
@@ -74,6 +74,9 @@ Also included by beliefs such as:
 
 As I am used to designing and implementing everything modular, like this project. Others can use it for their own goals or project.
 
+## Thanks to kind contributors
+* [chimzycash](https://github.com/chimzycash) - Logo Designer
+
 ## Donate
-My Coinbase BitCoin Wallet Address:
+My Coinbase Bitcoin Wallet Address:
 > 3ASnE6ZPk4tYWvEGzwFiMp8wiMtJ1UquAV
