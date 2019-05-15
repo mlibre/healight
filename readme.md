@@ -40,10 +40,14 @@ The project is written in Nodejs & MongoDB. Read [Healight Story](#healight-stor
 * NOT FREE FOR ANY KIND OF COMMERCIAL USAGE OR ANY KIND RELATED EARNING
 
 ## Todo
++ Put Logo everywhere
 + Complete English Version
 + Complete The encyclopedia
 + Make it better
 + Start writing articles
++ Add Terms: By using our website you agree to the terms and etc ...
+* Make it public
+* Page translation to bottom like Google for mobile
 
 ## Healight Story
 My first idea and concept about the project were "Green Life and Green planet".

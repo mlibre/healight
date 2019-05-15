@@ -1,6 +1,4 @@
-15 maghale
---------
-blog yek app kamelan joda. ru domaine blog.healight.com. tu safe asli link blog khude site ghashang hast
+blog yek project kamelan joda. ru domaine blog.healight.com. tu safe asli link blog khude site ghashang hast
 be addresse massalan blog.healight.com/healight/
 baraye user ha. mishe blog.healight.com/users/mlibre/
 databasesh. ye collection user hast , yek collection story. har story ye docuemnt ke usersh moshakese
@@ -22,4 +20,4 @@ shomareye telephonet ro az ti site bardar
 Increase Accesibiliy to 100. so everyone can use and like site
 
 add tags to bots
-add google+
+add bots for cryptocurrecny websites
