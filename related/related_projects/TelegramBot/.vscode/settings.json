@@ -1,0 +1,48 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.minimap.enabled": false,
+    "editor.snippetSuggestions": "top",
+    "editor.fontLigatures": true,
+    "extensions.autoUpdate": false,
+    "update.channel": "none",
+    "editor.fontSize": 14,
+    "editor.fontFamily": "'DejaVu Sans Mono'",
+    "editor.mouseWheelZoom": true,
+    "window.zoomLevel": 1,
+    "workbench.sideBar.location": "left",
+    "workbench.statusBar.visible": true,
+    "workbench.activityBar.visible": false,
+    "explorer.openEditors.visible": 0,
+    "editor.tabCompletion": true,
+    "editor.tabSize": 3,
+    "editor.insertSpaces": false,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "node_modules": true,
+        ".vscode": true,
+        "db_dump": true,
+        "database": true,
+        "files/js/JS": true,
+        "files/stylesheet/css": true,
+        ".gitmessage.txt": true,
+        "Procfile": true,
+        ".gitignore": true,
+        "package.json": true,
+        "package-lock.json": true 
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "files/framework": true
+    },
+    "explorer.autoReveal": false,
+    "emmet.syntaxProfiles": {
+        "ejs": "html"
+    },
+    "git.confirmSync": false,
+    "workbench.colorTheme": "Sublime Material Theme - Dark",
+    "workbench.iconTheme": "vscode-great-icons"
+}

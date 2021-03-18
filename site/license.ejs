@@ -1,0 +1,25 @@
+<%- include(consV.layouts.head , {also_add:[consV.css.article, consV.css.customBS],
+pageDes :"قوانین و شرایط. هیلایت"})%>
+<body>
+
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "altPage" , varValue: altPage })%>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "lang" , varValue: lang })%>
+	
+	<%- include(consV.layouts.header)%>
+	<%- include(consV.layouts.sidebar_navbar, {active:[""]})%>
+	<%- include(consV.layouts.navbar , {active:""})%>
+
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<!-- main -->
+			<main class="col-md-10">
+				<%- include(consV.layouts.article , {artH: item.title[lang] , artC: item.content[lang] , artURL: ""}) %>
+			</main>
+			<!-- main end -->
+		</div>
+	</div>
+	<%- include(consV.layouts.footer, {OverlayOnClick: "closeSN()"})%>
+	<!-- scripts -->
+	<%- include(consV.layouts.scripts , {also_add:[consV.js.main , consV.js.search, consV.js.sign]})%>
+	
+</html>

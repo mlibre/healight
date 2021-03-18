@@ -1,0 +1,103 @@
+{
+	"name": "healight",
+	"version": "2.1.0",
+	"description": "WiKi, Encyclopedia, Generator",
+	"engines": {
+		"node": "latest"
+	},
+	"main": "health.js",
+	"scripts": {
+		"start": "npm run em && npm run er && npm run sm && npm run sr && npm run ss && npm run ds",
+		"createDB": "./related/projectStuff/scripts/createDB/createDB.sh",
+		"dbBackup": "./related/projectStuff/scripts/make-backup.sh",
+		"gitP": "related/projectStuff/scripts/git_push.sh",
+		"sm": "./related/projectStuff/scripts/start-mongodb-servcie.sh",
+		"sr": "./related/projectStuff/scripts/start-redis-by-systemctl.sh",
+		"ss": "./related/projectStuff/scripts/start-stylus.sh",
+		"srm": "./related/projectStuff/scripts/start-redis-manually.sh",
+		"ds": "./related/projectStuff/scripts/running.sh",
+		"em": "./related/projectStuff/scripts/end-mongodb-servcie.sh",
+		"er": "./related/projectStuff/scripts/end-redis.sh",
+		"ea": "./related/projectStuff/scripts/end-all.sh",
+		"sitemap": "node ./related/projectStuff/scripts/sitemap.js",
+		"clone": "./related/projectStuff/scripts/clone.sh"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mlibre/healight"
+	},
+	"keywords": [
+		"health",
+		"salamati",
+		"Wiki",
+		"generator",
+		"encyclopedia"
+	],
+	"author": "mlibre",
+	"license": "Free For NON COMERCIAL",
+	"nodemonConfig": {
+		"ignore": [
+			"**/public/framework/**",
+			"**/public/js/JS/**",
+			"**/public/modules/**",
+			"**/node_modules/**",
+			"**/database/**",
+			"**/related/**",
+			"**/public/stylesheet/css/**",
+			"**/public/stylesheet/fonts/**",
+			"**/space/**",
+			"**/public/locales/**",
+			"**/docs/**",
+			"**localhost:3001**",
+			"public/locales/**",
+			"public/framework/*",
+			"public/js/JS/*",
+			"public/modules/*",
+			"node_modules/*",
+			"database/*",
+			"related/*",
+			"public/stylesheet/css/*",
+			"public/stylesheet/fonts/*",
+			"space/**"
+		],
+		"delay": "500",
+		"verbose": false
+	},
+	"dependencies": {
+		"animate.css": "^3.7.2",
+		"async": "^2.6.3",
+		"body-parser": "^1.19.0",
+		"chance": "^1.1.4",
+		"chart.js": "^2.9.3",
+		"connect-redis": "^3.4.2",
+		"cookie-parser": "^1.4.5",
+		"delay": "^4.3.0",
+		"ejs": "^2.7.4",
+		"express": "^4.17.1",
+		"express-fileupload": "^1.1.6",
+		"express-session": "^1.17.1",
+		"geoip-lite": "^1.4.1",
+		"i18n": "^0.8.6",
+		"is-odd": "^3.0.1",
+		"jshashes": "^1.0.8",
+		"mkdirp": "^0.5.5",
+		"mongodb": "^3.5.6",
+		"node-tree-data": "0.0.2",
+		"nodemailer": "^4.7.0",
+		"recursive-copy": "^2.0.10",
+		"redis": "^2.8.0",
+		"request": "^2.88.2",
+		"rimraf": "^2.7.1",
+		"rsync": "^0.6.1",
+		"sitemap-generator": "^8.4.2"
+	},
+	"devDependencies": {
+		"chai": "^4.2.0",
+		"chai-shallow-deep-equal": "^1.4.6",
+		"colors": "^1.4.0",
+		"mocha": "^5.2.0",
+		"nodemon": "^2.0.3",
+		"popper.js": "^1.16.1",
+		"stylus": "^0.54.7"
+	}
+}

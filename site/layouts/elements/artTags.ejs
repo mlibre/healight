@@ -1,0 +1,22 @@
+<% if (tags != null) { %>
+<article id="artTags" class="articleStuffCon text_good_black_little pb-3">
+	<div id="artTags_left" class="article_header_left">
+		<span class="article_header_left_text px-2"><%=i18n.__(artTagsL)%></span>
+	</div>
+	<div id="artTags_content">
+	<% if(tags == null)
+	{
+		%>
+			<span class="verAli-webBasMid"><%=i18n.__("برچسبی برای این مطلب زده نشده است.")%></span>
+		<%
+	}
+	else
+	{
+		tags.forEach(function(tag , i)
+		{%>
+			<a class="BTag ml-2 mt-2" src="#"><%=tag%></a>
+		<%});
+	}%>
+	</div>
+</article>
+<%}%>

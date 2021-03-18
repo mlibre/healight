@@ -1,0 +1,560 @@
+main-back-color = #f9f9f9;
+font-iransans = 'IRANSans';
+gray-box-shadow = 0px 2px 8px rgba(0, 0, 0, 0.26);
+button-box-shadow = 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+box-box-shadow = 0 1px 4px 0 rgba(0, 0, 0, 0.15);
+
+html
+{
+	right: 0;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	font-size: 14.5px;
+	background-color: main-back-color !important;
+}
+@media (min-width: 576px)
+{
+	html
+	{
+		font-size: 16px;
+	}
+}
+body
+{
+	background-color: main-back-color !important;
+}
+a
+{
+	text-decoration: none !important;
+	color: #03a3e1;
+}
+p
+{
+	-webkit-margin-after: 0.4em;
+	margin-bottom: 0.4em;
+}
+pre
+{
+	white-space: pre-wrap;
+}
+code
+{
+	word-break: break-all !important;
+}
+.customBG
+{
+	background-color: #384246;
+}
+.header
+{
+	min-height: 155px;
+
+	font-family: font-iransans;
+	font-size: 1rem;
+	box-shadow: gray-box-shadow;
+	background-color: rgb(3,169,244);
+}
+.logo_image
+{
+}
+.logo_text
+{
+	margin-left: 20px;
+	padding-top: 3px;
+	text-align: center;
+	font-size: 1rem;
+	font-weight: bold;
+	color: white;
+}
+
+/********************************** top-right header **********************************/
+.sign_button
+{
+	padding: 2px 12px;
+	padding-top: 3px;
+	font-size: 0.9rem;
+	font-family: font-iransans;
+	font-weight: bold;
+	line-height: 28px;
+	color: white;
+
+	border: none;
+	box-shadow: button-box-shadow;
+
+	background-color: #3b77db;
+
+	border-radius: 4px;
+	outline: none;
+	cursor: pointer;
+	transition: border 250ms ease-out;
+}
+#signin_button
+{
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+.readMore_button
+{
+	padding: 2px 12px;
+	padding-top: 4px;
+	font-family: font-iransans;
+	font-weight: bold;
+	font-size: 0.875rem;
+	line-height: 28px;
+	color: white;
+
+	border: 1px solid #1f7996;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+
+	background-color: #1f7996;
+
+	border-radius: 4px;
+	outline: none;
+	cursor: pointer;
+	transition: border 250ms ease-out;
+}
+.user_account
+{
+	margin-left: auto;
+	font-size: 16px;
+}
+#user_account
+{
+	-webkit-appearance: initial;
+}
+.user_account .fa-stack
+{
+	text-shadow: 0px 1px 2px rgba(0 , 0 , 0 , 0.3);
+	color: #3b77db;
+}
+
+.user_account .fa-user
+{
+	font-size: 19px;
+}
+.user_account .dropdown-menu::before
+{
+	position: absolute;
+	top: -7px;
+	right: 13px;
+	display: inline-block;
+	border-right: 7px solid transparent;
+	border-bottom: 7px solid #ccc;
+	border-left: 7px solid transparent;
+	border-bottom-color: rgba(0 , 0 , 0 , 0.2);
+	content: '';
+}
+.user_account .dropdown-menu::after
+{
+	position: absolute;
+	top: -6px;
+	right: 14px;
+	display: inline-block;
+	border-right: 6px solid transparent;
+	border-bottom: 6px solid #fff;
+	border-left: 6px solid transparent;
+	content: '';
+}
+
+.SelectLan .dropdown-menu::before
+{
+	position: absolute;
+	top: -7px;
+	right: 33px;
+	display: inline-block;
+	border-right: 7px solid transparent;
+	border-bottom: 7px solid #ccc;
+	border-left: 7px solid transparent;
+	border-bottom-color: rgba(0 , 0 , 0 , 0.2);
+	content: '';
+}
+.SelectLan .dropdown-menu::after
+{
+	position: absolute;
+	top: -6px;
+	right: 34px;
+	display: inline-block;
+	border-right: 6px solid transparent;
+	border-bottom: 6px solid #fff;
+	border-left: 6px solid transparent;
+	content: '';
+}
+.shop_cart_box
+{
+	position: relative;
+	
+	height: 35px;
+	min-width: 168px;
+
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+
+	border-radius: 4px;
+	outline: none;
+
+	transition: border 250ms ease-out;
+}
+.shop_cart_box #left_box
+{
+	height: 100%;
+	width: 70%;
+
+	margin-right: auto;
+	margin-left: 0;
+	float: left;
+
+	text-align: center;
+	
+	border-radius: 4px 0px 0px 4px;
+	background-color: #009688;
+}
+.shop_cart_box #left_box_text
+{
+	color: white;
+	font-size: 16px;
+	font-family: font-iransans;
+	font-weight: bold;
+	vertical-align: bottom;
+	vertical-align: -webkit-baseline-middle;
+}
+.shop_cart_box #left_box_con
+{
+	color: #4db6ac;
+	font-size: 11px;
+	vertical-align: bottom;
+	vertical-align: text-bottom;
+}
+.shop_cart_box #right_box
+{
+	height: 100%;
+	width: 30%;
+
+	margin-right: 0;
+	margin-left: auto;
+	float: right;
+	text-align: center;
+	
+	border-radius: 0px 4px 4px 0px;
+
+	background-color: #26a69a;
+}
+.shop_cart_box #right_box > i
+{
+	color: white;
+	font-size: 21px;
+	vertical-align: bottom;
+	vertical-align: -webkit-baseline-middle;
+}
+
+/********************************** top-right header end **********************************/
+/********************************** navbar **********************************/
+.navbar_custom
+{
+	font-family: font-iransans;
+	font-size: 1rem;
+	// font-size: 0.9375rem;
+	text-align: center;
+
+	border-radius: 0;
+   border: 1px solid #e7e7e7;
+	box-shadow: gray-box-shadow;
+
+	z-index: 3;
+}
+.sidebar_navbar
+{
+	position: fixed;
+	width: 70%;
+	max-width: 350px;
+	top: 0;
+	right: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+	z-index: 20;
+}
+.sidebar_navbar .nav-item
+{
+	width: 100%;
+	text-align: right;
+	font-size: 1.25rem;
+}
+.sidebar_navbar .nav-link
+{
+	color: white;
+	border: none;
+	border-radius: 0;
+}
+.sidebar_navbar .nav-link i
+{
+	float: left;
+	margin-top: 3px;
+}
+.sidebar_navbar .fa-times
+{
+	position: absolute;
+	right: 0;
+	color: white;
+	font-size: 25px;
+}
+.sidebar_navbarMenu
+{
+	-webkit-padding-start: 0;
+	// padding-top: 5px;
+	direction: rtl;
+}
+.sidebar_navbarMenu li
+{
+	padding-right: 40px;
+	padding-top: 9px;
+	padding-bottom: 9px;
+	border-radius: .25rem;
+}
+.sidebar_navbarMenu li[class="active"]
+{
+	background-color: #4e565a;
+}
+.sidebar_navbarMenu a
+{
+	color: white;
+	font-size: 18px;
+}
+.sidebar_navbarMenu .fa-circle
+{
+	font-size: 10px;
+}
+#SNOpenB
+{
+	position: fixed;
+	top: 1rem;
+	right: 3vw;
+	z-index: 20;
+}
+#SNOpenB .fa-stack
+{
+	font-size: 20px;
+	text-shadow: 0px 1px 2px rgba(0 , 0 , 0 , 0.3);
+	color: #3b77db;
+}
+
+#SNOpenB .fa-bars
+{
+	color: white;
+	margin-top: 1px;
+	font-size: 19px;
+}
+/********************************** navbar end **********************************/
+
+/********************************** search bar section **********************************/
+#search_bar
+{
+	width: 90%;
+	height: 47px;
+	color: #03a3e1;
+	-webkit-font-smoothing: antialiased;
+	text-shadow: 0 0 0 rgba(0 , 0 , 0 , 0);
+	border-radius: 4px;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+}
+@media (min-width: 576px)
+{
+	#search_bar
+	{
+		width: 80%;
+	}
+}
+#search_bar input
+{
+	width: 100%;
+	height: 100%;
+	padding-top: 10px;
+	padding-bottom: 8px;
+
+	font-family: font-iransans;
+	font-size: 0.9rem;
+	color: #0292ca;
+
+	border-radius: 0px;
+	border: 1px solid #ccc;
+	border-left: none;
+	border-right: none;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
+#search_bar input::-webkit-input-placeholder
+{
+	color: #0292ca;
+	opacity: 0.8;
+}
+#magnifier
+{
+	float: left;
+
+	height: 100%;
+	text-align: center;
+	font-size: 20px;
+	color: #0292ca;
+	
+	border-radius: 4px 0px 0px 4px;
+	border: 1px solid #ccc;
+	background-color: #eeeeee;
+}
+
+#search_cat
+{
+	float: right;
+
+	height: 100%;
+
+	text-align: center;
+	padding-top: 11px;
+
+	font-size: 1rem;
+
+	border-radius: 0px 4px 4px 0px;
+	border: 1px solid #ccc;
+	background-color: #eeeeee;
+}
+#search_bar_DPH
+{
+	// font-size: 1.063rem;
+}
+#search_cat_chDown
+{
+	font-size: 9px;
+	font-weight: bold;
+	vertical-align: baseline;
+}
+#search_cat_Text
+{
+	color: #0292ca;
+}
+.dropdown-submenu
+{
+	top: 0;
+	right: 100%;
+	margin-top: -3px !important;
+}
+/********************************** search bar section end **********************************/
+main
+{
+	padding-top: 38px;
+}
+/********************************** aside_container **********************************/
+#aside_container
+{
+	padding-bottom: 10px
+	margin-top: 38px;
+
+	font-family: 'IRANSans';
+	color: white;
+
+	overflow: hidden;
+}
+#telegramPart
+{
+	color: white;
+	overflow: hidden;
+}
+#telegramPart section
+{
+	background-color: #1e88e5;
+	border-radius:4px;
+	box-shadow: box-box-shadow;
+	// 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2)
+}
+#temperamentPart
+{
+	color: white;
+	overflow: hidden;
+}
+#temperamentPart section
+{
+	background-color: #009688;
+	border-radius:4px;
+	box-shadow: box-box-shadow;
+}
+#enterEncPart
+{
+	color: white;
+	overflow: hidden;
+}
+#enterEncPart section
+{
+	background-color: #4caf50;
+	border-radius:4px;
+	box-shadow: box-box-shadow;
+}
+#adPart
+{
+	color: #424242;
+	overflow: hidden;
+}
+#adPart section
+{
+	background-color: #e0e0e0;
+	border-radius: 4px;
+	box-shadow: box-box-shadow, 0 3px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 15px 0 rgba(0, 0, 0, 0.19);;
+}
+#adPart img
+{
+	border-radius: 0 0 4px 4px;
+}
+/********************************** aside_container **********************************/
+/********************************** footer **********************************/
+footer
+{
+	font-family: font-iransans;
+	background-color: #303438;
+}
+.contact_information
+{
+	list-style-type: none;
+
+	text-align: center;
+	color: rgb(210 , 210 , 210);
+}
+#footerBottom
+{	
+	font-family: font-iransans;
+	font-weight: bold;
+	font-size: 15px;
+	
+	background-color: #242832;
+	color: rgb(180 , 180 , 180);
+}
+#footer_BR
+{
+	direction: rtl;
+}
+#footer_Lang
+{
+
+}
+#overlay
+{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	background-color: black;
+	opacity: 0.5;
+	z-index: 19;
+}
+/********************************** footer end **********************************/
+/********************************** popover **********************************/
+.popover
+{
+	max-width: initial !important;	
+}
+.popover-body
+{
+	padding-bottom: 7px;	
+}
+.popover .arrow
+{
+	display: none !important;
+}
+

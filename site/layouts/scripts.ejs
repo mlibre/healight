@@ -1,0 +1,8 @@
+<script defer src="<%=consV.js.jquery%>"></script>
+<script defer src="<%=consV.js.popper%>"></script>
+<script defer src="<%=consV.js.bootstrap%>"></script>
+<script defer src="<%=consV.js.popover%>"></script>
+<script defer src="<%=consV.js.langPop%>"></script>
+<% if(typeof also_add != 'undefined') { also_add.forEach(function(js){ %>
+<script defer src="<%= js %>"></script>
+<% });} %>

@@ -1,0 +1,293 @@
+<%- include(consV.layouts.head ,
+{
+	also_add:[consV.css.material_dashboard, consV.css.myaccount.main,
+	consV.css.mmodal],
+	pageDes :"IMG . پروفایل"
+})%>
+<body id="materialDashboard" class="">
+<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "altPage" , varValue: altPage })%>
+<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "user" , varValue: user })%>
+<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "lang" , varValue: lang })%>
+
+<div class="wrapper">
+		<%- include( consV.layouts.myaccount.sidebar , {active: 'profile'} ) %>
+		<div class="main-panel text_good_black_little">
+			<%- include( consV.layouts.myaccount.navbar , {pageText: ""} ) %>
+			<%- include( consV.layouts.mmodal ) %>
+			<div class="content">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header card-header-primary">
+									<h4 id="editProfile" class="card-title">پروفایل</h4>
+									<p class="card-category">ویرایش پروفایل</p>
+								</div>
+								<div id="editProfileCardBody" class="card-body">
+									<form id="profileForm" method="post" action="<%=consV.webApi.editPersinalProfile%>"
+										encType="multipart/form-data" onsubmit="postProfileForm(event)">
+										
+										<div class="row">
+											<div class="col-md-3">
+												<div class="form-group">
+													<label class="bmd-label-floating">یوزر نیم</label>
+													<input name="username" value ="<%=user.username%>" type="text" class="form-control">
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="form-group">
+													<label class="bmd-label-floating">شماره مبایل</label>
+													<input name="Mobile" value ="<%=user.Mobile%>" type="text" class="form-control">
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="form-group">
+													<label class="bmd-label-floating">ایمیل</label>
+													<input name="email" type="Email" value ="<%=user.email%>" class="form-control">
+												</div>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-md-3">
+												<div class="form-group">
+													<label class="bmd-label-floating">نام</label>
+													<input name="name" value ="<%=user.name%>" type="text" class="form-control">
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="form-group">
+													<label class="bmd-label-floating">نام خوانوادگی</label>
+													<input name="family" value ="<%=user.family%>" type="text" class="form-control">
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="form-group">
+													<label class="bmd-label-floating">تاریخ تولد</label>
+													<input name="BirthDate" value ="<%=user.BirthDate%>" type="text" class="form-control">
+												</div>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-md-3">
+												<div class="form-group">
+													<label class="bmd-label-floating">Name</label>
+													<input name="NameLatin" value ="<%=user.NameLatin%>" type="text" class="form-control">
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="form-group">
+													<label class="bmd-label-floating">Last name</label>
+													<input name="LastNameLatin" value ="<%=user.LastNameLatin%>" type="text" class="form-control">
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="form-group">
+													<label class="bmd-label-floating">Birth Day</label>
+													<input name="BirthDateLatin" value ="<%=user.BirthDateLatin%>" type="text" class="form-control">
+												</div>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-md-3">
+												<div class="form-group">
+													<label class="bmd-label-floating">یوزرنیم یا شماره ی تلگرام</label>
+													<input name="TelegramID" value ="<%=user.TelegramID%>" type="text" class="form-control">
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="form-group">
+													<label class="bmd-label-floating">یوزرنیم یا شماره ی واتس اپ</label>
+													<input name="WhatsAppID" value ="<%=user.WhatsAppID%>" type="text" class="form-control">
+												</div>
+											</div>
+										</div>
+
+
+										<div class="row">
+											<div class="col-md-3">
+												<div class="form-group">
+													<label class="bmd-label-floating">شماره ی پاسپورت</label>
+													<input name="PassportNumber" value ="<%=user.PassportNumber%>" type="text" class="form-control">
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="form-group">
+													<label class="bmd-label-floating">تاریخ صدور</label>
+													<input name="PPIssuedOn" value ="<%=user.PPIssuedOn%>" type="text" class="form-control">
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="form-group">
+													<label class="bmd-label-floating">تاریخ انقضا</label>
+													<input name="PPExpireOn" value ="<%=user.PPExpireOn%>" type="text" class="form-control">
+												</div>
+											</div>
+										</div>
+
+										<div class="col-md-3 sr-only">
+											<div class="form-group">
+												<label class="bmd-label-floating">توضیحات کارت</label>
+												<input name="CardDescription" value ="<%=user.CardDescription%>" type="text" class="form-control">
+											</div>
+										</div>
+
+
+										<div class="row">
+											<div class="col-md-3">
+												<div class="form-group">
+													<label class="bmd-label-floating">میزان تحصیلات</label>
+													<input name="EducationLevel" value ="<%=user.EducationLevel%>" type="text" class="form-control">
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div id="JobPositionAndTime" class="col-sm-10 checkbox-radios">
+													<div class="form-group">
+														<label class="bmd-label-floating">شغل، سمت و سابقه ی کاری</label>
+														<input name="JobPositionAndTime" value ="<%=user.JobPositionAndTime%>" type="text" class="form-control">
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="bmd-label-floating">نشانی کامل</label>
+													<input name="FullAddress" value ="<%=user.FullAddress%>" type="text" class="form-control">
+												</div>
+											</div>
+										</div>
+
+										<div class="row my-5">
+											<div class="col-md-12">
+												<div class="card-header card-header-primary">
+													<h4 id="editProfile" class="card-title text-center">اطلاعات خانواده</h4>
+												</div>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-md-3">
+												<label class="col-form-label label-checkbox text-right">وضعیت تاهل</label>
+												<div id="requestCheckboxList" class="col-sm-10 checkbox-radios">
+													<div class="form-check form-check-inline">
+														<label class="form-check-label">
+															<input class="form-check-input" <%if(user.MarriageStatus == "true"){%>checked<%}%> type="radio" name="MarriageStatus" value="true">متاهل
+															<span class="form-check-sign">
+																<span class="check ltrDir"></span>
+															</span>
+														</label>
+													</div>
+													<div class="form-check form-check-inline">
+														<label class="form-check-label">
+															<input class="form-check-input" <%if(user.MarriageStatus == "false"){%>checked<%}%> type="radio" name="MarriageStatus" value="false">مجرد
+															<span class="form-check-sign">
+																<span class="check ltrDir"></span>
+															</span>
+														</label>
+													</div>
+												</div>
+											</div>
+
+											<div class="col-md-3">
+												<div class="form-group">
+													<label class="bmd-label-floating">تاریخ تولد همسر</label>
+													<input name="PartnerBirthDate" value ="<%=user.PartnerBirthDate%>" type="text" class="form-control">
+												</div>
+											</div>
+
+											<div class="col-md-3">
+												<div class="form-group">
+													<label class="bmd-label-floating">Partner Birth Date</label>
+													<input name="PartnerBirthDateLatin" value ="<%=user.PartnerBirthDateLatin%>" type="text" class="form-control">
+												</div>
+											</div>
+										</div>
+											
+										<div class="row">
+											<div class="col-md-3">
+												<div class="form-group">
+													<label class="bmd-label-floating">تعداد فرزندان</label>
+													<input id="ChildCount" type="number" name="ChildCount" value ="<%=user.ChildCount%>" class="form-control" onkeyup="childeNoChanged(event);">
+												</div>
+											</div>
+
+											<div class="col-md-3">
+												<div class="form-group">
+													<button id="ChildCountSubmit" type="button" name="ChildCountSubmit" class="btn btn-primary px-5" onclick="childeNoChanged(event);">
+														ثبت
+													</button>
+												</div>
+											</div>
+										</div>
+
+										<div id="ChildBirthDates" class="row">
+					
+										</div>
+
+										<div class="row">
+											<div class="col-md-3">
+												<label class="col-form-label label-checkbox text-right">آیا در این سفر شما را همراهی میکنند؟</label>
+												<div id="requestCheckboxList" class="col-sm-10 checkbox-radios">
+													<div class="form-check form-check-inline">
+														<label class="form-check-label">
+															<input class="form-check-input" <%if(user.PartnterComeWithMe == "true"){%>checked<%}%> type="checkbox" name="PartnterComeWithMe" value="true">همسر
+															<span class="form-check-sign">
+																<span class="check ltrDir"></span>
+															</span>
+														</label>
+													</div>
+													<div class="form-check form-check-inline">
+														<label class="form-check-label">
+															<input class="form-check-input" <%if(user.ChildsComeWithMe == "false"){%>checked<%}%> type="checkbox" name="ChildsComeWithMe" value="false">فرزندان
+															<span class="form-check-sign">
+																<span class="check ltrDir"></span>
+															</span>
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<button type="submit" class="btn btn-primary pull-right">اعمال تغییرات</button>
+										<div class="clearfix"></div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 sr-only">
+							<div class="card card-profile FontIranSans">
+								<div class="card-avatar">
+									<a href="#">
+										<img class="img" src="<%=profileImage%>"/>
+									</a>
+								</div>
+								<div class="card-body">
+									<h6 class="card-category text-gray"><%=user.RoleName%></h6>
+									<h4 class="card-title FontIranSans"><%=user.CardTitle%></h4>
+									<p class="card-description">
+									<%=user.CardDescription%>
+									</p>
+									<a href="#" class="sr-only btn btn-primary btn-round">something</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<%- include(consV.layouts.myaccount.footer) %>
+		</div>
+	</div>
+</body>
+<%- include(consV.layouts.scripts,
+{
+    also_add:[consV.js.sign, consV.js.material_dashboard.bootstrap,
+	 consV.js.material_dashboard.bootstrapNotify,
+    consV.js.material_dashboard.chartist, consV.js.material_dashboard.perfectScrollbarJquery,
+	 consV.js.material_dashboard.main, consV.js.myaccount.profile,
+	 consV.js.mmodal]
+})%>
+</html>

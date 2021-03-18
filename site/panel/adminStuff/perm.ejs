@@ -1,0 +1,65 @@
+<%- include(consV.layouts.head , {also_add:[consV.css.panel.main, consV.css.panel.sidebar, consV.css.prism, consV.css.mmodal,
+consV.css.panel.EncTree, consV.css.toggleBotton]})%>
+<body>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "altPage" , varValue: altPage })%>
+	
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "lang" , varValue: lang })%>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "users" , varValue: null })%>
+	
+	<%- include( consV.layouts.panel.navbar )%>
+   <%- include( consV.layouts.mmodal ) %>
+
+	<div class="container-fluid">
+		<div class="row">
+			<%- include(consV.layouts.panel.sidebar , {active:["adm" , "perm"]})%>
+			<!-- main -->
+			<main id="mainPanel" class="col-md-9 px-4 FontIranSans text_good_black_little">
+				<ul id="myTabs" class="nav nav-tabs nav-fill initDir" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link disabled" data-toggle="tab" role="tab" href="#perms" aria-selected="false">دسترسی ها</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" role="tab" href="#usersTab" aria-selected="true">کاربران</a>
+					</li>
+				</ul>
+
+				<div class="tab-content">
+					<div class="tab-pane mt-5 fade" id="perms" role="tabpanel">
+						<form id="userpermsForm" method="post" action="<%='/' + lang + consV.pages.panel.adminStuff.perm%>"
+						onsubmit="editUserPerm(event, function (){setTimeout(function (){window.location.href = '';},1500);})">
+							<div class="form-group sr-only">
+								<input id="nodeId" name="nodeId" type="text">
+							</div>
+							<div id="permsDiv">
+							</div>
+							<button id="userpermsSubmit" type="submit" class="btn btn-primary col-md-3">ثبت</button>
+						</form>
+					</div>
+					<div class="tab-pane mt-5 fade show" id="usersTab" role="tabpanel">
+						<div id="usersListDiv" class="mt-4" onclick="usersListClicked(event)">
+						
+						</div>
+						<div class="d-flex flex-row justify-content-around">
+							<button type="button" class="btn btn-primary col-md-3 mt-3 cursorPointer" onclick="$('a[href=\'#perms\']').tab('show');">
+								ویرایش مجوز ها
+							</button>
+							<button type="button" class="btn btn-danger col-md-3 mt-3 cursorPointer" onclick="DeleteUser()">
+								حذف کاربر
+							</button>
+						</div>
+					</div>
+				</div>
+				
+			</main>
+			<!-- main end -->
+		</div>
+	</div>
+
+	<%- include(consV.layouts.footer)%>
+	<!-- scripts -->
+	<%- include(consV.layouts.scripts , {also_add:[consV.js.panel.sidebar, consV.js.prism,
+	consV.js.panel.main, consV.js.panel.encyclopedia.main, consV.js.panel.EncTree,
+	consV.js.panel.adminStuff.perm, consV.js.mmodal, consV.js.sign, consV.js.panel.chooseNodeTree]})%>
+	<!-- scripts end -->
+</body>
+</html>

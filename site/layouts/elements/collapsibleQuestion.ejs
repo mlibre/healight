@@ -1,0 +1,47 @@
+<!-- article start -->
+<article id="education_article" class="education_article">
+	<a id="article_header" data-toggle="collapse" href="#article_content<%if(typeof ARID != 'undefined'){%><%='_' + ARID%><%}%>" aria-expanded="true">
+		<span id="article_header_icon" class="<%if(typeof QMark == 'undefined'){%>fa fa-question<%}else{%><%=QMark%><%}%>"></span>
+		<h3 id="article_header_text"><%- i18n.__(artH)%></h3>
+	</a>
+	<%if(typeof artL != 'undefined'){%>
+	<div class="article_header_left">
+		<span class="article_header_left_text px-2"><%- i18n.__(artL)%></span>
+	</div>
+	<%}%>
+	<div id="article_content<%if(typeof ARID != 'undefined'){%><%='_' + ARID%><%}%>" class="articleContentCss collapse show <%if(typeof artReadMoreB != 'undefined' && artReadMoreB == true){%>max-height-600<%}%>">
+		<%- i18n.__(artC)%>
+		<div class="" id="options">
+			<%if (typeof inputType != 'undefined' && inputType == 'radio')
+			{
+				%>
+				<div class="card-deck">
+				<%
+				var i = 0;
+				Object.keys(QOptions).forEach(function(key)
+				{
+					if( i % 2 == 0 && i > 0){%></div><%}
+					if( i % 2 == 0 && i <= Object.keys(QOptions).length){%><div class="row"><%}
+					i++;
+					%>
+						<div class="card BoxShadow4 cursorPointer mt-4 mx-4" onclick="radioChecked(event)">
+							<img class="card-img-top img-fluid" src="<%='/' + consV.space.onlineServicesFolderName + QOptions[key][1] %>" alt="<%=QOptions[key][2]%>">
+							<div class="card-body sr-only">
+								<label class="custom-control custom-radio">
+									<input class="custom-control-input" type="radio" name="<%=radioName%>" value="<%=key%>">
+									<span class="custom-control-indicator"></span>
+								</label>
+							</div>
+							<div class="card-footer mt-auto FontIranSansBold unSelectedColor text-center text-white">
+								<%=QOptions[key][0]%>
+							</div>
+						</div>
+					<%
+				});
+				
+				%></div></div><%
+			}%>
+		</div>
+	</div>
+</article>
+<!-- article end -->

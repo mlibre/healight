@@ -1,0 +1,77 @@
+<!-- footer -->
+<footer style="height: 100%" class="container-fluid p-0 mx-0 mt-5 AllFontsInOrder">
+	<div class="row p-0 mx-0 pb-3 mb-4">
+		<div class="col-md-4 pt-5">
+			<div class="contact_information colorLittleGray">
+				<div class="mb-2 Font1d25rem letterSpacing-0d2px"> <%=i18n.__('تماس با ما')%> </div>
+				<span style="width: 60%;" class="links_dashed mx-auto mt-2"></span>
+				<div class="mt-3 Font1d125rem"><span class="fa fa-envelope mr-2"></span><span><%=consV.site.mail%></span></div>
+				<div class="mt-2 Font1d125rem"><span class="fa fa-phone mr-2"></span><span class="Font1d25rem letterSpacing1px"><%=i18n.__(consV.site.phoneNo)%></span></div>
+				<div class="mt-2 Font1d125rem">
+					<span class="fab fa-telegram-plane mr-2"></span>
+					<a class="colorLittleGray" href="<%=consV.site.telegram.webLink%>"><%=consV.site.telegram.username%></a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 pt-5">
+			<div class="contact_information colorLittleGray">
+				<div class=" mb-2 Font1d25rem letterSpacing-0d2px"> <%=i18n.__('همکاری با ما')%> </div>
+				<span style="width: 60%;" class="links_dashed mx-auto mt-2"></span>
+				<div class="mt-3 Font1d125rem letterSpacing-0d2px lineHeight1d7">
+					<%=i18n.__('ما در حوزه های مختلف، مانند مقاله نویسی مشتاق به همکاری هستیم، در صورتی که علاقه دارید با ما تماس بگیرید')%>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 pt-5">
+			<div class="contact_information rtlDir colorLittleGray">
+				<div class="mb-2 Font1d25rem letterSpacing-0d2px"> <%=i18n.__('شبکه های اجتماعی')%> </div>
+				<span style="width: 60%;" class="links_dashed mx-auto mt-2"></span>
+				<%if( consV.links.telegram[lang] )
+				{%>
+				<a class="mt-3 text-white Font1d5625rem fab fa-telegram" href="<%=consV.links.telegram[lang]%>"></a>
+				<%}%>
+				<%if( consV.links.medium[lang] )
+				{%>
+				<a class="mt-3 mr-2 text-white Font1d5625rem fab fa-medium" href="<%=consV.links.medium[lang]%>"></a>
+				<%}%>
+			</div>
+		</div>
+	</div>
+	<div id="footerBottom" class="row align-items-center p-0 mx-0 py-3">
+		<div class="col text-center text-sm-left mx-0 p-0 px-4 ml-sm-4 pl-sm-4" style="padding-top: 4px !important">
+			<span style="margin-bottom: 1px; font-size: 15px;" class="fab fa-pagelines fa-flip-horizontal pl-2"></span>
+			2019, Healight
+		</div>
+		<div class="col text-center mx-0 p-2 p-sm-0 px-4">
+			<div id="footer_Lang">
+				<span>
+					<span style="font-size: 16px" class="fa fa-globe mr-1"></span>
+					Language
+				</span>
+				<%Object.keys(altPage).forEach(key =>
+				{
+					if( typeof dontGenAltPage == 'undefined' || (typeof dontGenAltPage != 'undefined' && dontGenAltPage[key] != true) )
+					{%>
+						<div class="inlineBlockDisplay pl-2 ml-md-2">
+							<span style="font-size: 8px" class="fa fa-circle verAliMid pr-1 mr-md-2"></span>
+							<a style="color: rgb(180,180,180)" href="<%=altPage[key]%>"><%=consV.site.langs[key].name%></a>
+						</div>
+					<%}%>
+				<%});%>
+			</div>
+		</div>
+		<div class="col mx-0 p-0 px-4 pt-2 pt-sm-0 mr-sm-4 pr-sm-4">
+			<div id="footer_BR" class="Font0d875rem letterSpacing-0d2px">
+				<a class="d-block d-md-inline-block text-center text-sm-right text-nowrap ml-sm-4 py-1" style="color: rgb(180,180,180)" href="#"><%=i18n.__('درباره ی ما')%></a>
+				<a class="d-block d-md-inline-block text-center text-sm-right ml-sm-4 py-1" style="color: rgb(180,180,180)" href="<%= '/' + lang + consV.pages.license %>"><%=i18n.__('قوانین و شرایط')%></a>
+				<a class="d-block d-md-inline-block text-center text-sm-right py-1" style="color: rgb(180,180,180)" href="#"><%=i18n.__('سیاست حفظ حریم خصوصی')%></a>
+			</div>
+		</div>
+	</div>
+</footer>
+<!-- footer end -->
+
+<!-- overlay start -->
+<div id="overlay" style="display: none" onclick="<%if(typeof OverlayOnClick != 'undefined'){%><%=OverlayOnClick%><%}%>"></div>
+<!-- overlay end -->
+

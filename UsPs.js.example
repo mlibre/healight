@@ -1,0 +1,15 @@
+"use strict";
+
+exports.admin = {};
+exports.admin.username = "mlibre";
+exports.admin.password = "passwrod";
+exports.admin.email = "m.gh@linuxmail.org";
+exports.admin.lang = "fa";
+
+exports.mongo_username = 'mlibre';
+exports.mongo_password = 'SpecialPassword';
+
+exports.DBName = 'health';
+
+exports.publicMail = 'healigh@protonmail.com'; // be used to send emails
+exports.publicMailPass = 'mlibre'; // be used to send emails

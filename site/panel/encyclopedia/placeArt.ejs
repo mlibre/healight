@@ -1,0 +1,95 @@
+<%- include(consV.layouts.head , {also_add:[consV.css.panel.main, consV.css.panel.sidebar, consV.css.prism,
+consV.css.questionmark, consV.css.tagInput,consV.css.tagInputCustom, consV.css.mmodal,
+consV.css.panel.EncTree]})%>
+<body>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "draftsJs" , varValue: drafts })%>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "altPage" , varValue: altPage })%>
+	
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "lang" , varValue: lang })%>
+	
+	<%- include( consV.layouts.panel.navbar )%>
+   <%- include( consV.layouts.mmodal ) %>
+
+	<div class="container-fluid">
+		<div class="row">
+			<%- include(consV.layouts.panel.sidebar , {active:["enc" , "pla"]})%>
+			<!-- main -->
+			<main id="mainPanel" class="col-md-9 px-4 FontIranSans text_good_black_little">
+				<ul class="nav nav-tabs nav-fill initDir" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link disabled" data-toggle="tab" role="tab" href="#place">تعیین مکان</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link disabled" data-toggle="tab" role="tab" href="#edit"><%=i18n.__('ویرایش')%></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" role="tab" href="#drafts">لیست</a>
+					</li>
+				</ul>
+
+				<div class="tab-content">
+					<div class="tab-pane mt-5 fade" id="place" role="tabpanel">
+						<%- include(consV.layouts.panel.placeArtForm,
+						{
+							formActionUrl: '/' + lang + consV.pages.panel.encyclopedia.placeArt,
+							langOnchange: "placeFormlangChanged();",
+							EncOnchange: 'placeFormEncChanged();',
+							CheckURLNameOnClick: "CheckURLName( draftsJs[$('#draftList .active #nodId').html()] );",
+							formOnSubmit: "PlaceArt(event, function (res){setTimeout(function (){window.location.href = '';},1500);} );"
+						})%>
+					</div>
+					<div class="tab-pane mt-5 fade" id="edit" role="tabpanel">
+						<%- include(consV.layouts.panel.CEArtFrom,
+						{
+							formActionUrl: '/' + lang + consV.pages.panel.encyclopedia.editArt,
+							langOnchange: "langChanged();",
+							formSubmitText: "ثبت",
+							formOnSubmit: "UpdateArt(event, function (res){draftsJs[$('#draftList .active #nodId').html()] = res;} );"
+						})%>
+					</div>
+					<div class="tab-pane mt-5 fade show" id="drafts" role="tabpanel">
+						<label class="Font18px" for="draftsLang">
+							<%=i18n.__("زبان نمایش")%>
+						</label>
+						<select id="draftsLang" name="draftsLang" class="custom-select FontIranSans mr-2" onchange="createDraftList();">
+							<%consV.site.langs.inArray.forEach( (el , i) =>
+							{%>
+								<option value="<%=el%>" <%if(el == lang){%>selected<%}%> ><%=i18n.__(consV.site.langs[el].name)%></option>
+							<%});%>
+						</select>
+						<div id="draftList" class="mt-4" onclick="draftListClicked(event)">
+						
+						</div>
+						<div class="d-flex flex-row justify-content-around">
+							<button type="button" class="btn btn-primary col-md-3 mt-3 cursorPointer"
+							onclick="$('a[href=\'#edit\']').tab('show');">
+								<%=i18n.__("ویرایش")%>
+							</button>
+							<button type="button" class="btn btn-primary col-md-3 mt-3 cursorPointer"
+							onclick="$('a[href=\'#place\']').tab('show');">
+								<%=i18n.__("تعیین مکان")%>
+							</button>
+							<button type="button" class="btn btn-danger col-md-3 mt-3 cursorPointer"
+							onclick="DeleteArt( draftsJs[$('#draftList .active #nodId').html()]._id );">
+								<%=i18n.__('حذف')%>
+							</button>
+						</div>
+					</div>
+				</div>
+				
+			</main>
+			<!-- main end -->
+		</div>
+	</div>
+
+	<%- include(consV.layouts.footer)%>
+	<!-- scripts -->
+	<%- include(consV.layouts.scripts , {also_add:[consV.js.tinymce,
+	consV.js.tinymceJquery, consV.js.tinymceInit, consV.js.panel.sidebar, consV.js.prism,
+	consV.js.tagInput, consV.js.tagInputCustom,
+	consV.js.panel.main, consV.js.panel.encyclopedia.main, consV.js.panel.EncTree,
+	consV.js.panel.encyclopedia.placeArt, consV.js.mmodal,
+	consV.js.sign,	consV.js.timeAgo, consV.js.timeAgoFa, consV.js.panel.encyclopedia.CreEditArtForm]})%>
+	<!-- scripts end -->
+</body>
+</html>

@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: mlibre.github.io
+Token: 5ec00f649edbfd55b05551b0e0980d61b042619026193817d73bde1f48b6bd96

@@ -1,0 +1,45 @@
+<%- include(consV.layouts.head , {also_add:[consV.css.panel.main, consV.css.panel.sidebar, consV.css.prism,
+consV.css.questionmark, consV.css.tagInput,consV.css.tagInputCustom, consV.css.mmodal]})%>
+<body>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "altPage" , varValue: altPage })%>
+	
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "lang" , varValue: lang })%>
+	
+	<%- include( consV.layouts.panel.navbar )%>
+   <%- include( consV.layouts.mmodal )%>
+
+	<div class="container-fluid">
+		<div class="row">
+			<%- include(consV.layouts.panel.sidebar , {active:["tra" , "tex"]})%>
+			<!-- main -->
+			<main id="mainPanel" class="col-md-9 px-4 FontIranSans text_good_black_little">
+				<form id="localeForm" method="post" action="<%='/' + lang + consV.pages.panel.translate.text%>"
+				encType="multipart/form-data" onsubmit="setLocale(event);">
+
+					<div class="form-group">
+						<label class="Font18px" for="artPageName">
+							ترجمه به
+						</label>
+						<select id="transTo" name="transTo" class="custom-select FontIranSans mr-2" onchange="configTransForm();">
+							<%consV.site.langs.inArray.forEach( (el , i) =>
+							{%>
+								<option value="<%=el%>" <%if(i == 0){%>selected<%}%> ><%=i18n.__(consV.site.langs[el].name)%></option>
+							<%});%>
+						</select>
+					</div>
+					<div id="words">
+					</div>					
+					<button id="" type="submit" class="btn btn-primary col-md-3">ثبت</button>
+				</form>
+			</main>
+			<!-- main end -->
+		</div>
+	</div>
+
+	<%- include(consV.layouts.footer)%>
+	<!-- scripts -->
+	<%- include(consV.layouts.scripts , {also_add:[consV.js.panel.sidebar, consV.js.prism,
+	consV.js.panel.main, consV.js.mmodal, consV.js.sign, consV.js.panel.translate.text]})%>
+	<!-- scripts end -->
+</body>
+</html>

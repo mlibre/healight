@@ -1,0 +1,82 @@
+<%- include(consV.layouts.head , {also_add:[consV.css.panel.main, consV.css.panel.sidebar, consV.css.prism,
+consV.css.mmodal, consV.css.panel.EncTree, consV.css.article]})%>
+<body>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "artItem" , varValue: null })%>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "altPage" , varValue: altPage })%>
+		
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "lang" , varValue: lang })%>
+
+	<%- include( consV.layouts.panel.navbar )%>
+   <%- include( consV.layouts.mmodal ) %>
+
+	<div class="container-fluid">
+		<div class="row">
+			<%- include(consV.layouts.panel.sidebar , {active:["enc" , "apa"]})%>
+			<!-- main -->
+			<main id="mainPanel" class="col-md-9 px-4  FontIranSans text_good_black_little">
+				<ul class="nav nav-tabs nav-fill initDir" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link disabled" data-toggle="tab" role="tab" href="#approveTab">تایید</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" role="tab" href="#chooseNodeTab"><%=i18n.__('انتخاب مطلب')%></a>
+					</li>
+				</ul>
+
+				<div class="tab-content">
+					<div class="tab-pane mt-5 fade" id="approveTab" role="tabpanel">
+						<%- include(consV.layouts.article , {artH: "" , artC: "", artURL: ""}) %>
+						<div class="mt-5">
+							<h4>افرادی که این مطلب را تایید کرده اند:</h4>
+							<div id="ApprvsUsers" class="mt-4">
+
+							</div>
+						</div>
+						<div class="mt-5">
+							<h4>آیا شما این مطلب را تایید میکنید؟</h4>
+							<div class="d-flex flex-row justify-content-around mt-4">
+								<button type="button" class="btn btn-success col-md-3 mt-3 cursorPointer"
+								onclick="ARArt(getChosenNodeId(), getChosenNodeEnc(), 1);">
+									تایید میکنم
+								</button>
+								<button type="button" class="btn btn-primary col-md-3 mt-3 cursorPointer"
+								onclick="ARArt(getChosenNodeId(), getChosenNodeEnc(), 0);">
+									نطری نمیدم
+								</button>
+								<button type="button" class="btn btn-danger col-md-3 mt-3 cursorPointer"
+								 data-toggle="collapse" data-target="#RArtCon" aria-expanded="false" aria-controls="RArtCon">
+									رد میکنم
+								</button>
+							</div>
+						</div>
+						<div id="RArtCon" class="collapse mt-4">
+							<input id="RArtText" class="form-control col-md-11 mx-auto" type="text">
+							<button class="btn btn-primary col-md-3 mt-3 mx-auto blockDisplay"
+							onclick="ARArt(getChosenNodeId(), getChosenNodeEnc(), -1, $('#RArtText').val());">ثبت</button>
+						</div>
+					</div>
+					<div class="tab-pane mt-5 fade show" id="chooseNodeTab" role="tabpanel">
+						<%- include(consV.layouts.panel.chooseNodeTree , {})%>
+
+						<div class="d-flex flex-row justify-content-around">
+							<button type="button" class="btn btn-primary col-md-3 mt-3 cursorPointer"
+							onclick="$('a[href=\'#approveTab\']').tab('show');">
+								انتخاب
+							</button>
+						</div>
+					</div>
+				</div>
+				
+			</main>
+			<!-- main end -->
+		</div>
+	</div>
+
+	<%- include(consV.layouts.footer)%>
+	<!-- scripts -->
+	<%- include(consV.layouts.scripts , {also_add:[consV.js.panel.sidebar, consV.js.prism,
+	consV.js.panel.main, consV.js.panel.encyclopedia.main, consV.js.panel.EncTree,
+	consV.js.mmodal, consV.js.sign, consV.js.panel.chooseNodeTree, consV.js.panel.encyclopedia.approveArt]})%>
+	<!-- scripts end -->
+</body>
+</html>

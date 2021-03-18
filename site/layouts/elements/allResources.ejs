@@ -1,0 +1,26 @@
+<input id="selectedResInput" name="selectedNodeInput" value="" style="display: none" type="text">
+<table class="table table-hover">
+	<thead align="right" class="thead-default">
+		<tr class="text-right">
+			<th class="text-center">#</th>
+			<th class="text-center">اسم</th>
+			<th class="text-center">فامیل</th>
+			<th class="text-center">توضیح</th>
+		</tr>
+	</thead>
+	<tbody>
+	<%
+	for(var key in resES)
+	{
+		%>
+		<tr class="cursorPointer" onclick="<%=trOnclick%>">
+			<th scope="row" class="text-center"><%= key %></th>
+			<td class="text-center"><%= resES[key].name[lang] %></td>
+			<td class="text-center"><%= resES[key].family[lang] %></td>
+			<td class="text-center"><%= resES[key].content[lang] %></td>
+		</tr>
+		<% 
+	}
+	%>
+	</tbody>
+</table>

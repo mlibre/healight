@@ -1,0 +1,22 @@
+<%
+let canonicalUrlR;
+if(canonicalUrl[canonicalUrl.length-1] == '/')
+{
+	canonicalUrlR = canonicalUrl.substr(0,canonicalUrl.length-1);
+}
+%>
+<article id="approve_rate" class="articleStuffCon text_good_black_little">
+	<div id="approve_rate_left" class="article_header_left">
+		<span class="article_header_left_text px-2"><%=i18n.__(leftText)%></span>
+	</div>
+	<div id="approve_rate_content" class="py-0">
+		<span id="sharingButtons" class="Font1d5rem">
+			<a href="https://twitter.com/share" target="_blank" style="color:#38A1F3">
+				<i class="fab fa-twitter"></i>
+			</a>
+			<a href="https://www.linkedin.com/shareArticle?mini=true&url=<%=canonicalUrlR%>&title=test" target="_blank" style="color:#38A1F3">
+				<i style="color:#0e76a8" class="fab fa-linkedin-in"></i>
+			</a>
+		</span>
+	</div>
+</article>

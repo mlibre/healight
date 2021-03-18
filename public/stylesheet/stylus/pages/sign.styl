@@ -1,0 +1,172 @@
+body
+{
+    background-color: #e3e3e3 !important;
+}
+main
+{
+    position: relative;
+
+    float: none;
+
+    min-height: 600px;
+    width: 100%;
+
+    padding: 0;
+    margin: 0;
+}
+main > div:nth-of-type(1)
+{
+    position: absolute;
+    display: block;
+
+    top: 50%;
+    width: 100%;
+
+    transform: translateY(-50%);
+    z-index: 2;
+}
+main > div:nth-of-type(2),
+main > div:nth-of-type(3)
+{
+    position: absolute;
+    display: block;
+
+    top: 50%;
+    width: 100%;
+
+    transform: translateY(-50%);
+}
+.sign_container
+{
+    box-sizing: border-box;
+
+    width: 350px;
+    height: 450px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    border-radius: 4px;
+
+    background-color: #f5f5f5;
+    color: rgb(20,20,20);
+    box-shadow: 0 3px 15px rgba(0, 0 , 0 , 0.3);
+}
+.sign_header
+{
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    height: 40%;
+
+    text-align: center;
+}
+.sign_header > span
+{
+    margin-left: auto;
+    margin-right: auto;
+
+    font-family: 'IRANSans';
+    font-size: 20px;
+    color: #555;
+}
+.sign_body
+{
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    height: 60%;
+}
+form
+{
+    height: 100%;
+    width: 80%;
+
+    font-family: 'FontAwesome' , 'IRANSans';
+
+    margin-left: auto;
+    margin-right: auto;
+}
+.fa-custom
+{
+    position: relative;
+    float: left;
+
+    margin-left: 15px;
+    margin-top: -48px;
+
+    color: #989898;
+    z-index: 2;
+}
+input
+{
+    width: 100%;
+
+    margin-bottom: 16px;
+
+    padding-top: 11px;
+    padding-bottom: 11px;
+    padding-right: 10px;
+
+    font-size: 17px;
+    font-family: 'IRANSans';
+    text-align: right;
+
+    border-radius: 4px;
+    border: 2px solid #ddd;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+
+    transition: border 250ms ease-out;
+}
+
+.email::-webkit-input-placeholder
+{
+    padding-right: 6px;
+}
+.email:focus
+{
+    border-color: #03a3e1;
+}
+
+.username::-webkit-input-placeholder
+{
+    position: relative;
+    right: -5px;
+}
+.username:focus
+{
+    border-color: #03a3e1;
+}
+
+.password::-webkit-input-placeholder
+{
+    position: relative;
+    right: -6px;
+}
+.password:focus
+{
+    border-color: #03a3e1;
+}
+
+.login
+{
+    margin-bottom: 0;
+    margin-top: 35px;
+    padding-right: 0;
+    padding-left: 10px;
+    padding-top: 9px;
+    padding-bottom: 12px;
+
+    font-size: 19px;
+    font-family: 'IRANSans';
+    text-align: center;
+    color: white;
+
+    border: 0 none transparent;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 1px 1px 0, rgba(255, 255, 255, 0.14) 0 0 0 1px inset;
+
+    cursor: pointer;
+    background: linear-gradient(rgb(15, 154, 218), rgb(0 ,118, 173));
+}

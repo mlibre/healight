@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="<%=lang%>">
+<head>
+	<!--<meta name="theme-color" content="#317EFB"/>-->
+	<!-- Google stuff -->
+	<% if(consV.site.googleVerificationCode != '')
+	{%>
+	<meta name="google-site-verification" content="<%=consV.site.googleVerificationCode%>" />
+	<%}%>
+	<% if(consV.site.googleAnalyz != '')
+	{%>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=<%=consV.site.googleAnalyz%>"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', '<%=consV.site.googleAnalyz%>');
+		</script>
+	<%}%>
+	<!-- Google stuff End -->
+	<% if(typeof canonicalUrl != 'undefined' && canonicalUrl != null && consV.project.html_gen==false)
+	{%>
+	<link rel="canonical" href="<%=canonicalUrl%>" />
+	<%}%>
+	<meta charset="utf-8" />
+	<title> <%= title %> </title>
+	<meta property="og:title" content="<%= i18n.__(title) %>"/>
+	<% if(typeof imageAdd != 'undefined' && imageAdd != null)
+	{%>
+	<meta property="og:image" content="<%= imageAdd %>"/>
+	<%}%>
+	<meta name="fontiran.com:license" content="<%=consV.site.fontIranLicense%>" />	
+	<meta name="author" content="mlibre" />
+	<meta name="email" content="m.gh@linuxmail.org" />
+	<meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no" />
+	<% if(typeof pageDes != 'undefined' && pageDes != null && pageDes != "")
+	{%>
+	<meta name="description" content="<%= i18n.__(pageDes) %>" />
+	<meta property="og:description" content="<%= i18n.__(pageDes) %>"/>
+	<%}%>
+	<%Object.keys(altPage).forEach(key =>
+	{
+		if(
+			(consV.project.html_gen==false) && (lang != key) && (typeof dontGenAltPage == 'undefined' ||
+			(typeof dontGenAltPage != 'undefined' && dontGenAltPage[key] != true))
+		)
+		{%>
+			<link rel="alternate" hreflang="<%=key%>" href="<%='https://' + consV.host.domain + altPage[key]%>" />
+		<%}%>
+	<%});%>
+
+	<link rel="icon" type="image/png" href="<%=consV.site.favicon%>">
+	<link rel="stylesheet" href="<%=consV.css.bootstrap%>">
+	<link rel="stylesheet" href="<%=consV.css.animate%>">
+	<link rel="stylesheet" href="<%=consV.css.fontAwesome%>">
+	<link rel="stylesheet" href="<%=consV.css.main%>">
+	<link rel="stylesheet" href="<%=consV.css.things%>">
+	<link rel="stylesheet" href="<%=consV.css.beautifier%>">
+	<link rel="stylesheet" href="<%=consV.css.font%>">
+	<link rel="stylesheet" href="<%=consV.css.langPop%>">
+	<% if(lang == "fa")
+	{%>
+		<link rel="stylesheet" href="<%=consV.css.fa%>">
+	<%}
+	else
+	{%>
+		<link rel="stylesheet" href="<%=consV.css.en%>">
+	<%}%>
+	<% if(typeof also_add != 'undefined') { also_add.forEach(function(css){ %>
+	<link rel="stylesheet" href="<%= css %>">
+	<% });} %>
+</head>

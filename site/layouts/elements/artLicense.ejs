@@ -1,0 +1,34 @@
+<!-- article start -->
+<article id="articleLicense" class="articleStuffCon text_good_black_little">
+	<div id="artTags_left" class="article_header_left">
+		<span class="article_header_left_text px-2"><%=i18n.__(artLicenseL)%></span>
+	</div>
+	<div id="artTags_content" class="pb-3">
+	<% if(license.type == "public_domain")
+	{
+		%>
+			<span class="verAli-webBasMid"><%=i18n.__("هرگونه استفاده از این مقاله کاملا آزاد است.")%></span>
+		<%
+	}
+	else if(license.type == "other")
+	{
+		%>
+			<span class="verAli-webBasMid">
+				به علاوه ی <a href="<%='/' + lang + consV.pages.license%>">قوانین و شرایط</a> سایت این مطلب مجوز دیگری هم دارد:
+				<br>
+				<%=license.text%>
+			</span>
+		<%
+	}
+	else if(license.type == "default")
+	{
+		%>
+			<span class="verAli-webBasMid">
+				<a href="<%='/' + lang + consV.pages.license%>"><%=i18n.__("قوانین و شرایط")%></a><%=i18n.__(" سایت در مورد مقالات را مطالعه کنید.")%>
+			</span>
+		<%
+	}
+	%>
+	</div>
+</article>
+<!-- article end -->

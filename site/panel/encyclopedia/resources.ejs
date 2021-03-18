@@ -1,0 +1,77 @@
+<%- include(consV.layouts.head , {also_add:[consV.css.panel.main,
+consV.css.panel.sidebar, consV.css.prism, consV.css.questionmark, consV.css.tagInput,
+consV.css.tagInputCustom, consV.css.mmodal, consV.css.panel.EncTree,]})%>
+<body>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "artItem" , varValue: null })%>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "altPage" , varValue: altPage })%>
+	
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "lang" , varValue: lang })%>
+	
+	<%- include( consV.layouts.panel.navbar )%>
+   <%- include( consV.layouts.mmodal ) %>
+
+	<div class="container-fluid">
+		<div class="row">
+			<%- include(consV.layouts.panel.sidebar , {active:["enc" , "res"]})%>
+			<!-- main -->
+			<main id="mainPanel" class="col-md-9 px-4  FontIranSans text_good_black_little">
+				<ul class="nav nav-tabs nav-fill initDir" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link disabled" data-toggle="tab" role="tab" href="#resourcesTab">منابع</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" role="tab" href="#chooseNodeTab"><%=i18n.__('انتخاب مطلب')%></a>
+					</li>
+				</ul>
+
+				<div class="tab-content">
+					<div class="tab-pane mt-5 fade" id="resourcesTab" role="tabpanel">
+						<h4 class="text-center">منابع این مطلب</h4>
+						<div id="ArtResources" class="mt-4">
+						</div>
+						<div class="mt-5">
+							<div class="d-flex flex-row justify-content-around mt-4">
+								<button type="button" class="btn btn-primary col-md-3 mt-3 cursorPointer"
+								onclick="post_art_resources(event)">
+									ثبت
+								</button>
+							</div>
+						</div>
+						<div class="mt-5">
+							<h4>اضافه کردن منبع</h4>
+							<div id="allResources" class="mt-4">
+								<%- include(consV.layouts.allResources,
+								{
+									resES: resES,
+									trOnclick: 'addResource(event);'
+								})%>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane mt-5 fade show" id="chooseNodeTab" role="tabpanel">
+						<%- include(consV.layouts.panel.chooseNodeTree , {})%>
+
+						<div class="d-flex flex-row justify-content-around">
+							<button type="button" class="btn btn-primary col-md-3 mt-3 cursorPointer"
+							onclick="$('a[href=\'#resourcesTab\']').tab('show');">
+								انتخاب
+							</button>
+						</div>
+					</div>
+				</div>
+
+			</main>
+			<!-- main end -->
+		</div>
+	</div>
+
+	<%- include(consV.layouts.footer)%>
+	<!-- scripts -->
+	<%- include(consV.layouts.scripts , {also_add:[consV.js.tinymce,
+	consV.js.tinymceJquery, consV.js.tinymceInit, consV.js.panel.sidebar, consV.js.prism,
+	consV.js.tagInput, consV.js.tagInputCustom,
+	consV.js.panel.main, consV.js.panel.encyclopedia.main, consV.js.panel.EncTree, consV.js.mmodal, consV.js.sign,
+	consV.js.panel.chooseNodeTree, consV.js.panel.encyclopedia.resources]})%>
+	<!-- scripts end -->
+</body>
+</html>

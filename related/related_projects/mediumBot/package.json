@@ -1,0 +1,16 @@
+{
+  "name": "healobabot",
+  "version": "1.0.0",
+  "description": "healight bot",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "client-oauth2": "^4.2.0",
+    "medium-sdk": "0.0.4",
+    "request": "^2.85.0"
+  }
+}

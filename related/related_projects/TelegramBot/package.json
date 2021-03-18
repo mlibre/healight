@@ -1,0 +1,17 @@
+{
+  "name": "healightBot",
+  "version": "1.0.0",
+  "description": "healight bot",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-pandoc": "^0.3.0",
+    "node-telegram-bot-api": "^0.29.0",
+    "puppeteer": "^1.4.0",
+    "redis": "^2.8.0"
+  }
+}
