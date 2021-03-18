@@ -1,0 +1,64 @@
+<%
+let resLen;
+if (resources[0] == undefined || Object.keys(resources[0]).length === 0 )
+{
+	resLen = 0;
+}
+%>
+<% if (resLen != 0) { %>
+<article id="resourcesCon" class="articleStuffCon text_good_black_little <%if (resLen === 0 ){%> pb-0 <%}%> ">
+	<div id="resources_left" class="article_header_left">
+		<span class="article_header_left_text px-2"><%=i18n.__(resL)%></span>
+	</div>
+	<div id="resources_content">
+		<%
+			if (resLen === 0 )
+			{
+				%><div><%=i18n.__("هیج منبعی برای این مطلب قید نشده است.")%> </div><%
+			}
+			else
+			{
+		%>
+				<div><%=i18n.__(".از این منابع در این مقاله استفاده شده است")%></div>
+				<div class="card-deck res mt-3">
+				<%
+				let i = 0;
+				for(var key in resources[0])
+				{
+					if(i % 4 == 0 && i != 0)
+					{
+						%>
+							</div>
+							<div class="my-3">
+							</div>
+							<div class="card-deck res mt-3">
+						<%
+					}
+					%>
+					<div class="card BoxShadow4">
+						<img class="card-img-top img-fluid" src="<%='/' + consV.space.resourcesFolderName + key + '/' + resources[2][key].image_add%>"
+						alt="<%=resources[2][key].image_alt%>" data-license-link="<%=resources[2][key].image_license_link%>">
+						<div class="card-body">
+							<h6 class="card-title text-center"><%=resources[2][key].name[lang]%> <%=resources[2][key].family[lang]%></h6>
+							<p class="card-text sr-only"></p>
+						</div>
+						<div class="card-footer <%if(resources[0][key].approving_state == '0'){%>beautiful_background_color<%}%>">
+
+						</div>
+					</div>
+					<%
+					i++;
+				};
+				for(; i % 4 != 0; i++)
+				{
+					%>
+					<div class="card noBorder" style="background-color: inherit">
+					</div>
+					<%
+				}
+				%>
+				</div>
+		<%}%>
+	</div>
+</article>
+<%}%>

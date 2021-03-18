@@ -1,0 +1,7 @@
+User-agent: Googlebot
+Disallow: /fa/searchRes
+Disallow: /fa/panel/
+Disallow: /fa/myaccount/
+
+User-agent: *
+Allow: /

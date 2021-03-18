@@ -1,0 +1,62 @@
+<%- include(consV.layouts.head , {also_add:[consV.css.slideshow,
+consV.css.boxes , consV.css.article, consV.css.customBS]})%>
+<body>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "altPage" , varValue: altPage })%>
+	
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "lang" , varValue: lang })%>
+	
+	<%- include(consV.layouts.header)%>
+	<%- include(consV.layouts.sidebar_navbar, {active:["enc", encData.name]})%>
+	<%- include(consV.layouts.navbar , {active: encData.name, stick: true})%>
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<!-- main -->
+			<main class="col-md-8 ml-md-5 pl-md-1 pr-md-0">
+				<%
+					var introArtContent = "به پرتال دانشنامه ی " + i18n.__(encData.title[lang]) + " خوش امدید. برای ورود به دانشنامه، بر روی ";
+					introArtContent += '<a href="' + '/' + lang+consV.pages.encyclopedia[encData.name] +'">اینجا</a>';
+					introArtContent += ' یا دکمه ی سبز رنگ کلیک کنید. اسلاید شوی پایین اسلایدهای برگزیده مربوط به این دانشنامه است. همچنین پایین تر آخرین مقاله ی دانشنامه را میتوانید مطالعه کنید.';
+				%>
+				<%- include(consV.layouts.article , {artH: "پرتال دانشنامه ی " + i18n.__(encData.title[lang]) , artC: introArtContent , artURL: "" , AMark: "fa-graduation-cap"}) %>
+				<div class="mt-4"></div>
+				<%- include(consV.layouts.slideshow ,
+				{
+					slideshows: slideshows
+				})%>
+				<div class="mt-4"></div>
+				<%if(typeof LA != 'undefined'){%>
+					<%- include(consV.layouts.article , {artH: LA.treeTitle[lang] , artC: LA.content[lang] , artL: "آخرین مقاله", artURL: url}) %>
+				<%}%>
+				<!-- morba ha -->
+				<div class="WaveBox_con">
+					<ul class="FlexCen">
+						<div class="WaveBox">
+							<a href="<%='/' + lang+consV.pages.encyclopedia[encData.name]%>">
+								<div class="wave_one"></div>
+								<div class="wave_two"></div>
+								<div class="WaveBox_title"> <%=i18n.__("ورود به دانشنامه ی " + encData.title[lang])%></div>
+							</a>
+						</div>
+					</ul>
+				</div>
+				<!-- morba ha end -->
+
+			</main>
+			<!-- main end -->
+			<!-- sidebar -->
+			<div class="col-md-3 ml-4 mr-3">
+				<div id="aside_container">
+					<%- include(consV.layouts.enterEnc, {encUrl:'/' + lang + consV.pages.encyclopedia[encData.name], envName: encData.title[lang], encFA: encData.FALogo})%>
+					<div class="my-3"></div>
+				</div>
+			</div>
+			<!-- sidebar end -->
+		</div>
+	</div>
+	<%- include(consV.layouts.footer, {OverlayOnClick: "closeSN()"})%>
+	<!-- scripts -->
+	<%- include(consV.layouts.scripts , {also_add:[consV.js.main , consV.js.hammer, consV.js.slideshow, consV.js.sign]}) %>
+	
+	<!-- scripts end -->
+</body>
+</html>

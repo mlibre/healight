@@ -1,0 +1,25 @@
+<!-- article start -->
+<article id="education_article" class="education_article text_good_black_little">
+	<a id="article_header" href="<%=artURL%>">
+		<span id="article_header_icon" class="fa <%if(typeof AMark == 'undefined'){%>fa-book<%}else{%><%=AMark%><%}%>"></span>
+		<h1 id="article_header_text"><%= i18n.__(artH)%></h1>
+	</a>
+	<%if(typeof artL != 'undefined'){%>
+	<div class="article_header_left">
+		<span class="article_header_left_text"><%- i18n.__(artL)%></span>
+	</div>
+	<%}%>
+	<div id="article_content" class="articleContentCss <%if(typeof artReadMoreB != 'undefined' && artReadMoreB == true){%>max-height-600<%}%>">
+		<%-artC%>
+	</div>
+	<%if(typeof artReadMoreB != 'undefined' && artReadMoreB == true){%>
+	<div class="d-flex">
+		<a class="mr-auto textAlign-left" href="<%=artURL%>">
+			<button class="readMore_button text_good_gray_little my-3 ml-3">
+				<%= i18n.__("ادامه ی مطلب ...")%>
+			</button>
+		</a>
+	</div>
+	<%}%>
+</article>
+<!-- article end -->

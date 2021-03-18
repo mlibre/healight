@@ -1,0 +1,54 @@
+<%- include(consV.layouts.head , {also_add:[consV.css.article, consV.css.customBS, consV.css.gcs],
+pageDes :"نتایج جستجو. هیلایت"})%>
+<body>
+	<script>
+		window.__gcse=
+		{
+			callback: googleCSELoaded
+		};
+		function googleCSELoaded()
+		{
+			googleSearch();
+		}
+		(function() {
+			var cx = '<%=consV.site.googleCustomSearchCode%>';
+			var gcse = document.createElement('script');
+			gcse.type = 'text/javascript';
+			gcse.async = true;
+			gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(gcse, s);
+		})();
+	</script>
+	
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "altPage" , varValue: altPage })%>
+	
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "lang" , varValue: lang })%>
+	
+	<%- include(consV.layouts.header)%>
+	<%- include(consV.layouts.sidebar_navbar, {active:[""]})%>
+	<%- include(consV.layouts.navbar , {active:""})%>
+
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<!-- main -->
+			<main class="col-md-8 ml-md-5 pl-md-1 pr-md-0">
+				<gcse:searchresults-only gname="searchResOnly"></gcse:searchresults-only>
+			</main>
+			<!-- main end -->
+			<!-- sidebar -->
+			<div class="col-md-3 ml-4 mr-3">
+				<div id="aside_container">
+					<%- include(consV.layouts.telegram)%>
+					<section>
+					</section>
+				</div>
+			</div>
+			<!-- sidebar end -->
+		</div>
+	</div>
+	<%- include(consV.layouts.footer, {OverlayOnClick: "closeSN()"})%>
+	<!-- scripts -->
+	<%- include(consV.layouts.scripts , {also_add:[consV.js.main , consV.js.search, consV.js.sign]})%>
+	
+</html>

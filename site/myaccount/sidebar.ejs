@@ -1,0 +1,69 @@
+<div class="sidebar" data-color="purple" data-background-color="white" data-image="/account/MD/sidebar-1.jpg">
+	<div class="logo">
+		<a href="<%='/' + lang + consV.pages.myaccount.overview%>" class="simple-text logo-normal">
+			IMG
+		</a>
+	</div>
+	<div class="sidebar-wrapper">
+		<ul class="nav">
+			<li class="nav-item <%if(active=='dashboard'){%>active<%}%>">
+				<a class="nav-link" href="<%='/' + lang + consV.pages.myaccount.overview%>">
+					<i class="material-icons">dashboard</i>
+					<p><%=i18n.__("داشبورد")%></p>
+				</a>
+			</li>
+			<li class="nav-item <%if(active=='profile'){%>active<%}%>">
+				<a class="nav-link" href="<%='/' + lang + consV.pages.myaccount.profile%>">
+					<i class="material-icons">person</i>
+					<p><%=i18n.__("پروفایل")%></p>
+				</a>
+			</li>
+			<% if ( sess.user.PersonType == 'Employee' ){ %>
+				<li class="nav-item <%if(active=='timelog'){%>active<%}%>">
+					<a class="nav-link" href="<%='/' + lang + consV.pages.myaccount.timelog%>">
+						<i class="material-icons">description</i>
+						<p><%=i18n.__("عملکرد")%></p>
+					</a>
+				</li>
+			<%}%>
+			<% if ( sess.user.PersonType == 'Client' ){ %>
+				<li class="nav-item <%if(active=='services'){%>active<%}%>">
+					<a class="nav-link" href="<%='/' + lang + consV.pages.myaccount.services%>">
+						<i class="material-icons">list</i>
+						<p><%=i18n.__("درخواست ها")%></p>
+					</a>
+				</li>
+			<%}%>
+			<% if ( sess.user.PersonType == 'Employee' ){ %>
+				<li class="nav-item <%if(active=='permissions'){%>active<%}%>">
+					<a class="nav-link" href="<%='/' + lang + consV.pages.myaccount.permissions%>">
+						<i class="material-icons">fingerprint</i>
+						<p><%=i18n.__("دسترسی")%></p>
+					</a>
+				</li>
+			<%}%>
+
+			<% if ( sess.user.PersonType == 'Employee' ){ %>
+				<li class="nav-item <%if(active=='reports'){%> active <%}%>">
+					<a class="nav-link collapsed" data-toggle="collapse" href="#ReportsCol" aria-expanded="false">
+						<i class="material-icons">assignment</i>
+						<p>
+							<b class="caret mr-2 ml-0"></b>
+							<%=i18n.__("گزارش ها")%>
+						</p>
+					</a>
+					<div class="collapse" id="ReportsCol" style="">
+						<ul class="nav">
+							<li class="nav-item text-right mr-3">
+								<a class="nav-link" href="<%='/' + lang + consV.pages.myaccount.reports.inout%>">
+									<span class="sidebar-mini"> و/خ </span>
+									<span class="sidebar-normal"> ورود و خروج </span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</li>
+			<%}%>
+		</ul>
+	</div>
+</div>

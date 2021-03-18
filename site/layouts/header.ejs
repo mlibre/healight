@@ -1,0 +1,100 @@
+<!--- language popover -->
+<%- include(consV.layouts.langpop ,
+{
+	"lanPopShow": sess.lanPopShow
+})%>
+<!--- header -->
+<header class="container-fluid header py-2 pb-3">
+	<div class="row align-items-center justify-content-center">
+
+		<div class="col-md-3 pt-2 mt-md-1">
+			<div class="row align-items-center justify-content-center">
+				<a href="/<%=lang%>" tabindex="-1"><img class="logo_image" height="90" alt=<%=i18n.__('لوگو')%> src="<%=consV.site.logo%>"></a>
+			</div>
+			<div class="row align-items-center justify-content-center">
+				<span class="logo_text text_good_black letterSpacing-0d4px"> <%=i18n.__("دانشنامه ی طب طبیعی و علمی")%></span>
+			</div>
+		</div>
+
+		<div class="col-md-6 pt-2 pt-md-3 pb-1 mt-1">
+			<div class="row align-items-center justify-content-center">
+				<div id="search_bar">
+					<span id="magnifier" class="cursorPointer d-flex h-100 px-3"
+					onclick="googleSearch()">
+						<i class="fa fa-search justify-content-center align-self-center"></i>
+					</span>
+					<span id="search_cat" class="dropdown px-2">
+						<a id="search_bar_DPH" class="dropdown-toggle text_good_blue_little" href="<%='/' + lang + '/searchRes?q=healight'%>">
+							<span id="search_cat_Text"><%=i18n.__("پیشرفته")%></span>
+						</a>
+					</span>
+					<span style="height:100%; display: block; overflow: hidden">
+						<input id="searchInput" style="background-color: #f9f9f9" class="text_good_blue_little px-2" type="text"
+						placeholder="<%=i18n.__("مقاله، مطلب یا کلمه ی مورد نظرتون رو جستجو کنید ...")%>"
+						value="<% if (typeof query != 'undefined' && query != ""){%><%=query%><%}%>"
+						onkeydown="if(event.keyCode===13) googleSearch()">
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3 align-self-start d-none d-md-flex flex-column text-nowrap p-0 m-0">
+				<% if( sess.logged == null ){ %>
+				<div class="row d-flex flex-column flex-lg-row-reverse p-0 m-0 pt-2 mt-1">
+					<a class="align-self-center mr-lg-4" href="/<%=lang+consV.pages.signIn%>">
+						<button id="signin_button" class="sign_button text_good_gray_little letterSpacing1px">
+							<i class="fa fa-sign-in-alt Font15px" style="vertical-align: middle"></i>&nbsp<%=i18n.__("ورود")%>
+						</button>
+					</a>
+					<a class="align-self-center mr-lg-3 py-2 py-lg-0" href="<%='/' + lang + consV.pages.signUp%>">
+						<button class="sign_button text_good_gray_little">
+							<i class="fa fa-user Font15px marginBot2px" style="vertical-align: middle"></i>&nbsp&nbsp<%=i18n.__("ثبت نام")%>
+						</button>
+					</a>
+				</div>
+				<% }else{ %>
+				<div class="row d-flex p-0 m-0 pt-2 mt-1">
+					<div class="dropdown user_account mr-4">
+						<div id="user_account" class="dropdown-toggle cursorPointer" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<span class="fa-stack fa-lg">
+								<span class="fa fa-circle fa-stack-2x"></span>
+								<span class="fa fa-user fa-stack-1x" style="color: white"></span>
+							</span>
+						</div>
+						<div class="dropdown-menu dropdown-menu-right text_good_black_little" aria-labelledby="user_account">
+							<% if ( sess.user.name == null || sess.user.family == null ){ %>
+							<h5 class="dropdown-header"><%=sess.user.email%></h5>
+							<%}else{%>
+							<h5 class="dropdown-header"><%=sess.user.name + ' ' + sess.user.family%></h5>
+							<%}%>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="<%='/' + lang + consV.pages.myaccount.overview%>"><%=i18n.__("پروفایل من")%></a>
+							<% if(sess.user.permissions.panel == true){ %>
+							<a class="dropdown-item" href="<%='/' + lang + consV.pages.panel.home%>"><%=i18n.__("پنل")%></a>
+							<% } %>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#" onclick="sign_out()"><%=i18n.__("خروج")%></a>
+						</div>
+					</div>
+				</div>
+				<% } %>
+			<div class="row justify-content-end p-0 m-0 mt-2">
+				<a href="/" class="d-none shop_cart_box mt-4 mr-4">
+					<div id="left_box">
+						<span id="left_box_con">
+							<span style="vertical-align: -webkit-baseline-middle" class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i style="color: white; font-size: 16px;" class="fa fa-stack-1x">۰</i>
+							</span>
+						</span>
+						<span id="left_box_text">&nbsp&nbsp<%=i18n.__("سبد خرید")%></span>
+					</div>
+					<div id="right_box">
+						<i class="fa fa-shopping-cart"></i>
+					</div>
+				</a>
+			</div>
+		</div>
+
+	</div>
+</header>
+<!-- header end -->

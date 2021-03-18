@@ -1,0 +1,34 @@
+<%- include(consV.layouts.head , {also_add:[consV.css.panel.main,
+consV.css.panel.sidebar, consV.css.prism, consV.css.questionmark, consV.css.mmodal]})%>
+<body>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "resItem" , varValue: resItem })%>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "altPage" , varValue: altPage })%>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "lang" , varValue: lang })%>
+	<%- include( consV.layouts.panel.navbar )%>
+   <%- include( consV.layouts.mmodal ) %>
+
+	<div class="container-fluid">
+		<div class="row">
+			<%- include(consV.layouts.panel.sidebar , {active:["adm" , "addRes"]})%>
+			<!-- main -->
+			<main id="mainPanel" class="col-md-9 px-4 FontIranSans text_good_black_little">
+				<%- include(consV.layouts.panel.addEditResForm,
+				{
+					langOnchange: "setAddEditResFromData(resItem);",
+					formSubmitText: "ثبت منبع",
+					formOnSubmit: "CreateEditRes( event, function (res){resItem = res;} );"
+				}) %>
+			</main>
+			<!-- main end -->
+		</div>
+	</div>
+
+	<%- include(consV.layouts.footer)%>
+	<!-- scripts -->
+	<%- include(consV.layouts.scripts , {also_add:[consV.js.panel.sidebar, consV.js.prism,
+	consV.js.panel.main, consV.js.panel.adminStuff.main,
+	consV.js.mmodal, consV.js.sign, consV.js.panel.adminStuff.addResources,
+	consV.js.panel.adminStuff.addEditResForm]})%>
+	<!-- scripts end -->
+</body>
+</html>

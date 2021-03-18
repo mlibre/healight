@@ -1,0 +1,50 @@
+<%- include( consV.layouts.head , {also_add:[consV.css.sign , consV.css.mmodal,
+consV.css.customBS]})%>
+<body>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "altPage" , varValue: altPage })%>
+	
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "lang" , varValue: lang })%>
+	
+	<%- include( consV.layouts.header )%>
+	<%- include(consV.layouts.sidebar_navbar, {active:["signInUp","login"]})%>
+	<%- include( consV.layouts.navbar , {active:"none", stick: true} )%>
+	<%- include( consV.layouts.mmodal ) %>
+	<!-- main -->
+	<main id="mainPart">
+		<div>
+			<div style="z-index: 2" class="sign_container">
+				<div class="sign_header">
+					<span>
+						<%=i18n.__('خوش آمدید')%>
+						<br>
+						<%=i18n.__('ورود به سایت')%>
+					</span>
+				</div>
+				<div class="sign_body">
+					<form id="sign_from" action="/<%=lang+consV.pages.signIn%>" method="post" onsubmit="sign_In_user(event, '<%=lang%>')">
+						<input id="emUs" class="email" name="emUs" placeholder="ایمیل">
+						<span class="fa fa-user fa-custom"></span>
+						<input id="password" class="password" type="password" name="password" placeholder="پسورد">
+						<span class="fa fa-lock fa-custom"></span>
+						<input id="submit" class="login" type="submit" value="ورود">
+					</form>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div style="transform: rotate(5deg); z-index: 1" class="sign_container"></div>
+		</div>
+		<div>
+			<div style="transform: rotate(-5deg); z-index: 1" class="sign_container"></div>
+		</div>
+	</main>
+	<!-- main end -->
+	
+	<%- include(consV.layouts.footer, {OverlayOnClick: "closeSN()"})%>
+	<!-- scripts -->
+	<%- include(consV.layouts.scripts , {also_add:[consV.js.main, consV.js.sign,
+	consV.js.mmodal, consV.js.jshashes]})%>
+	<script> setDefaultMmodal('در حال پردازش'); </script>
+	<!-- scripts end -->
+</body>
+</html>

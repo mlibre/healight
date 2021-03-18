@@ -1,0 +1,30 @@
+<% 
+let angle;
+let mrCss;
+if (lang == 'fa')
+{
+    angle = "left";
+    mrCss = 'r';
+}
+else
+{
+    angle = "right";
+    mrCss = 'l'
+} 
+%>
+<div class="location_bar text_good_black_little">
+    <div class="location_bar_div">
+        <span class="fa fa-ellipsis-v"></span>
+        <span class="m<%=mrCss%>-2"><%=i18n.__(location[0])%></span>
+        <% if ( location.length != 1){%>
+        <span class="fa fa-angle-<%=angle%> m<%=mrCss%>-2"></span>
+        <%}%>
+        <% for(var i=1 ; i <= location.length-2 ; i++){ %>
+            <span class="m<%=mrCss%>-2"><%=i18n.__(location[i])%></span>
+            <span class="fa fa-angle-<%=angle%> m<%=mrCss%>-2"></span>
+        <% }; %>
+        <% if ( location.length != 1){%>
+        <span class="m<%=mrCss%>-2"><%=i18n.__(location[location.length-1])%></span>
+        <%}%>
+    </div>
+</div>

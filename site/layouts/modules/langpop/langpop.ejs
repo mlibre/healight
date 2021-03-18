@@ -1,0 +1,17 @@
+<%
+var tiTop = '<span id="remSign" class="fa fa-times cursorPointer Font1rem pl-3" onclick="hideLanPop()"></span>';
+var tiBot = '<span id="remSign" class="fa fa-times cursorPointer Font1d31rem" onclick="hideLanPop()"></span>';
+%>
+<% if( lanPopShow != false ){ %>
+<span id="lanPop" class="" data-toggle="popover" data-placement="left" data-container="body" title="" data-content=""
+	data-title="<%=tiTop%>" data-html="true"
+	data-template='<div class="popover d-none d-sm-block" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'>
+</span>
+<%}%>
+
+<% if( lanPopShow != false ){ %>
+<span id="lanPopBottom" class="" data-toggle="popover" data-placement="left" data-container="body" title="" data-content=""
+	data-title="<%=tiBot%>" data-html="true"
+	data-template='<div class="popover lanPopBottom d-block d-sm-none w-100 m-0 p-0" role="tooltip"><div class="arrow"></div><h3 class="popover-header Font1d31rem d-flex p-3"></h3><div class="popover-body Font1d25rem"></div></div>'>
+</span>
+<%}%>

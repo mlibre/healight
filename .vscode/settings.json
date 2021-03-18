@@ -1,0 +1,56 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "update.channel": "none",
+    "extensions.autoUpdate": false,
+    "editor.minimap.enabled": false,
+    "editor.snippetSuggestions": "top",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 14,
+    "editor.fontFamily": "'DejaVu Sans Mono'",
+    "editor.mouseWheelZoom": true,
+    "editor.tabCompletion": true,
+    "editor.tabSize": 3,
+    "editor.insertSpaces": false,
+    "window.zoomLevel": 1,
+    "workbench.sideBar.location": "left",
+    "workbench.statusBar.visible": true,
+    "workbench.activityBar.visible": false,
+    "explorer.openEditors.visible": 0,
+    "explorer.autoReveal": false,
+    "files.exclude": {
+        ".directory": true,
+        ".gitmessage.txt": true,
+        ".vscode": true,
+        "**/.DS_Store": true,
+        "**/.git": true,
+        "**/.hg": true,
+        "**/.svn": true,
+        "database": true,
+        "db_dump": true,
+        "node_modules": true,
+        "package-lock.json": true,
+        "Procfile": true
+    },
+    "search.exclude": {
+        ".vscode": true,
+        "**/bower_components": true,
+        "**/node_modules": true,
+        "backups": true,
+        "database": true,
+        "db_dump": true,
+        "public/framework": true,
+        "public/js/JS": true,
+        "public/stylesheet/css": true
+    },
+    "emmet.syntaxProfiles": {
+        "ejs": "html"
+    },
+    "git.confirmSync": false,
+    "workbench.iconTheme": "vscode-great-icons",
+    "git.ignoreLimitWarning": true,
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "files.watcherExclude": {
+        "docs": true
+    }
+}

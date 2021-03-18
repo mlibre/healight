@@ -1,0 +1,88 @@
+<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "lang" , varValue: lang })%>
+<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "langs" , varValue: langs })%>
+<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "query" , varValue: query })%>
+<!doctype html>
+<html style="background-image: url('/site/404.png'); background-size: 100vw">
+<head>
+	<title> <%= i18n.__('متاسفانه صفحه ی مورد نظر پیدا نشد') %> </title>
+    <meta charset="utf-8">
+    <meta name="author" content="mlibre">
+    <meta name="email" content="m.gh@linuxmail.org">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   	<link rel="stylesheet" href="<%=consV.css.bootstrap%>">
+    <link rel="stylesheet" href="<%=consV.css.things%>">
+	<link rel="stylesheet" href="<%=consV.css.beautifier%>">
+	<link rel="stylesheet" href="<%=consV.css.font%>">
+	<link rel="icon" type="image/png" href="<%=consV.site.favicon%>">
+</head>
+<style>
+#IamTryingFindWhatYouWant, #HomePage
+{
+	color: white;
+	overflow: hidden;
+}
+#IamTryingFindWhatYouWant section, #HomePage section
+{
+	background-color: #1e88e5;
+	border-radius:4px;
+	box-shadow: box-box-shadow;
+}
+a
+{
+    text-decoration: none !important;
+}
+html
+{
+	right: 0;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	font-size: 14.5px;
+}
+@media (min-width: 576px)
+{
+	html
+	{
+		font-size: 16px;
+	}
+}
+</style>
+<body class="FontIranSans rtlDir noBackground text_good_black">
+    <div class="w-50 mx-auto text-center Font1d25rem mt-5">
+    <%= i18n.__('متاسفانه صفحه ی مورد نظر شما پیدا نشد. ما گاهی برای سازماندهی بهتر، آدرس و یا مکان صفحات را تغییر میدهیم. برای پیدا کردن صفحه ی مورد نظرتون میتوانید از جستجوی وب سایت استفاده کنید و یا بر روی گزینه زیر کلیک کنید تا ما تلاش کنیم صفحه ی مورد نظر شما را پیدا کنیم')%>
+    </div>
+    <div class="w-50 mx-auto mt-5">
+        <a id="IamTryingFindWhatYouWant" class="text_good_black"
+        href="#" onclick="googleSearch()">
+            <section class="w-100 p-2 text-center rtlDir">
+                <div class="p-1">
+                    <span class="mr-2 Font1d25rem"><%= i18n.__('تلاش برای پیداکردن صفحه ی مورد نظر شما')%></span>
+                </div>
+            </section>
+        </a>
+    </div>
+    <div class="w-25 mx-auto mt-5">
+        <a id="HomePage" class="text_good_black" href="<%='https://' + consV.host.domain + '/' + lang%>">
+            <section class="w-100 p-2 text-center rtlDir">
+                <div class="p-1">
+                    <span class="mr-2 Font1d25rem"><%= i18n.__('صفحه ی اصلی وب سایت')%></span>
+                </div>
+            </section>
+        </a>
+    </div>
+</body>
+</html>
+<script>
+    function googleSearch()
+    {
+        if(langs.indexOf(query[0]) != -1)
+        {
+            query.splice(0,1);
+        }
+        if(query[query.length-1].indexOf('?tree_nodeid=') != -1)
+        {
+            query.splice(query.length-1,1);
+        }
+        window.open('/' + lang + '<%= consV.pages.searchRes%>?q='+ query.join(' '), "_self");
+    }
+</script>

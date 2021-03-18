@@ -1,0 +1,152 @@
+<!-- EncSidebar Start -->
+<% 
+let angle;
+let mrCss;
+if (lang == 'fa')
+{
+    angle = "left";
+    mrCss = 'r';
+}
+else
+{
+    angle = "right";
+    mrCss = 'l'
+} 
+%>
+<% function treeTitle(title, lang)
+{
+	if(typeof title[lang] == 'undefined')
+	{
+		// if(lang == 'en')
+		// {
+		// 	return '[not transalated yet]';
+		// }
+		// else if(lang == 'fa')
+		// {
+		// 	return '[این مقاله ترجمه نشده است]';
+		// }
+		return false;
+	}
+	else
+	{
+		return title[lang];
+	}
+}
+function create_tree(current_node , dep , flow_url)
+{
+	var ul_opened = false;
+	if(dep == 0)
+	{
+		// nothing
+	}
+	else if( (nodes[current_node].list.length == 0) && (treeTitle(nodes[current_node].data.treeTitle,lang) != false) )
+	{
+		let link = flow_url;
+		if(!consV.project.html_gen)
+		{
+			link += '/?tree_nodeid=' + nodes[root_id].data._id
+		}
+		%><li>
+			<a href="<%=link%>"
+				class="<%if (isThisTargetNodeId(nodes[current_node].data._id)){%>beautiful_blue_1 bge4e4e4<%}%>">
+				<%=treeTitle(nodes[current_node].data.treeTitle,lang)%>
+			</a>
+		</li><%
+	}
+	else if( (dep == max_depth - 1) && (treeTitle(nodes[current_node].data.treeTitle,lang) != false))
+	{
+		%><li class="cursorPointer"
+				onclick="$(this).children(':first')[0].click();">
+			<a href="<%=flow_url%>" class="d-inline-block">
+				<%=treeTitle(nodes[current_node].data.treeTitle,lang)%>
+			</a>
+			<span class="fa fa-chevron-left"></span>
+			<span class="ml-1 fa fa-circle"></span>
+		</li><%
+	}
+	else if( treeTitle(nodes[current_node].data.treeTitle,lang) != false)
+	{
+		ul_opened = true;
+		%><li class="cursorPointer <%if (findNodeInBranch(nodes[current_node].data._id)){%>beautiful_blue_1 bgeeeeee<%}%>"
+		<%if (findNodeInBranch(nodes[current_node].data._id)){%>data-inbranch="true"<%}%>
+			data-n="parent">
+			<%
+			let link = flow_url;
+			if(!consV.project.html_gen)
+			{
+				link += '/?tree_nodeid=' + nodes[root_id].data._id
+			}
+			%>
+			<a href="<%=link%>"
+			class="d-inline-block <%if(findNodeInBranch(nodes[current_node].data._id)){%>beautiful_blue_1<%}%>">
+				<%=treeTitle(nodes[current_node].data.treeTitle,lang)%>
+			</a>
+			<span	class="fa <%if (findNodeInBranch(nodes[current_node].data._id)){%>fa-chevron-down<%}else{%>fa-chevron-left<%}%>"></span>
+		</li>
+		<ul style="<%if (findNodeInBranch(nodes[current_node].data._id) == false){%>display: none<%}%>"
+			 class="<%if (findNodeInBranch(nodes[current_node].data._id)){%>bgeeeeee<%}%>">
+		<%
+	}
+	nodes[current_node].list.forEach(function(child)
+	{
+		if(dep < max_depth - 1)
+		{
+			create_tree(child , dep + 1 , flow_url + '/' + nodes[child].data.URLName);
+		}
+	});
+	if(ul_opened == true)
+	{
+		%></ul><%
+	}
+}
+
+function isThisTargetNodeId(nodeId)
+{
+	if( nodeId == target_node_id.toString() )
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+function findNodeInBranch(nodeId)
+{
+	for(var i = 0 ; i < branch.length ; i++)
+	{
+		if(branch[i]._id.valueOf().toString() == nodeId.toString())
+		{
+			return true;
+		}
+	}
+	return false;
+}
+%>
+<div id="dynamic_aside_container" class="scrollbar">
+	<section class="aside_header p-3 px-5">
+		<a href="<%=EncURL%>">
+			<div> <%=i18n.__("دانشنامه ی")%> <span><%=i18n.__(EncTitle)%></span></div>
+		</a>
+	</section>
+	<section class="p-2 lineHeight1d7" id="tree_header">
+		<% if(nodes[root_id].data.parent != null ){%>
+		<span class="">
+			<span class="fa fa-ellipsis-v mx-1 <% if(branch[treeNodeIdIndex+1].parent != null){%>verAliSub<%}else{%>verAliMid<%}%>"></span>
+			<% if(branch[treeNodeIdIndex+1].parent != null){%>
+			<span>...</span>
+			<span class="fa fa-angle-<%=angle%> verAliMid mx-1" style=""></span>
+			<%}%>
+			<a href="<%=branch[treeNodeIdIndex+1].url%>"><%=treeTitle(branch[treeNodeIdIndex+1].treeTitle,lang)%></a>
+			<span class="fa fa-angle-<%=angle%> verAliMid mx-1" style=""></span>
+			<a href="<%=branch[treeNodeIdIndex].url%>"><%=treeTitle(branch[treeNodeIdIndex].treeTitle,lang)%></a>
+		</span>
+		<%}%>
+	</section>
+	<section id="tree">
+	<%
+		create_tree(root_id , 0 , base_url);
+	%>
+	</section>
+</div>
+<!-- EncSidebar End -->

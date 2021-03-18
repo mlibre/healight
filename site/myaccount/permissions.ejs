@@ -1,0 +1,67 @@
+<%- include(consV.layouts.head ,
+{
+	also_add:[consV.css.material_dashboard, consV.css.myaccount.main,
+	consV.css.mmodal],
+pageDes :"IMG . نمای کلی اکانت"})%>
+<body id="materialDashboard" class="">
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "altPage" , varValue: altPage })%>
+	<%- include( consV.layouts.nodeJsObToClientJsOb , {varName: "lang" , varValue: lang })%>
+	<div class="wrapper">
+		<%- include(consV.layouts.myaccount.sidebar , {active: 'permissions'}) %>
+		<div class="main-panel text_good_black_little">
+			<%- include(consV.layouts.myaccount.navbar , {pageText: ""}) %>
+			<div class="content">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col" id="statusTable">
+							<div id="accessCard" class="card rtlDir">
+								<div class="card-header card-header-tabs card-header-primary">
+									<div class="nav-tabs-wrapper">
+										<span class="nav-tabs-title float-right rtlDir"></span>
+										<ul id="tableServicesTHead" class="nav nav-tabs" data-tabs="tabs">
+											<li class="nav-item mr-3 ml-2">
+												<a class="nav-link pl-4" href="#tabUsers" data-toggle="tab">
+													<i class="fas fa-user"></i>کاربران
+													<div class="ripple-container"></div>
+												</a>
+											</li>
+											<li class="nav-item mr-3 ml-2">
+												<a class="nav-link pl-4" href="#tabPermissions" data-toggle="tab">
+													<i class="fas fa-cannabis"></i>مجوزها
+													<div class="ripple-container"></div>
+												</a>
+											</li>
+											<li class="nav-item mr-3 ml-2">
+												<a class="nav-link pl-4" href="#tabAccess" data-toggle="tab">
+													<i class="fas fa-cannabis"></i>دسترسی ها
+													<div class="ripple-container"></div>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							
+								<div class="card-body">
+									<div class="tab-content" id="table_container_content">
+										
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<%- include(consV.layouts.myaccount.footer) %>
+		</div>
+	</div>
+</body>
+<%- include(consV.layouts.scripts,
+{
+    also_add:[consV.js.sign, consV.js.material_dashboard.bootstrap,
+    consV.js.material_dashboard.bootstrapNotify, consV.js.mmodal,
+    consV.js.material_dashboard.chartist, consV.js.material_dashboard.perfectScrollbarJquery,
+    consV.js.material_dashboard.main, consV.js.myaccount.permissions]
+})%>
+</html>

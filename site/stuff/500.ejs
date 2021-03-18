@@ -1,0 +1,61 @@
+<!doctype html>
+<html style="background-image: url('/site/404.png'); background-size: 100vw">
+<head>
+	<title> <%= i18n.__('خطای داخلی سیستم :(') %> </title>
+    <meta charset="utf-8">
+    <meta name="author" content="mlibre">
+    <meta name="email" content="m.gh@linuxmail.org">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   	<link rel="stylesheet" href="<%=consV.css.bootstrap%>">
+    <link rel="stylesheet" href="<%=consV.css.things%>">
+	<link rel="stylesheet" href="<%=consV.css.beautifier%>">
+	<link rel="stylesheet" href="<%=consV.css.font%>">
+	<link rel="icon" type="image/png" href="<%=consV.site.favicon%>">
+</head>
+<style>
+#IamTryingFindWhatYouWant, #HomePage
+{
+	color: white;
+	overflow: hidden;
+}
+#IamTryingFindWhatYouWant section, #HomePage section
+{
+	background-color: #1e88e5;
+	border-radius:4px;
+	box-shadow: box-box-shadow;
+}
+a
+{
+    text-decoration: none !important;
+}
+html
+{
+	right: 0;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	font-size: 14.5px;
+}
+@media (min-width: 576px)
+{
+	html
+	{
+		font-size: 16px;
+	}
+}
+</style>
+<body class="FontIranSans rtlDir noBackground text_good_black">
+    <div class="w-50 mx-auto text-center Font1d25rem mt-5">
+    <%= i18n.__('متاسفانه خطای داخلی برای سیستم پیش امده. عذرخواهی میکنیم. به زودی رفع میشود.')%>
+    </div>
+    <div class="w-25 mx-auto mt-5">
+        <a id="HomePage" class="text_good_black" href="<%='https://' + consV.host.domain + '/' + lang%>">
+            <section class="w-100 p-2 text-center rtlDir">
+                <div class="p-1">
+                    <span class="mr-2 Font1d25rem"><%= i18n.__('صفحه ی اصلی وب سایت')%></span>
+                </div>
+            </section>
+        </a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<a id="adPart" class="" href="#">
+	<section class="w-100 pb-4">
+		<div class="text-center rtlDir p-2">
+			<span class="mr-1 Font1d063rem d-inline-block marginTop2px p-1"><%=i18n.__("تبلیغات")%></span>
+		</div>
+		
+		<iframe
+			src="https://viewm.moonicorn.network/#%7B%22options%22%3A%7B%22publisherAddr%22%3A%220x156E4643776FB1125b1A7D8c26f08A9F0191f208%22%2C%22whitelistedTokens%22%3A%5B%220x89d24A6b4CcB1B6fAA2625fE562bDD9a23260359%22%2C%220x6B175474E89094C44Da98b954EedeAC495271d0F%22%5D%2C%22whitelistedType%22%3A%22legacy_300x250%22%2C%22randomize%22%3Atrue%2C%22targeting%22%3A%5B%7B%22tag%22%3A%22accounting%20%26%20auditing%22%2C%22score%22%3A50%7D%2C%7B%22tag%22%3A%22adult%20entertainmnent%22%2C%22score%22%3A51%7D%2C%7B%22tag%22%3A%22adventure%20travel%22%2C%22score%22%3A50%7D%2C%7B%22tag%22%3A%22advertising%20%26%20marketing%22%2C%22score%22%3A51%7D%2C%7B%22tag%22%3A%22animated%20movies%22%2C%22score%22%3A50%7D%2C%7B%22tag%22%3A%22history%22%2C%22score%22%3A52%7D%5D%2C%22width%22%3A%22300%22%2C%22height%22%3A%22250%22%2C%22minPerImpression%22%3A%220%22%2C%22minTargetingScore%22%3A%220%22%2C%22fallbackUnit%22%3Anull%2C%22marketSlot%22%3A%22QmZpgwmPWRwJd2REWL2iYd9Fcf1WCQHVppELe8XotEz5s2%22%7D%7D"
+			width="300"
+			height="250"
+			scrolling="no"
+			frameborder="0"
+			style="border: 0;margin: auto;display: block;"
+			onload="window.addEventListener('message', function(ev) { 
+				if (ev.data.hasOwnProperty('adexHeight') && ('https://viewm.moonicorn.network' === ev.origin)) {
+					for (let f of document.getElementsByTagName('iframe')) {	
+						if (f.contentWindow === ev.source) {
+							f.height = ev.data.adexHeight;
+						}
+					}	
+				}
+			}, false)"
+		></iframe>
+
+
+		<!-- <img class="img-fluid m-auto" alt="<%=i18n.__("محل تبلیغات")%>" src="<%='/' + consV.space.siteFolderName + imageAD%>"> -->
+	</section>
+</a>
